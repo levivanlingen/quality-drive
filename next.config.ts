@@ -121,16 +121,16 @@ const nextConfig: NextConfig = {
   compress: true,
   reactStrictMode: true,
 
-  // Optimize bundle size
-  swcMinify: true,
-
   // Optimize for production
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ['lucide-react', 'react-icons', '@react-three/fiber', '@react-three/drei'],
   },
 
-  // Webpack optimizations
+  // Turbopack configuration (Next.js 16+)
+  turbopack: {},
+
+  // Webpack optimizations (fallback for webpack mode)
   webpack: (config, { isServer }) => {
     // Optimize three.js bundle
     if (!isServer) {
