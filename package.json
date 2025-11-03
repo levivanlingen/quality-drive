@@ -7,7 +7,8 @@
     "build": "next build && npm run postbuild",
     "postbuild": "next-sitemap",
     "start": "next start -p ${PORT:-5000} -H 0.0.0.0",
-    "lint": "eslint"
+    "lint": "eslint",
+    "analyze": "ANALYZE=true npm run build"
   },
   "dependencies": {
     "@developer-hub/liquid-glass": "^1.2.3",

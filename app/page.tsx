@@ -34,15 +34,7 @@ function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').replace(/\[&hellip;\]/g, '...').substring(0, 150) + '...';
 }
 
-const Car3DCard = dynamic(() => import("./components/Car3DCard"), {
-  ssr: false,
-  loading: () => <div style={{ height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f3f3f3' }}>Laden...</div>
-});
-
-const Motor3DCard = dynamic(() => import("./components/Motor3DCard"), {
-  ssr: false,
-  loading: () => <div style={{ height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f3f3f3' }}>Laden...</div>
-});
+import Lazy3DCard from "./components/Lazy3DCard";
 
 export default function Home() {
   const [pickupLocation, setPickupLocation] = useState("");
@@ -179,7 +171,7 @@ export default function Home() {
             style={{ cursor: 'pointer' }}
           >
             <div className={styles.serviceIcon3D}>
-              <Car3DCard isCardHovered={isAutoCardHovered} />
+              <Lazy3DCard type="car" isHovered={isAutoCardHovered} />
             </div>
             <h3>Auto</h3>
             <p>Leer rijden in een handgeschakelde auto met onze ervaren instructeurs.</p>
@@ -199,7 +191,7 @@ export default function Home() {
             style={{ cursor: 'pointer' }}
           >
             <div className={styles.serviceIcon3D}>
-              <Car3DCard isCardHovered={isAutomatCardHovered} />
+              <Lazy3DCard type="car" isHovered={isAutomatCardHovered} />
             </div>
             <h3>Automaat</h3>
             <p>Haal je rijbewijs op een automatische transmissie.</p>
@@ -219,7 +211,7 @@ export default function Home() {
             style={{ cursor: 'pointer' }}
           >
             <div className={styles.serviceIcon3D}>
-              <Motor3DCard isCardHovered={isMotorCardHovered} />
+              <Lazy3DCard type="motor" isHovered={isMotorCardHovered} />
             </div>
             <h3>Motor</h3>
             <p>Motorrijlessen voor alle niveaus en motorrijbewijs categorieën.</p>

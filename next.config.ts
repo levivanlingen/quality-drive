@@ -120,6 +120,28 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   reactStrictMode: true,
+
+  // Optimize bundle size
+  swcMinify: true,
+
+  // Optimize for production
+  experimental: {
+    optimizeCss: true,
+    optimizePackageImports: ['lucide-react', 'react-icons', '@react-three/fiber', '@react-three/drei'],
+  },
+
+  // Webpack optimizations
+  webpack: (config, { isServer }) => {
+    // Optimize three.js bundle
+    if (!isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'three': 'three/build/three.module.js',
+      };
+    }
+
+    return config;
+  },
 };
 
 export default nextConfig;

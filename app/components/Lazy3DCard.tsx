@@ -1,0 +1,106 @@
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
+
+const Car3DCard = dynamic(() => import('./Car3DCard'), {
+  ssr: false,
+  loading: () => (
+    <div style={{
+      width: '100%',
+      height: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: 'linear-gradient(135deg, rgba(0, 101, 166, 0.1) 0%, rgba(193, 21, 23, 0.05) 100%)',
+      borderRadius: '16px',
+      minHeight: '180px'
+    }}>
+      <div style={{ textAlign: 'center', color: '#0065A6' }}>
+        <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🚗</div>
+        <div style={{ fontSize: '0.9rem' }}>Laden...</div>
+      </div>
+    </div>
+  ),
+});
+
+const Motor3DCard = dynamic(() => import('./Motor3DCard'), {
+  ssr: false,
+  loading: () => (
+    <div style={{
+      width: '100%',
+      height: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: 'linear-gradient(135deg, rgba(0, 101, 166, 0.1) 0%, rgba(193, 21, 23, 0.05) 100%)',
+      borderRadius: '16px',
+      minHeight: '180px'
+    }}>
+      <div style={{ textAlign: 'center', color: '#0065A6' }}>
+        <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🏍️</div>
+        <div style={{ fontSize: '0.9rem' }}>Laden...</div>
+      </div>
+    </div>
+  ),
+});
+
+interface Lazy3DCardProps {
+  type: 'car' | 'motor';
+  isHovered?: boolean;
+}
+
+export default function Lazy3DCard({ type, isHovered = false }: Lazy3DCardProps) {
+  const [isVisible, setIsVisible] = useState(false);
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // Small delay to prevent loading all at once
+          setTimeout(() => setShouldLoad(true), 100);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} style={{ width: '100%', height: '100%' }}>
+      {shouldLoad ? (
+        type === 'car' ? (
+          <Car3DCard isCardHovered={isHovered} />
+        ) : (
+          <Motor3DCard isCardHovered={isHovered} />
+        )
+      ) : (
+        <div style={{
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: 'linear-gradient(135deg, rgba(0, 101, 166, 0.1) 0%, rgba(193, 21, 23, 0.05) 100%)',
+          borderRadius: '16px',
+          minHeight: '180px'
+        }}>
+          <div style={{ textAlign: 'center', color: '#0065A6' }}>
+            <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>
+              {type === 'car' ? '🚗' : '🏍️'}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
