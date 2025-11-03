@@ -4,15 +4,26 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 5000 -H 0.0.0.0",
-    "build": "next build",
-    "start": "next start -p 5000 -H 0.0.0.0",
+    "build": "next build && npm run postbuild",
+    "postbuild": "next-sitemap",
+    "start": "next start -p ${PORT:-5000} -H 0.0.0.0",
     "lint": "eslint"
   },
   "dependencies": {
+    "@developer-hub/liquid-glass": "^1.2.3",
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.4.0",
+    "axios": "^1.13.1",
     "claude": "^0.1.1",
+    "dotenv": "^17.2.3",
+    "lucide-react": "^0.548.0",
     "next": "16.0.1",
+    "next-seo": "^7.0.1",
+    "next-sitemap": "^4.2.3",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "react-icons": "^5.5.0",
+    "three": "^0.181.0"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -1,0 +1,572 @@
+
+  // Voeg deze redirects toe aan je next.config.ts:
+  async redirects() {
+    return [
+    {
+        "source": "/motorrijden-in-de-regen/",
+        "destination": "/blog/motorrijden-in-de-regen",
+        "permanent": true
+    },
+    {
+        "source": "/motortheorie-examen/",
+        "destination": "/blog/motortheorie-examen",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijbewijs-halen-2/",
+        "destination": "/blog/motorrijbewijs-halen-2",
+        "permanent": true
+    },
+    {
+        "source": "/fouten-motorrijexamen/",
+        "destination": "/blog/fouten-motorrijexamen",
+        "permanent": true
+    },
+    {
+        "source": "/eerste-motoruitrusting/",
+        "destination": "/blog/eerste-motoruitrusting",
+        "permanent": true
+    },
+    {
+        "source": "/12-speciale-verrichtingen/",
+        "destination": "/blog/12-speciale-verrichtingen",
+        "permanent": true
+    },
+    {
+        "source": "/eerste-motorrijles/",
+        "destination": "/blog/eerste-motorrijles",
+        "permanent": true
+    },
+    {
+        "source": "/welk-motorrijbewijs/",
+        "destination": "/blog/welk-motorrijbewijs",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijbewijs-halen/",
+        "destination": "/blog/motorrijbewijs-halen",
+        "permanent": true
+    },
+    {
+        "source": "/wat-kost-een-motorrijbewijs-in-2025/",
+        "destination": "/blog/wat-kost-een-motorrijbewijs-in-2025",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijden-leren-in-leidschenveen/",
+        "destination": "/blog/motorrijden-leren-in-leidschenveen",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijden-leren-in-bergschenhoek/",
+        "destination": "/blog/motorrijden-leren-in-bergschenhoek",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijden-leren-in-rijswijk/",
+        "destination": "/blog/motorrijden-leren-in-rijswijk",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijden-leren-in-zoetermeer/",
+        "destination": "/blog/motorrijden-leren-in-zoetermeer",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijden-leren-in-den-haag/",
+        "destination": "/blog/motorrijden-leren-in-den-haag",
+        "permanent": true
+    },
+    {
+        "source": "/welke-leeftijd-voor-motorrijles/",
+        "destination": "/blog/welke-leeftijd-voor-motorrijles",
+        "permanent": true
+    },
+    {
+        "source": "/hoe-snel-kun-je-je-motorrijbewijs-halen/",
+        "destination": "/blog/hoe-snel-kun-je-je-motorrijbewijs-halen",
+        "permanent": true
+    },
+    {
+        "source": "/wat-kost-een-motor-per-maand/",
+        "destination": "/blog/wat-kost-een-motor-per-maand",
+        "permanent": true
+    },
+    {
+        "source": "/hoeveel-cc-a2-motorrijbewijs/",
+        "destination": "/blog/hoeveel-cc-a2-motorrijbewijs",
+        "permanent": true
+    },
+    {
+        "source": "/is-motor-theorie-moeilijk/",
+        "destination": "/blog/is-motor-theorie-moeilijk",
+        "permanent": true
+    },
+    {
+        "source": "/a-rijbewijs-halen-in-berkel-en-rodenrijs/",
+        "destination": "/blog/a-rijbewijs-halen-in-berkel-en-rodenrijs",
+        "permanent": true
+    },
+    {
+        "source": "/a-rijbewijs-halen-in-bleiswijk/",
+        "destination": "/blog/a-rijbewijs-halen-in-bleiswijk",
+        "permanent": true
+    },
+    {
+        "source": "/a-rijbewijs-halen-in-bergschenhoek/",
+        "destination": "/blog/a-rijbewijs-halen-in-bergschenhoek",
+        "permanent": true
+    },
+    {
+        "source": "/a-rijbewijs-halen-in-zoetermeer/",
+        "destination": "/blog/a-rijbewijs-halen-in-zoetermeer",
+        "permanent": true
+    },
+    {
+        "source": "/a-rijbewijs-halen-in-den-haag/",
+        "destination": "/blog/a-rijbewijs-halen-in-den-haag",
+        "permanent": true
+    },
+    {
+        "source": "/a1-rijbewijs-halen/",
+        "destination": "/blog/a1-rijbewijs-halen",
+        "permanent": true
+    },
+    {
+        "source": "/proefles-motorrijden/",
+        "destination": "/blog/proefles-motorrijden",
+        "permanent": true
+    },
+    {
+        "source": "/leeftijd-motorrijbewijs/",
+        "destination": "/blog/leeftijd-motorrijbewijs",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijbewijs-halen-in-2-dagen/",
+        "destination": "/blog/motorrijbewijs-halen-in-2-dagen",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijbewijs-kosten/",
+        "destination": "/blog/motorrijbewijs-kosten",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijschool-in-nootdorp/",
+        "destination": "/blog/motorrijschool-in-nootdorp",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijschool-in-delft/",
+        "destination": "/blog/motorrijschool-in-delft",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijschool-in-rijswijk/",
+        "destination": "/blog/motorrijschool-in-rijswijk",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijschool-in-zoetermeer/",
+        "destination": "/blog/motorrijschool-in-zoetermeer",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijschool-in-den-haag/",
+        "destination": "/blog/motorrijschool-in-den-haag",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijbewijs-halen-in-nootdorp/",
+        "destination": "/blog/motorrijbewijs-halen-in-nootdorp",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijbewijs-halen-in-delft/",
+        "destination": "/blog/motorrijbewijs-halen-in-delft",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijbewijs-halen-in-rijswijk/",
+        "destination": "/blog/motorrijbewijs-halen-in-rijswijk",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijbewijs-halen-in-zoetermeer/",
+        "destination": "/blog/motorrijbewijs-halen-in-zoetermeer",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijbewijs-in-den-haag/",
+        "destination": "/blog/motorrijbewijs-in-den-haag",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijles-voorburg/",
+        "destination": "/blog/motorrijles-voorburg",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijles-rijswijk/",
+        "destination": "/blog/motorrijles-rijswijk",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijles-delft/",
+        "destination": "/blog/motorrijles-delft",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijles-zoetermeer/",
+        "destination": "/blog/motorrijles-zoetermeer",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijles-den-haag/",
+        "destination": "/blog/motorrijles-den-haag",
+        "permanent": true
+    },
+    {
+        "source": "/spoed-rijles-delft/",
+        "destination": "/blog/spoed-rijles-delft",
+        "permanent": true
+    },
+    {
+        "source": "/spoed-rijles-zoetermeer/",
+        "destination": "/blog/spoed-rijles-zoetermeer",
+        "permanent": true
+    },
+    {
+        "source": "/wat-kost-rijles-in-den-haag/",
+        "destination": "/blog/wat-kost-rijles-in-den-haag",
+        "permanent": true
+    },
+    {
+        "source": "/quality-drive/",
+        "destination": "/blog/quality-drive",
+        "permanent": true
+    },
+    {
+        "source": "/spoed-rijles-den-haag/",
+        "destination": "/blog/spoed-rijles-den-haag",
+        "permanent": true
+    },
+    {
+        "source": "/hoeveel-ben-je-gemiddeld-kwijt-voor-je-rijbewijs/",
+        "destination": "/blog/hoeveel-ben-je-gemiddeld-kwijt-voor-je-rijbewijs",
+        "permanent": true
+    },
+    {
+        "source": "/taxi-rijles-wateringen/",
+        "destination": "/taxi-rijles-wateringen",
+        "permanent": true
+    },
+    {
+        "source": "/taxi-rijles-ypenburg/",
+        "destination": "/taxi-rijles-ypenburg",
+        "permanent": true
+    },
+    {
+        "source": "/taxi-rijles-lansingerland/",
+        "destination": "/taxi-rijles-lansingerland",
+        "permanent": true
+    },
+    {
+        "source": "/taxi-rijles-voorburg/",
+        "destination": "/taxi-rijles-voorburg",
+        "permanent": true
+    },
+    {
+        "source": "/taxi-rijles-leidschenveen/",
+        "destination": "/taxi-rijles-leidschenveen",
+        "permanent": true
+    },
+    {
+        "source": "/taxi-rijles-nootdorp/",
+        "destination": "/taxi-rijles-nootdorp",
+        "permanent": true
+    },
+    {
+        "source": "/taxi-rijles-delft/",
+        "destination": "/taxi-rijles-delft",
+        "permanent": true
+    },
+    {
+        "source": "/taxi-rijles-rijswijk/",
+        "destination": "/taxi-rijles-rijswijk",
+        "permanent": true
+    },
+    {
+        "source": "/taxi-rijles-zoetermeer/",
+        "destination": "/taxi-rijles-zoetermeer",
+        "permanent": true
+    },
+    {
+        "source": "/taxi-rijles-den-haag/",
+        "destination": "/taxi-rijles-den-haag",
+        "permanent": true
+    },
+    {
+        "source": "/taxi-rijles/",
+        "destination": "/taxi-rijles",
+        "permanent": true
+    },
+    {
+        "source": "/snel-je-motorrijbewijs-berkel-en-rodenrijs/",
+        "destination": "/snel-je-motorrijbewijs-berkel-en-rodenrijs",
+        "permanent": true
+    },
+    {
+        "source": "/snel-je-motorrijbewijs-bergschenhoek/",
+        "destination": "/snel-je-motorrijbewijs-bergschenhoek",
+        "permanent": true
+    },
+    {
+        "source": "/snel-je-motorrijbewijs-delft/",
+        "destination": "/snel-je-motorrijbewijs-delft",
+        "permanent": true
+    },
+    {
+        "source": "/snel-je-motorrijbewijs-zoetermeer/",
+        "destination": "/snel-je-motorrijbewijs-zoetermeer",
+        "permanent": true
+    },
+    {
+        "source": "/snel-je-motorrijbewijs-den-haag/",
+        "destination": "/snel-je-motorrijbewijs-den-haag",
+        "permanent": true
+    },
+    {
+        "source": "/motor-pakketten/",
+        "destination": "/motor-pakketten",
+        "permanent": true
+    },
+    {
+        "source": "/auto-pakketten/",
+        "destination": "/auto-pakketten",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijschool-lansingerland/",
+        "destination": "/motorrijschool-lansingerland",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijschool-ypenburg/",
+        "destination": "/motorrijschool-ypenburg",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijschool-leidschenveen/",
+        "destination": "/motorrijschool-leidschenveen",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijschool-rijswijk/",
+        "destination": "/motorrijschool-rijswijk",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijschool-wateringen/",
+        "destination": "/motorrijschool-wateringen",
+        "permanent": true
+    },
+    {
+        "source": "/actie/",
+        "destination": "/actie",
+        "permanent": true
+    },
+    {
+        "source": "/vacature/",
+        "destination": "/vacature",
+        "permanent": true
+    },
+    {
+        "source": "/autorijles/",
+        "destination": "/autorijles",
+        "permanent": true
+    },
+    {
+        "source": "/rijopleidingen/",
+        "destination": "/rijopleidingen",
+        "permanent": true
+    },
+    {
+        "source": "/automaat-rijles/",
+        "destination": "/automaat-rijles",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-automaat-delft/",
+        "destination": "/rijschool-automaat-delft",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-automaat-nootdorp/",
+        "destination": "/rijschool-automaat-nootdorp",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-automaat-voorburg/",
+        "destination": "/rijschool-automaat-voorburg",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-automaat-zoetermeer/",
+        "destination": "/rijschool-automaat-zoetermeer",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-automaat-den-haag/",
+        "destination": "/rijschool-automaat-den-haag",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijles/",
+        "destination": "/motorrijles",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijschool-zoetermeer/",
+        "destination": "/motorrijschool-zoetermeer",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijschool-delft/",
+        "destination": "/motorrijschool-delft",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijschool-den-haag/",
+        "destination": "/motorrijschool-den-haag",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijschool-nootdorp/",
+        "destination": "/motorrijschool-nootdorp",
+        "permanent": true
+    },
+    {
+        "source": "/motorrijschool-voorburg/",
+        "destination": "/motorrijschool-voorburg",
+        "permanent": true
+    },
+    {
+        "source": "/team/",
+        "destination": "/team",
+        "permanent": true
+    },
+    {
+        "source": "/blog/",
+        "destination": "/blog",
+        "permanent": true
+    },
+    {
+        "source": "/algemene-voorwaarden/",
+        "destination": "/algemene-voorwaarden",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-add/",
+        "destination": "/rijschool-add",
+        "permanent": true
+    },
+    {
+        "source": "/veelgestelde-vragen/",
+        "destination": "/veelgestelde-vragen",
+        "permanent": true
+    },
+    {
+        "source": "/about/",
+        "destination": "/about",
+        "permanent": true
+    },
+    {
+        "source": "/theorie/",
+        "destination": "/theorie",
+        "permanent": true
+    },
+    {
+        "source": "/rijles-pakketten/",
+        "destination": "/rijles-pakketten",
+        "permanent": true
+    },
+    {
+        "source": "/contact/",
+        "destination": "/contact",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-adhd/",
+        "destination": "/rijschool-adhd",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-faalangst/",
+        "destination": "/rijschool-faalangst",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-zoetermeer/",
+        "destination": "/rijschool-zoetermeer",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-lansingerland/",
+        "destination": "/rijschool-lansingerland",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-bergschenhoek/",
+        "destination": "/rijschool-bergschenhoek",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-bleiswijk/",
+        "destination": "/rijschool-bleiswijk",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-berkel-en-rodenrijs/",
+        "destination": "/rijschool-berkel-en-rodenrijs",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-nootdorp/",
+        "destination": "/rijschool-nootdorp",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-voorburg/",
+        "destination": "/rijschool-voorburg",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-rijswijk/",
+        "destination": "/rijschool-rijswijk",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-delft/",
+        "destination": "/rijschool-delft",
+        "permanent": true
+    },
+    {
+        "source": "/rijschool-den-haag/",
+        "destination": "/rijschool-den-haag",
+        "permanent": true
+    },
+    {
+        "source": "/reviews/",
+        "destination": "/reviews",
+        "permanent": true
+    },
+    {
+        "source": "/",
+        "destination": "/rijschool-den-haag-zoetermeer-delft-rijswijk-pijnacker-en-omgeving",
+        "permanent": true
+    }
+];
+  }
+  

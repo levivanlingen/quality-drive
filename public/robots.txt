@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+
+# Host
+Host: https://quality-drive.nl
+
+# Sitemaps
+Sitemap: https://quality-drive.nl/sitemap.xml
