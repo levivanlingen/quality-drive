@@ -53,7 +53,9 @@ interface Lazy3DCardProps {
 export default function Lazy3DCard({ type, isHovered = false }: Lazy3DCardProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [shouldLoad, setShouldLoad] = useState(false);
+  const [delayed3DHover, setDelayed3DHover] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -75,13 +77,36 @@ export default function Lazy3DCard({ type, isHovered = false }: Lazy3DCardProps)
     return () => observer.disconnect();
   }, []);
 
+  // Delay 3D animation until card CSS animation is complete
+  useEffect(() => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+
+    if (isHovered) {
+      // Wait 350ms for card animation to complete before starting 3D animation
+      hoverTimeoutRef.current = setTimeout(() => {
+        setDelayed3DHover(true);
+      }, 350);
+    } else {
+      // Immediately stop 3D animation when unhovered
+      setDelayed3DHover(false);
+    }
+
+    return () => {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
+    };
+  }, [isHovered]);
+
   return (
     <div ref={ref} style={{ width: '100%', height: '100%' }}>
       {shouldLoad ? (
         type === 'car' ? (
-          <Car3DCard isCardHovered={isHovered} />
+          <Car3DCard isCardHovered={delayed3DHover} />
         ) : (
-          <Motor3DCard isCardHovered={isHovered} />
+          <Motor3DCard isCardHovered={delayed3DHover} />
         )
       ) : (
         <div style={{

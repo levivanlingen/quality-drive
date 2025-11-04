@@ -427,7 +427,7 @@
 }
 
 .serviceCard:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px) scale(1.02) rotate(-1deg);
   box-shadow:
     0 28px 70px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
@@ -550,7 +550,7 @@
 }
 
 .serviceCard:hover .serviceIcon3D {
-  transform: scale(1.03);
+  transform: scale(1.03) rotate(3deg);
   background: linear-gradient(135deg, rgba(0, 101, 166, 0.15) 0%, rgba(193, 21, 23, 0.08) 100%);
   box-shadow: 0 8px 24px rgba(0, 101, 166, 0.3);
 }
