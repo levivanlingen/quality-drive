@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Standalone output voor betere Railway performance
+  output: 'standalone',
+
   // Image optimization configuratie
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -116,10 +119,37 @@ const nextConfig: NextConfig = {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable'
           },
+          {
+            key: 'Content-Type',
+            value: 'model/gltf-binary'
+          },
         ],
       },
       {
         source: '/source motor/:path*.glb',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          },
+          {
+            key: 'Content-Type',
+            value: 'model/gltf-binary'
+          },
+        ],
+      },
+      // Cache headers voor alle static assets
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          },
+        ],
+      },
+      {
+        source: '/uploads/:path*',
         headers: [
           {
             key: 'Cache-Control',
