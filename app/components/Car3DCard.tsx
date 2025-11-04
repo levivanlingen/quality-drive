@@ -4,6 +4,9 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Environment, PerspectiveCamera } from "@react-three/drei";
 import { Suspense, useRef, useMemo } from "react";
 
+// Configureer Draco decoder voor gecomprimeerde modellen
+useGLTF.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
+
 function CarModel({ isHovered }: { isHovered: boolean }) {
   const { scene } = useGLTF("/source/2021 Volkswagen Golf GTI.glb");
   const clonedScene = useMemo(() => scene.clone(), [scene]);
@@ -58,7 +61,7 @@ export default function Car3DCard({ isCardHovered = false }: { isCardHovered?: b
 
         <Suspense fallback={<LoadingFallback />}>
           <CarModel isHovered={isCardHovered} />
-          <Environment preset="sunset" />
+          <Environment preset="city" background={false} />
         </Suspense>
 
         {/* Controls for rotating the model */}
@@ -72,3 +75,6 @@ export default function Car3DCard({ isCardHovered = false }: { isCardHovered?: b
     </div>
   );
 }
+
+// Preload het 3D model voor snellere laadtijden
+useGLTF.preload("/source/2021 Volkswagen Golf GTI.glb");

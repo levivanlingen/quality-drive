@@ -4,6 +4,9 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Environment, PerspectiveCamera } from "@react-three/drei";
 import { Suspense, useRef, useMemo } from "react";
 
+// Configureer Draco decoder voor gecomprimeerde modellen
+useGLTF.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
+
 function MotorModel({ isHovered }: { isHovered: boolean }) {
   const { scene } = useGLTF("/source motor/kawasaki_ninja_h2r.glb");
   const clonedScene = useMemo(() => scene.clone(), [scene]);
@@ -58,7 +61,7 @@ export default function Motor3DCard({ isCardHovered = false }: { isCardHovered?:
 
         <Suspense fallback={<LoadingFallback />}>
           <MotorModel isHovered={isCardHovered} />
-          <Environment preset="sunset" />
+          <Environment preset="city" background={false} />
         </Suspense>
 
         {/* Controls for rotating the model */}
@@ -72,3 +75,6 @@ export default function Motor3DCard({ isCardHovered = false }: { isCardHovered?:
     </div>
   );
 }
+
+// Preload het 3D model voor snellere laadtijden
+useGLTF.preload("/source motor/kawasaki_ninja_h2r.glb");

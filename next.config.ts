@@ -108,6 +108,25 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      // Cache headers voor 3D modellen
+      {
+        source: '/source/:path*.glb',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          },
+        ],
+      },
+      {
+        source: '/source motor/:path*.glb',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          },
+        ],
+      },
     ];
   },
 
