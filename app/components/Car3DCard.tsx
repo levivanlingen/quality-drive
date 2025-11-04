@@ -13,11 +13,14 @@ function CarModel({ isHovered }: { isHovered: boolean }) {
   const modelRef = useRef<any>(null);
 
   useFrame(({ clock }) => {
-    if (modelRef.current) {
-      // Sterkere beweging tijdens hover
-      const amplitude = isHovered ? 0.035 : 0.015;
-      const speed = isHovered ? 7 : 5;
+    // Alleen animeren tijdens hover voor betere performance
+    if (modelRef.current && isHovered) {
+      const amplitude = 0.035;
+      const speed = 7;
       modelRef.current.position.y = -0.15 + Math.sin(clock.getElapsedTime() * speed) * amplitude;
+    } else if (modelRef.current) {
+      // Reset naar base positie als niet gehovered
+      modelRef.current.position.y = -0.15;
     }
   });
 
@@ -51,7 +54,11 @@ export default function Car3DCard({ isCardHovered = false }: { isCardHovered?: b
         overflow: 'hidden'
       }}
     >
-      <Canvas>
+      <Canvas
+        frameloop={isCardHovered ? 'always' : 'demand'}
+        dpr={[1, 1.5]}
+        performance={{ min: 0.5 }}
+      >
         <PerspectiveCamera makeDefault position={[3.5, 1.2, 3.5]} fov={45} />
 
         {/* Lighting */}
@@ -70,6 +77,7 @@ export default function Car3DCard({ isCardHovered = false }: { isCardHovered?: b
           enableZoom={false}
           minDistance={3}
           maxDistance={8}
+          enabled={isCardHovered}
         />
       </Canvas>
     </div>

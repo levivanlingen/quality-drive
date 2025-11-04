@@ -398,6 +398,7 @@
   backdrop-filter: blur(30px) saturate(200%);
   -webkit-backdrop-filter: blur(30px) saturate(200%);
   border-radius: 24px;
+  will-change: transform;
   padding: 3rem 2.5rem;
   border: 2px solid rgba(255, 255, 255, 0.5);
   box-shadow:
@@ -426,7 +427,7 @@
 }
 
 .serviceCard:hover {
-  transform: translateY(-16px) scale(1.05) rotate(-1deg);
+  transform: translateY(-8px) scale(1.02);
   box-shadow:
     0 28px 70px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
@@ -434,6 +435,8 @@
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.4) 100%);
   border-color: rgba(0, 101, 166, 0.4);
+  backdrop-filter: blur(15px) saturate(150%);
+  -webkit-backdrop-filter: blur(15px) saturate(150%);
 }
 
 .serviceCard3D {
@@ -537,6 +540,7 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
+  will-change: transform;
 }
 
 .serviceCard:hover .serviceIcon {
@@ -546,7 +550,7 @@
 }
 
 .serviceCard:hover .serviceIcon3D {
-  transform: scale(1.05) rotate(5deg);
+  transform: scale(1.03);
   background: linear-gradient(135deg, rgba(0, 101, 166, 0.15) 0%, rgba(193, 21, 23, 0.08) 100%);
   box-shadow: 0 8px 24px rgba(0, 101, 166, 0.3);
 }
