@@ -171,23 +171,7 @@ export default function Home() {
             style={{ cursor: 'pointer' }}
           >
             <div className={styles.serviceIcon3D}>
-              {/* Only load 3D canvas when hovered to reduce GPU load */}
-              {isAutoCardHovered ? (
-                <Lazy3DCard type="car" isHovered={true} />
-              ) : (
-                <div style={{
-                  width: '100%',
-                  height: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  minHeight: '180px'
-                }}>
-                  <div style={{ textAlign: 'center', color: '#0065A6' }}>
-                    <div style={{ fontSize: '3rem' }}>🚗</div>
-                  </div>
-                </div>
-              )}
+              <Lazy3DCard type="car" isHovered={isAutoCardHovered} />
             </div>
             <h3>Auto</h3>
             <p>Leer rijden in een handgeschakelde auto met onze ervaren instructeurs.</p>
@@ -207,23 +191,7 @@ export default function Home() {
             style={{ cursor: 'pointer' }}
           >
             <div className={styles.serviceIcon3D}>
-              {/* Only load 3D canvas when hovered to reduce GPU load */}
-              {isAutomatCardHovered ? (
-                <Lazy3DCard type="car" isHovered={true} />
-              ) : (
-                <div style={{
-                  width: '100%',
-                  height: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  minHeight: '180px'
-                }}>
-                  <div style={{ textAlign: 'center', color: '#0065A6' }}>
-                    <div style={{ fontSize: '3rem' }}>🚗</div>
-                  </div>
-                </div>
-              )}
+              <Lazy3DCard type="car" isHovered={isAutomatCardHovered} />
             </div>
             <h3>Automaat</h3>
             <p>Haal je rijbewijs op een automatische transmissie.</p>
@@ -243,23 +211,7 @@ export default function Home() {
             style={{ cursor: 'pointer' }}
           >
             <div className={styles.serviceIcon3D}>
-              {/* Only load 3D canvas when hovered to reduce GPU load */}
-              {isMotorCardHovered ? (
-                <Lazy3DCard type="motor" isHovered={true} />
-              ) : (
-                <div style={{
-                  width: '100%',
-                  height: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  minHeight: '180px'
-                }}>
-                  <div style={{ textAlign: 'center', color: '#0065A6' }}>
-                    <div style={{ fontSize: '3rem' }}>🏍️</div>
-                  </div>
-                </div>
-              )}
+              <Lazy3DCard type="motor" isHovered={isMotorCardHovered} />
             </div>
             <h3>Motor</h3>
             <p>Motorrijlessen voor alle niveaus en motorrijbewijs categorieën.</p>
