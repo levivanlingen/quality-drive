@@ -6,11 +6,15 @@ import StructuredData from "./components/StructuredData";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: 'swap',
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: 'swap',
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -79,6 +83,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl">
+      <head>
+        {/* Resource hints for external domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://www.gstatic.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <StructuredData type="LocalBusiness" />
         <StructuredData type="WebSite" />

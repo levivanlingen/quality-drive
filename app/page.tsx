@@ -780,6 +780,7 @@ export default function Home() {
               alt="Geslaagde leerling motorrijbewijs"
               width={200}
               height={200}
+              loading="lazy"
               className={styles.geslaagdePhoto}
             />
             <Image
@@ -787,6 +788,7 @@ export default function Home() {
               alt="Geslaagde leerling motorrijbewijs"
               width={200}
               height={200}
+              loading="lazy"
               className={styles.geslaagdePhoto}
             />
             <Image
@@ -794,6 +796,7 @@ export default function Home() {
               alt="Geslaagde leerling motorrijbewijs"
               width={200}
               height={200}
+              loading="lazy"
               className={styles.geslaagdePhoto}
             />
             <Image
@@ -801,6 +804,7 @@ export default function Home() {
               alt="Geslaagde leerling motorrijbewijs"
               width={200}
               height={200}
+              loading="lazy"
               className={styles.geslaagdePhoto}
             />
             <Image
@@ -808,6 +812,7 @@ export default function Home() {
               alt="Geslaagde leerling motorrijbewijs"
               width={200}
               height={200}
+              loading="lazy"
               className={styles.geslaagdePhoto}
             />
             <Image
@@ -815,6 +820,7 @@ export default function Home() {
               alt="Geslaagde leerling motorrijbewijs"
               width={200}
               height={200}
+              loading="lazy"
               className={styles.geslaagdePhoto}
             />
             <Image
@@ -822,6 +828,7 @@ export default function Home() {
               alt="Geslaagde leerling motorrijbewijs"
               width={200}
               height={200}
+              loading="lazy"
               className={styles.geslaagdePhoto}
             />
             <Image
@@ -829,6 +836,7 @@ export default function Home() {
               alt="Geslaagde leerling motorrijbewijs"
               width={200}
               height={200}
+              loading="lazy"
               className={styles.geslaagdePhoto}
             />
             <Image
@@ -836,6 +844,7 @@ export default function Home() {
               alt="Geslaagde leerling motorrijbewijs"
               width={200}
               height={200}
+              loading="lazy"
               className={styles.geslaagdePhoto}
             />
           </div>
@@ -992,6 +1001,7 @@ export default function Home() {
                         src={getImageUrl(post.featuredImage)}
                         alt={post.title}
                         fill
+                        loading="lazy"
                         style={{ objectFit: 'cover' }}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className={styles.blogImage}
@@ -1068,6 +1078,7 @@ export default function Home() {
               src="/uploads/PHOTO-2025-01-17-10-34-36-3.jpg"
               alt="Rijinstructeur bij Quality Drive"
               fill
+              loading="lazy"
               style={{ objectFit: 'cover' }}
             />
           </div>
