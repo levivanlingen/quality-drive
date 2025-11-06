@@ -25,6 +25,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  position: relative;
 }
 
 .logo {
@@ -160,30 +161,65 @@
   }
 
   .nav {
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 1.5rem;
   }
 
   .navContent {
     gap: 1rem;
+    max-width: 100%;
+    padding: 0;
   }
 
   .logo {
-    height: 45px;
+    height: 50px;
     flex-shrink: 0;
   }
 
   .logoImage {
     width: auto !important;
+    max-width: 160px;
+    height: 50px !important;
+    object-fit: contain;
+  }
+
+  .mobileMenu {
+    top: 80px;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 768px) {
+  .nav {
+    padding: 0.75rem 1rem;
+  }
+
+  .logo {
+    height: 45px;
+  }
+
+  .logoImage {
     max-width: 140px;
     height: 45px !important;
-    object-fit: contain;
+  }
+
+  .mobileMenu {
+    top: 75px;
+  }
+
+  .mobileMenuContent {
+    padding: 1.5rem;
+  }
+
+  .mobileMenuContent a {
+    font-size: 1.1rem;
+    padding: 0.75rem 0;
   }
 }
 
 /* Extra small screens */
 @media (max-width: 480px) {
   .nav {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
   }
 
   .logo {
@@ -197,12 +233,26 @@
   }
 
   .mobileMenuButton {
-    width: 28px;
-    height: 22px;
+    width: 26px;
+    height: 20px;
   }
 
   .hamburgerLine {
     height: 2.5px;
+  }
+
+  .mobileMenu {
+    top: 60px;
+  }
+
+  .mobileMenuContent {
+    padding: 1rem 0.75rem;
+    gap: 1rem;
+  }
+
+  .mobileMenuContent a {
+    font-size: 1rem;
+    padding: 0.5rem 0;
   }
 
   .hero {
