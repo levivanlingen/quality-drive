@@ -81,6 +81,12 @@ const nextConfig: NextConfig = {
 
   // Headers voor SEO en performance
   async headers() {
+    // In development: geen aggressive caching voor hot reload
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    const staticCacheValue = isDevelopment
+      ? 'no-cache, no-store, must-revalidate'
+      : 'public, max-age=31536000, immutable';
+
     return [
       {
         source: '/:path*',
@@ -144,7 +150,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
+            value: staticCacheValue
           },
         ],
       },

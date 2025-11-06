@@ -192,17 +192,17 @@
   }
 
   .zekerhedenGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
   }
 
   .zekerheidCard {
-    padding: 2.5rem 2rem;
+    padding: 2rem 1.75rem;
   }
 
   .zekerheidCard h3 {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
   }
 
   .zekerheidCard p {
@@ -277,7 +277,7 @@
   }
 
   .zekerhedenGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 1.5rem;
     margin-top: 2.5rem;
   }
