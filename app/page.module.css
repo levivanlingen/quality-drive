@@ -3,6 +3,7 @@
   min-height: 100vh;
   background: #fff;
   color: #000;
+  overflow-x: hidden;
 }
 
 /* Navigation */
@@ -1457,8 +1458,6 @@
   object-fit: cover;
   border: 3px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
 }
 
 .geslaagdePhoto:first-child {
@@ -1467,12 +1466,6 @@
 
 .geslaagdePhoto:nth-child(8) {
   object-position: center 25%;
-}
-
-.geslaagdePhoto:hover {
-  border-color: rgba(255, 255, 255, 0.7);
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
 .geslaagdeCTA {
