@@ -208,6 +208,39 @@
   .zekerheidCard p {
     font-size: 0.95rem;
   }
+
+  /* Stats Section */
+  .statsSection {
+    padding: 2.5rem 1.5rem 5rem;
+  }
+
+  .statsContent {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+
+  .statCard::after {
+    right: -1.25rem;
+    height: 60px;
+  }
+
+  .statIcon {
+    margin-bottom: 1rem;
+  }
+
+  .statIcon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .statNumber {
+    font-size: 3.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .statLabel {
+    font-size: 1.1rem;
+  }
 }
 
 /* Medium screens (tablets) */
@@ -267,6 +300,38 @@
 
   .zekerheidCard p {
     font-size: 0.9rem;
+  }
+
+  /* Stats Section */
+  .statsSection {
+    padding: 2rem 1rem 4rem;
+  }
+
+  .statsContent {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .statCard::after {
+    display: none;
+  }
+
+  .statIcon {
+    margin-bottom: 1rem;
+  }
+
+  .statIcon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .statNumber {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .statLabel {
+    font-size: 1rem;
   }
 }
 
@@ -354,6 +419,39 @@
   .zekerheidCard p {
     font-size: 0.875rem;
     line-height: 1.6;
+  }
+
+  /* Stats Section */
+  .statsSection {
+    padding: 2rem 0.75rem 3rem;
+  }
+
+  .statsContent {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .statCard::after {
+    display: none;
+  }
+
+  .statIcon {
+    margin-bottom: 0.75rem;
+  }
+
+  .statIcon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .statNumber {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .statLabel {
+    font-size: 0.95rem;
+    line-height: 1.3;
   }
 }
 
