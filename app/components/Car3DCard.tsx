@@ -56,8 +56,9 @@ export default function Car3DCard({ isCardHovered = false }: { isCardHovered?: b
     >
       <Canvas
         frameloop={isCardHovered ? 'always' : 'demand'}
-        dpr={[1, 1.5]}
-        performance={{ min: 0.5 }}
+        dpr={[1, 1.2]}
+        performance={{ min: 0.5, max: 1 }}
+        gl={{ antialias: false, powerPreference: 'high-performance' }}
       >
         <PerspectiveCamera makeDefault position={[3.5, 1.2, 3.5]} fov={45} />
 
@@ -84,5 +85,5 @@ export default function Car3DCard({ isCardHovered = false }: { isCardHovered?: b
   );
 }
 
-// Preload het 3D model voor snellere laadtijden
-useGLTF.preload("/source/2021 Volkswagen Golf GTI.glb");
+// Note: Removed useGLTF.preload() - models now load on-demand when user hovers
+// This significantly reduces initial GPU load and memory usage

@@ -51,31 +51,33 @@ interface Lazy3DCardProps {
 }
 
 export default function Lazy3DCard({ type, isHovered = false }: Lazy3DCardProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const [shouldLoad, setShouldLoad] = useState(false);
+  const [hasBeenHovered, setHasBeenHovered] = useState(false);
+  const [shouldLoad3D, setShouldLoad3D] = useState(false);
   const [delayed3DHover, setDelayed3DHover] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const loadTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Only load 3D when user actually hovers (with delay to prevent accidental hovers)
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          // Small delay to prevent loading all at once
-          setTimeout(() => setShouldLoad(true), 100);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1, rootMargin: '50px' }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
+    if (loadTimeoutRef.current) {
+      clearTimeout(loadTimeoutRef.current);
     }
 
-    return () => observer.disconnect();
-  }, []);
+    if (isHovered && !hasBeenHovered) {
+      // Wait 200ms to ensure user really wants to hover (prevents accidental hovers during scroll)
+      loadTimeoutRef.current = setTimeout(() => {
+        setHasBeenHovered(true);
+        setShouldLoad3D(true);
+      }, 200);
+    }
+
+    return () => {
+      if (loadTimeoutRef.current) {
+        clearTimeout(loadTimeoutRef.current);
+      }
+    };
+  }, [isHovered, hasBeenHovered]);
 
   // Delay 3D animation until card CSS animation is complete
   useEffect(() => {
@@ -83,7 +85,7 @@ export default function Lazy3DCard({ type, isHovered = false }: Lazy3DCardProps)
       clearTimeout(hoverTimeoutRef.current);
     }
 
-    if (isHovered) {
+    if (isHovered && shouldLoad3D) {
       // Wait 350ms for card animation to complete before starting 3D animation
       hoverTimeoutRef.current = setTimeout(() => {
         setDelayed3DHover(true);
@@ -98,11 +100,11 @@ export default function Lazy3DCard({ type, isHovered = false }: Lazy3DCardProps)
         clearTimeout(hoverTimeoutRef.current);
       }
     };
-  }, [isHovered]);
+  }, [isHovered, shouldLoad3D]);
 
   return (
     <div ref={ref} style={{ width: '100%', height: '100%' }}>
-      {shouldLoad ? (
+      {shouldLoad3D ? (
         type === 'car' ? (
           <Car3DCard isCardHovered={delayed3DHover} />
         ) : (
@@ -117,12 +119,23 @@ export default function Lazy3DCard({ type, isHovered = false }: Lazy3DCardProps)
           justifyContent: 'center',
           background: 'linear-gradient(135deg, rgba(0, 101, 166, 0.1) 0%, rgba(193, 21, 23, 0.05) 100%)',
           borderRadius: '16px',
-          minHeight: '180px'
+          minHeight: '180px',
+          transition: 'opacity 0.3s ease'
         }}>
           <div style={{ textAlign: 'center', color: '#0065A6' }}>
-            <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>
+            <div style={{
+              fontSize: '3rem',
+              marginBottom: '0.5rem',
+              transition: 'transform 0.3s ease',
+              transform: isHovered ? 'scale(1.1)' : 'scale(1)'
+            }}>
               {type === 'car' ? '🚗' : '🏍️'}
             </div>
+            {isHovered && !shouldLoad3D && (
+              <div style={{ fontSize: '0.85rem', color: '#0065A6', marginTop: '0.5rem' }}>
+                3D model laden...
+              </div>
+            )}
           </div>
         </div>
       )}

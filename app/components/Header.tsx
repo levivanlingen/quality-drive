@@ -1,15 +1,40 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../page.module.css';
 
 export default function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Fix hydration mismatch - only render after mount
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav className={styles.nav}>
       <div className={styles.navContent}>
         <div className={styles.logo}>
-          <Link href="/">
+          <Link href="/" onClick={closeMobileMenu}>
             <Image
               src="/Gemini_Generated_Image_3xrqk63xrqk63xrq-removebg-preview (1).png"
               alt="Quality-Drive Rijschool"
@@ -20,6 +45,8 @@ export default function Header() {
             />
           </Link>
         </div>
+
+        {/* Desktop Navigation */}
         <div className={styles.navLinks}>
           <a href="/#pakketten">Pakketten</a>
           <a href="/#theorie">Theorie</a>
@@ -30,7 +57,38 @@ export default function Header() {
           <button className={styles.navButton}>Log in</button>
           <button className={styles.navButtonPrimary}>Aanmelden</button>
         </div>
+
+        {/* Mobile Hamburger Button */}
+        {mounted && (
+          <button
+            className={styles.mobileMenuButton}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className={`${styles.hamburgerLine} ${isMobileMenuOpen ? styles.hamburgerLineOpen : ''}`}></span>
+            <span className={`${styles.hamburgerLine} ${isMobileMenuOpen ? styles.hamburgerLineOpen : ''}`}></span>
+            <span className={`${styles.hamburgerLine} ${isMobileMenuOpen ? styles.hamburgerLineOpen : ''}`}></span>
+          </button>
+        )}
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {mounted && (
+        <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
+        <div className={styles.mobileMenuContent}>
+          <a href="/#pakketten" onClick={closeMobileMenu}>Pakketten</a>
+          <a href="/#theorie" onClick={closeMobileMenu}>Theorie</a>
+          <Link href="/about" onClick={closeMobileMenu}>Over ons</Link>
+          <a href="/#rijopleidingen" onClick={closeMobileMenu}>Rijopleidingen</a>
+          <Link href="/contact" onClick={closeMobileMenu}>Contact</Link>
+          <Link href="/blog" onClick={closeMobileMenu}>Blog</Link>
+          <div className={styles.mobileMenuButtons}>
+            <button className={styles.navButton} onClick={closeMobileMenu}>Log in</button>
+            <button className={styles.navButtonPrimary} onClick={closeMobileMenu}>Aanmelden</button>
+          </div>
+        </div>
+      </div>
+      )}
     </nav>
   );
 }

@@ -56,8 +56,9 @@ export default function Motor3DCard({ isCardHovered = false }: { isCardHovered?:
     >
       <Canvas
         frameloop={isCardHovered ? 'always' : 'demand'}
-        dpr={[1, 1.5]}
-        performance={{ min: 0.5 }}
+        dpr={[1, 1.2]}
+        performance={{ min: 0.5, max: 1 }}
+        gl={{ antialias: false, powerPreference: 'high-performance' }}
       >
         <PerspectiveCamera makeDefault position={[3.5, 1.2, 3.5]} fov={45} />
 
@@ -84,5 +85,5 @@ export default function Motor3DCard({ isCardHovered = false }: { isCardHovered?:
   );
 }
 
-// Preload het 3D model voor snellere laadtijden
-useGLTF.preload("/source motor/kawasaki_ninja_h2r.glb");
+// Note: Removed useGLTF.preload() - models now load on-demand when user hovers
+// This significantly reduces initial GPU load and memory usage
