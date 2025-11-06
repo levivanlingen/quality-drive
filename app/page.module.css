@@ -182,6 +182,11 @@
     display: none !important;
   }
 
+  .navButton,
+  .navButtonPrimary {
+    display: none !important;
+  }
+
   .mobileMenuButton {
     display: flex !important;
   }

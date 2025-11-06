@@ -54,8 +54,6 @@ export default function Header() {
           <a href="/#rijopleidingen">Rijopleidingen</a>
           <Link href="/contact">Contact</Link>
           <Link href="/blog">Blog</Link>
-          <button className={styles.navButton}>Log in</button>
-          <button className={styles.navButtonPrimary}>Aanmelden</button>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -82,10 +80,6 @@ export default function Header() {
           <a href="/#rijopleidingen" onClick={closeMobileMenu}>Rijopleidingen</a>
           <Link href="/contact" onClick={closeMobileMenu}>Contact</Link>
           <Link href="/blog" onClick={closeMobileMenu}>Blog</Link>
-          <div className={styles.mobileMenuButtons}>
-            <button className={styles.navButton} onClick={closeMobileMenu}>Log in</button>
-            <button className={styles.navButtonPrimary} onClick={closeMobileMenu}>Aanmelden</button>
-          </div>
         </div>
       </div>
       )}
