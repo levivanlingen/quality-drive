@@ -12,13 +12,14 @@ export default function Header() {
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
+    // Only run on client after hydration
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
 
@@ -44,10 +45,10 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <div className={styles.navLinks}>
-          <a href="/#pakketten">Pakketten</a>
-          <a href="/#theorie">Theorie</a>
+          <Link href="/#pakketten" scroll={true}>Pakketten</Link>
+          <Link href="/#theorie" scroll={true}>Theorie</Link>
           <Link href="/about">Over ons</Link>
-          <a href="/#rijopleidingen">Rijopleidingen</a>
+          <Link href="/#rijopleidingen" scroll={true}>Rijopleidingen</Link>
           <Link href="/contact">Contact</Link>
           <Link href="/blog">Blog</Link>
         </div>
@@ -67,10 +68,10 @@ export default function Header() {
       {/* Mobile Menu Overlay */}
       <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
         <div className={styles.mobileMenuContent}>
-          <a href="/#pakketten" onClick={closeMobileMenu}>Pakketten</a>
-          <a href="/#theorie" onClick={closeMobileMenu}>Theorie</a>
+          <Link href="/#pakketten" onClick={closeMobileMenu} scroll={true}>Pakketten</Link>
+          <Link href="/#theorie" onClick={closeMobileMenu} scroll={true}>Theorie</Link>
           <Link href="/about" onClick={closeMobileMenu}>Over ons</Link>
-          <a href="/#rijopleidingen" onClick={closeMobileMenu}>Rijopleidingen</a>
+          <Link href="/#rijopleidingen" onClick={closeMobileMenu} scroll={true}>Rijopleidingen</Link>
           <Link href="/contact" onClick={closeMobileMenu}>Contact</Link>
           <Link href="/blog" onClick={closeMobileMenu}>Blog</Link>
         </div>
