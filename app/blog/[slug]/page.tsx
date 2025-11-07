@@ -223,7 +223,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           }}>
             <span>{post.author}</span>
             <span>•</span>
-            <time dateTime={post.date}>
+            <time dateTime={post.date} suppressHydrationWarning>
               {new Date(post.date).toLocaleDateString('nl-NL', {
                 year: 'numeric',
                 month: 'long',

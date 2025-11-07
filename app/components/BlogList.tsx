@@ -189,7 +189,7 @@ export default function BlogList({ posts, currentPage, totalPages, totalPosts }:
                   paddingTop: '1rem',
                   borderTop: '1px solid #f3f4f6',
                 }}>
-                  <div style={{ fontSize: '0.8125rem', color: '#9ca3af' }}>
+                  <div style={{ fontSize: '0.8125rem', color: '#9ca3af' }} suppressHydrationWarning>
                     {new Date(post.date).toLocaleDateString('nl-NL', {
                       year: 'numeric',
                       month: 'short',

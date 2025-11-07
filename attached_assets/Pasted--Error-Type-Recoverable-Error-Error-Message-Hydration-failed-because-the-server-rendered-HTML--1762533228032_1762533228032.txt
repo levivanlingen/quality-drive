@@ -1,0 +1,60 @@
+## Error Type
+Recoverable Error
+
+## Error Message
+Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+                  <Home params={Promise} searchParams={Promise}>
+                    <div className="page-modul...">
+                      <Header>
+                        <nav className="page-modul...">
+                          <div className="page-modul...">
+                            <div>
+                            <div className="page-modul...">
+                              <a>
+                              <a>
+                              <LinkComponent>
+                              <a>
+                              <LinkComponent>
+                              <LinkComponent>
++                             <button className="page-module__E0kJGG__navButton">
+                              ...
+                      ...
+              ...
+            ...
+
+
+
+    at button (<anonymous>:null:null)
+    at Header (app/components/Header.tsx:49:11)
+    at Home (app/components/Lazy3DCard.tsx:127:25)
+
+## Code Frame
+  47 |           <a href="/#pakketten">Pakketten</a>
+  48 |           <a href="/#theorie">Theorie</a>
+> 49 |           <Link href="/about">Over ons</Link>
+     |           ^
+  50 |           <a href="/#rijopleidingen">Rijopleidingen</a>
+  51 |           <Link href="/contact">Contact</Link>
+  52 |           <Link href="/blog">Blog</Link>
+
+Next.js version: 16.0.1 (Turbopack)

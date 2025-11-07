@@ -85,7 +85,7 @@ export default function Footer() {
 
       <div className={styles.footerBottom}>
         <div>
-          <p>© {new Date().getFullYear()} Quality Drive. Alle rechten voorbehouden.</p>
+          <p suppressHydrationWarning>© {new Date().getFullYear()} Quality Drive. Alle rechten voorbehouden.</p>
         </div>
         <div className={styles.footerBuiltBy}>
           Build by <a href="https://levivl.nl" target="_blank" rel="noopener noreferrer">levivl.nl</a>

@@ -81,10 +81,11 @@ const nextConfig: NextConfig = {
 
   // Headers voor SEO en performance
   async headers() {
-    // In development: geen aggressive caching voor hot reload
+    // In development: GEEN caching voor hot reload
     const isDevelopment = process.env.NODE_ENV === 'development';
+    const noCacheValue = 'no-cache, no-store, must-revalidate, max-age=0';
     const staticCacheValue = isDevelopment
-      ? 'no-cache, no-store, must-revalidate'
+      ? noCacheValue
       : 'public, max-age=31536000, immutable';
 
     return [
@@ -123,7 +124,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
+            value: staticCacheValue
           },
           {
             key: 'Content-Type',
@@ -136,7 +137,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
+            value: staticCacheValue
           },
           {
             key: 'Content-Type',
@@ -159,7 +160,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
+            value: staticCacheValue
           },
         ],
       },
@@ -175,6 +176,11 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   reactStrictMode: true,
+
+  // Development: geen caching
+  generateBuildId: process.env.NODE_ENV === 'development'
+    ? () => `dev-${Date.now()}`
+    : undefined,
 
   // Optimize for production
   experimental: {

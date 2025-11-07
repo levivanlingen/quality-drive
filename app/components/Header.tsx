@@ -5,14 +5,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../page.module.css';
 
+// Build timestamp: 2025-11-06-19-35 - NO LOGIN BUTTONS
+
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  // Fix hydration mismatch - only render after mount
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -57,22 +53,19 @@ export default function Header() {
         </div>
 
         {/* Mobile Hamburger Button */}
-        {mounted && (
-          <button
-            className={styles.mobileMenuButton}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span className={`${styles.hamburgerLine} ${isMobileMenuOpen ? styles.hamburgerLineOpen : ''}`}></span>
-            <span className={`${styles.hamburgerLine} ${isMobileMenuOpen ? styles.hamburgerLineOpen : ''}`}></span>
-            <span className={`${styles.hamburgerLine} ${isMobileMenuOpen ? styles.hamburgerLineOpen : ''}`}></span>
-          </button>
-        )}
+        <button
+          className={styles.mobileMenuButton}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span className={`${styles.hamburgerLine} ${isMobileMenuOpen ? styles.hamburgerLineOpen : ''}`}></span>
+          <span className={`${styles.hamburgerLine} ${isMobileMenuOpen ? styles.hamburgerLineOpen : ''}`}></span>
+          <span className={`${styles.hamburgerLine} ${isMobileMenuOpen ? styles.hamburgerLineOpen : ''}`}></span>
+        </button>
       </div>
 
       {/* Mobile Menu Overlay */}
-      {mounted && (
-        <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
+      <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
         <div className={styles.mobileMenuContent}>
           <a href="/#pakketten" onClick={closeMobileMenu}>Pakketten</a>
           <a href="/#theorie" onClick={closeMobileMenu}>Theorie</a>
@@ -82,7 +75,6 @@ export default function Header() {
           <Link href="/blog" onClick={closeMobileMenu}>Blog</Link>
         </div>
       </div>
-      )}
     </nav>
   );
 }

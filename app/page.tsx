@@ -1023,7 +1023,7 @@ export default function Home() {
                   </div>
                   <div className={styles.blogContent}>
                     <div className={styles.blogMeta}>
-                      <span className={styles.blogDate}>
+                      <span className={styles.blogDate} suppressHydrationWarning>
                         {new Date(post.date).toLocaleDateString('nl-NL', {
                           year: 'numeric',
                           month: 'long',
