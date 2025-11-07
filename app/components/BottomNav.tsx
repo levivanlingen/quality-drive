@@ -35,9 +35,12 @@ export default function BottomNav() {
       href: '/#rijopleidingen',
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10l-3.5-4.5c-.3-.4-.8-.5-1.2-.5H4c-.8 0-1.5.7-1.5 1.5S3.2 8 4 8h3l3 3H5.5c-.8 0-1.5.7-1.5 1.5v4c0 .6.4 1 1 1h2"/>
-          <circle cx="7" cy="17" r="2"/>
-          <circle cx="17" cy="17" r="2"/>
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="12" cy="12" r="3"/>
+          <line x1="12" y1="2" x2="12" y2="9"/>
+          <line x1="12" y1="15" x2="12" y2="22"/>
+          <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/>
+          <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/>
         </svg>
       )
     },

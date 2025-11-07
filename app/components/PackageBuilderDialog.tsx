@@ -192,8 +192,8 @@ export default function PackageBuilderDialog({ isOpen, onClose, type }: PackageB
           }}
           style={{
             position: 'absolute',
-            top: '1.5rem',
-            right: '1.5rem',
+            top: '0.75rem',
+            right: '1rem',
             background: 'rgba(255, 255, 255, 0.1)',
             border: '2px solid rgba(255, 255, 255, 0.2)',
             borderRadius: '12px',
@@ -325,18 +325,36 @@ export default function PackageBuilderDialog({ isOpen, onClose, type }: PackageB
                       }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                        <div style={{
-                          fontSize: '3rem',
-                          width: '70px',
-                          height: '70px',
-                          background: 'rgba(255, 255, 255, 0.1)',
-                          borderRadius: '16px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                        }}>
-                          {exp.icon}
+                        {/* Icon and lesson count container */}
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
+                          <div style={{
+                            fontSize: '3rem',
+                            width: '70px',
+                            height: '70px',
+                            background: 'rgba(255, 255, 255, 0.1)',
+                            borderRadius: '16px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                          }}>
+                            {exp.icon}
+                          </div>
+                          <div style={{
+                            background: 'linear-gradient(135deg, rgba(0, 101, 166, 0.3) 0%, rgba(0, 101, 166, 0.2) 100%)',
+                            padding: '0.5rem 1rem',
+                            borderRadius: '10px',
+                            border: '2px solid rgba(0, 101, 166, 0.4)',
+                            textAlign: 'center',
+                          }}>
+                            <div style={{ fontSize: '1.25rem', fontWeight: '700', color: 'white', lineHeight: 1 }}>
+                              {exp.recommendedLessons}
+                            </div>
+                            <div style={{ fontSize: '0.625rem', color: 'rgba(255, 255, 255, 0.6)', marginTop: '0.125rem' }}>
+                              lessen
+                            </div>
+                          </div>
                         </div>
+                        {/* Text content - now has more horizontal space */}
                         <div style={{ flex: 1 }}>
                           <h4 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem', color: 'white' }}>
                             {exp.title}
@@ -354,19 +372,6 @@ export default function PackageBuilderDialog({ isOpen, onClose, type }: PackageB
                             color: '#FFD700',
                           }}>
                             💡 {exp.info}
-                          </div>
-                        </div>
-                        <div style={{
-                          background: 'linear-gradient(135deg, rgba(0, 101, 166, 0.3) 0%, rgba(0, 101, 166, 0.2) 100%)',
-                          padding: '0.75rem 1.5rem',
-                          borderRadius: '12px',
-                          border: '2px solid rgba(0, 101, 166, 0.4)',
-                        }}>
-                          <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'white' }}>
-                            {exp.recommendedLessons}
-                          </div>
-                          <div style={{ fontSize: '0.75rem', color: 'rgba(255, 255, 255, 0.6)' }}>
-                            lessen
                           </div>
                         </div>
                       </div>
