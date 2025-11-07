@@ -83,17 +83,22 @@ export default function RijopleidingenPage() {
           </nav>
 
           <h1 className={rijopleidingenStyles.heroTitle}>
-            Bekijk onze rijopleidingen
+            Rijopleidingen
           </h1>
-          <p className={rijopleidingenStyles.heroSubtitle}>
-            Voor welke rijopleiding ga jij?
-          </p>
         </div>
       </section>
 
       {/* Courses Grid Section */}
       <section className={rijopleidingenStyles.coursesSection}>
         <div className={rijopleidingenStyles.coursesContainer}>
+          <div className={rijopleidingenStyles.sectionHeader}>
+            <h2 className={rijopleidingenStyles.sectionTitle}>
+              Bekijk onze rijopleidingen
+            </h2>
+            <p className={rijopleidingenStyles.sectionSubtitle}>
+              Voor welke rijopleiding ga jij?
+            </p>
+          </div>
           <div className={rijopleidingenStyles.coursesGrid}>
             {courses.map((course, index) => {
               const IconComponent = course.icon;
