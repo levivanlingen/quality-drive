@@ -2601,7 +2601,7 @@
   }
 
   .heroRight {
-    order: -1;
+    display: none;
   }
 
   .heroImage {
