@@ -138,11 +138,11 @@ export default function Home() {
         <div className={styles.featuresList}>
           <div className={styles.featureItem}>
             <CheckCircle2 className={styles.checkIcon} />
-            <span>Also in English</span>
+            <span>Start morgen al je proefles</span>
           </div>
           <div className={styles.featureItem}>
             <CheckCircle2 className={styles.checkIcon} />
-            <span>Ook voor ADD & ADHD</span>
+            <span>Also in English</span>
           </div>
           <div className={styles.featureItem}>
             <CheckCircle2 className={styles.checkIcon} />
@@ -150,7 +150,7 @@ export default function Home() {
           </div>
           <div className={styles.featureItem}>
             <CheckCircle2 className={styles.checkIcon} />
-            <span>Start morgen al je proefles</span>
+            <span>Ook voor ADD & ADHD</span>
           </div>
         </div>
       </section>

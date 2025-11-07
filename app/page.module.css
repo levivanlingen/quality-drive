@@ -162,7 +162,7 @@
   }
 
   .nav {
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 1.5rem;
   }
 
   .navContent {
@@ -172,95 +172,39 @@
   }
 
   .logo {
-    height: 50px;
+    height: 60px;
     flex-shrink: 0;
   }
 
   .logoImage {
     width: auto !important;
-    max-width: 160px;
-    height: 50px !important;
+    max-width: 180px;
+    height: 60px !important;
     object-fit: contain;
   }
 
   .mobileMenu {
-    top: 80px;
-  }
-
-  /* Zekerheden Section */
-  .zekerhedenSection {
-    padding: 2rem 1.5rem;
-  }
-
-  .zekerhedenGrid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-  }
-
-  .zekerheidCard {
-    padding: 2rem 1.75rem;
-  }
-
-  .zekerheidCard h3 {
-    font-size: 1.3rem;
-  }
-
-  .zekerheidCard p {
-    font-size: 0.95rem;
-  }
-
-  /* Stats Section */
-  .statsSection {
-    padding: 2.5rem 1.5rem 5rem;
-  }
-
-  .statsContent {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-  }
-
-  .statCard::after {
-    right: -1.25rem;
-    height: 60px;
-  }
-
-  .statIcon {
-    margin-bottom: 1rem;
-  }
-
-  .statIcon svg {
-    width: 40px;
-    height: 40px;
-  }
-
-  .statNumber {
-    font-size: 3.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .statLabel {
-    font-size: 1.1rem;
+    top: 92px;
   }
 }
 
 /* Medium screens (tablets) */
 @media (max-width: 768px) {
   .nav {
-    padding: 0.75rem 1rem;
+    padding: 1rem 1rem;
   }
 
   .logo {
-    height: 45px;
+    height: 55px;
   }
 
   .logoImage {
-    max-width: 140px;
-    height: 45px !important;
+    max-width: 160px;
+    height: 55px !important;
   }
 
   .mobileMenu {
-    top: 75px;
+    top: 87px;
   }
 
   .mobileMenuContent {
@@ -271,90 +215,27 @@
     font-size: 1.1rem;
     padding: 0.75rem 0;
   }
-
-  /* Zekerheden Section */
-  .zekerhedenSection {
-    padding: 2rem 1rem;
-  }
-
-  .zekerhedenGrid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-  }
-
-  .zekerheidCard {
-    padding: 2rem 1.5rem;
-  }
-
-  .zekerheidNumber {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .zekerheidCard h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .zekerheidCard p {
-    font-size: 0.9rem;
-  }
-
-  /* Stats Section */
-  .statsSection {
-    padding: 2rem 1rem 4rem;
-  }
-
-  .statsContent {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .statCard::after {
-    display: none;
-  }
-
-  .statIcon {
-    margin-bottom: 1rem;
-  }
-
-  .statIcon svg {
-    width: 36px;
-    height: 36px;
-  }
-
-  .statNumber {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .statLabel {
-    font-size: 1rem;
-  }
 }
 
 /* Extra small screens */
 @media (max-width: 480px) {
   .nav {
-    padding: 0.5rem 0.75rem;
+    padding: 0.875rem 0.75rem;
   }
 
   .logo {
-    height: 40px;
+    height: 50px;
   }
 
   .logoImage {
     width: auto !important;
-    max-width: 120px;
-    height: 40px !important;
+    max-width: 140px;
+    height: 50px !important;
   }
 
   .mobileMenuButton {
-    width: 26px;
-    height: 20px;
+    width: 28px;
+    height: 22px;
   }
 
   .hamburgerLine {
@@ -362,7 +243,7 @@
   }
 
   .mobileMenu {
-    top: 60px;
+    top: 77px;
   }
 
   .mobileMenuContent {
@@ -376,11 +257,10 @@
   }
 
   .hero {
-    margin-top: 60px;
+    margin-top: 77px;
     padding: 2rem 1rem;
   }
 
-  /* Zekerheden Section */
   .zekerhedenSection {
     padding: 2rem 0.75rem;
   }
@@ -391,67 +271,6 @@
 
   .sectionTitle {
     font-size: 1.75rem;
-    line-height: 1.3;
-  }
-
-  .zekerhedenGrid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    margin-top: 2rem;
-  }
-
-  .zekerheidCard {
-    padding: 1.75rem 1.25rem;
-  }
-
-  .zekerheidNumber {
-    width: 45px;
-    height: 45px;
-    font-size: 1.35rem;
-    margin-bottom: 1rem;
-    border-radius: 12px;
-  }
-
-  .zekerheidCard h3 {
-    font-size: 1.15rem;
-    margin-bottom: 0.65rem;
-  }
-
-  .zekerheidCard p {
-    font-size: 0.875rem;
-    line-height: 1.6;
-  }
-
-  /* Stats Section */
-  .statsSection {
-    padding: 2rem 0.75rem 3rem;
-  }
-
-  .statsContent {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .statCard::after {
-    display: none;
-  }
-
-  .statIcon {
-    margin-bottom: 0.75rem;
-  }
-
-  .statIcon svg {
-    width: 32px;
-    height: 32px;
-  }
-
-  .statNumber {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .statLabel {
-    font-size: 0.95rem;
     line-height: 1.3;
   }
 }
@@ -684,6 +503,17 @@
   font-size: 0.95rem;
   color: #333;
   font-weight: 400;
+  padding: 0.875rem 1rem;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(34, 197, 94, 0.04) 100%);
+  border-radius: 12px;
+  border: 1.5px solid rgba(34, 197, 94, 0.25);
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.featureItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.12);
 }
 
 .checkIcon {
@@ -694,11 +524,88 @@
   stroke-width: 2.5;
 }
 
+/* Responsive Features Section */
+@media (max-width: 1024px) {
+  .features {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .featuresList {
+    gap: 2rem;
+  }
+
+  .featureItem {
+    font-size: 0.9rem;
+  }
+
+  .checkIcon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .features {
+    padding: 2rem 1rem;
+  }
+
+  .featuresList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .featureItem {
+    font-size: 0.875rem;
+    padding: 0.875rem 0.75rem;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(34, 197, 94, 0.04) 100%);
+    border-radius: 12px;
+    border: 1.5px solid rgba(34, 197, 94, 0.25);
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.08);
+  }
+
+  .checkIcon {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2.8;
+  }
+}
+
+@media (max-width: 480px) {
+  .features {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .featuresList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .featureItem {
+    font-size: 0.75rem;
+    padding: 0.75rem 0.65rem;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(34, 197, 94, 0.04) 100%);
+    border: 1.5px solid rgba(34, 197, 94, 0.25);
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.08);
+  }
+
+  .checkIcon {
+    width: 18px;
+    height: 18px;
+    stroke-width: 3;
+  }
+}
+
 /* Services Section */
 .services {
-  padding: 6rem 2rem;
+  padding: 3.5rem 2rem;
   max-width: 1400px;
-  margin: 4rem auto;
+  margin: 3rem auto 6rem;
   background:
     linear-gradient(135deg, rgba(0, 101, 166, 0.03) 0%, rgba(193, 21, 23, 0.03) 100%),
     linear-gradient(135deg, #f5f7fa 0%, #e8eef5 50%, #d4e0ed 100%);
@@ -1098,20 +1005,23 @@
   will-change: opacity;
 }
 
-.rijschoolCard:hover {
-  transform: translateY(-8px);
-  /* REMOVED: box-shadow animatie - now handled by ::after pseudo-element */
-  /* REMOVED: background change - GPU heavy during animation */
-}
+/* Hover effects alleen voor desktop/tablet */
+@media (min-width: 769px) {
+  .rijschoolCard:hover {
+    transform: translateY(-8px);
+    /* REMOVED: box-shadow animatie - now handled by ::after pseudo-element */
+    /* REMOVED: background change - GPU heavy during animation */
+  }
 
-.rijschoolCard:hover::after {
-  opacity: 1;
-}
+  .rijschoolCard:hover::after {
+    opacity: 1;
+  }
 
-.rijschoolCard:hover .rijschoolCardIcon {
-  transform: scale(1.05) rotate(5deg);
-  /* REMOVED: background gradient change - GPU heavy during animation */
-  box-shadow: 0 8px 24px rgba(0, 101, 166, 0.3);
+  .rijschoolCard:hover .rijschoolCardIcon {
+    transform: scale(1.05) rotate(5deg);
+    /* REMOVED: background gradient change - GPU heavy during animation */
+    box-shadow: 0 8px 24px rgba(0, 101, 166, 0.3);
+  }
 }
 
 .rijschoolCardIcon {
@@ -1219,6 +1129,62 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
   margin-top: 4rem;
+}
+
+/* Responsive layout for zekerheden grid */
+@media (max-width: 1200px) {
+  .zekerhedenGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .zekerhedenGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .zekerheidCard {
+    padding: 2.5rem 2rem;
+  }
+
+  .zekerheidCard h3 {
+    font-size: 1.35rem;
+  }
+
+  .zekerheidCard p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .zekerhedenGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .zekerheidCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .zekerheidNumber {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .zekerheidCard h3 {
+    font-size: 1.2rem;
+  }
+
+  .zekerheidCard p {
+    font-size: 0.9rem;
+  }
 }
 
 .zekerheidCard {
@@ -2180,6 +2146,11 @@
   opacity: 0.9;
 }
 
+.statIcon svg {
+  width: 48px;
+  height: 48px;
+}
+
 .statCard::after {
   content: '';
   position: absolute;
@@ -2214,6 +2185,100 @@
   font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.4;
+}
+
+/* Responsive Stats Section */
+@media (max-width: 1024px) {
+  .statsSection {
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .statsContent {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+
+  .statCard::after {
+    right: -1.25rem;
+    height: 60px;
+  }
+
+  .statIcon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .statNumber {
+    font-size: 3.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .statLabel {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .statsSection {
+    padding: 2rem 1rem 3.5rem;
+  }
+
+  .statsContent {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .statCard::after {
+    display: none;
+  }
+
+  .statIcon {
+    margin-bottom: 1rem;
+  }
+
+  .statIcon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .statNumber {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .statLabel {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsSection {
+    padding: 2rem 0.75rem 3rem;
+  }
+
+  .statsContent {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .statIcon {
+    margin-bottom: 0.75rem;
+  }
+
+  .statIcon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .statNumber {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .statLabel {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
 }
 
 /* Career Section - Werken bij Quality Drive */
@@ -2522,13 +2587,39 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+  .hero {
+    padding: 3rem 1.5rem;
+    min-height: auto;
+  }
+
   .heroContent {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
+  .heroLeft {
+    padding-top: 1rem;
+  }
+
   .heroRight {
     order: -1;
+  }
+
+  .heroImage {
+    min-height: 400px;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .rideCard {
+    max-width: 100%;
   }
 
   .careerContent {
@@ -2538,10 +2629,6 @@
 
   .careerImage {
     order: -1;
-  }
-
-  .heroTitle {
-    font-size: 2.5rem;
   }
 
   .rijschoolCards {
@@ -2622,16 +2709,63 @@
     display: none;
   }
 
+  .hero {
+    padding: 2.5rem 1rem;
+    margin-top: 87px;
+  }
+
+  .heroContent {
+    gap: 2rem;
+  }
+
+  .heroLeft {
+    padding-top: 0;
+  }
+
+  .heroImage {
+    min-height: 350px;
+    border-radius: 16px;
+  }
+
   .heroTitle {
     font-size: 2rem;
+    margin-bottom: 0.75rem;
   }
 
   .heroSubtitle {
     font-size: 1rem;
+    margin-bottom: 2rem;
   }
 
   .rideCard {
     padding: 1.5rem;
+  }
+
+  .cardTabs {
+    margin-bottom: 1.25rem;
+  }
+
+  .tab {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .inputGroup {
+    gap: 0.875rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .inputWrapper {
+    padding: 0.65rem 0.875rem;
+  }
+
+  .input {
+    font-size: 0.95rem;
+  }
+
+  .searchButton {
+    padding: 0.875rem;
+    font-size: 0.95rem;
   }
 
   .serviceGrid {
@@ -2856,5 +2990,77 @@
     width: 100%;
     padding: 1rem 2rem;
     font-size: 1rem;
+  }
+}
+
+/* Extra small mobile screens - Hero section */
+@media (max-width: 480px) {
+  .hero {
+    padding: 2rem 0.75rem;
+  }
+
+  .heroContent {
+    gap: 1.5rem;
+  }
+
+  .heroImage {
+    min-height: 280px;
+    border-radius: 12px;
+  }
+
+  .heroTitle {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .heroSubtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .rideCard {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .cardTabs {
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .inputGroup {
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .inputWrapper {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .input {
+    font-size: 0.875rem;
+  }
+
+  .inputIcon {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+  }
+
+  .dotIcon,
+  .squareIcon {
+    width: 6px;
+    height: 6px;
+  }
+
+  .searchButton {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+    border-radius: 10px;
   }
 }

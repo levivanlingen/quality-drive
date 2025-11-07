@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { X, Plus, Minus, CheckCircle2, Sparkles, Trophy, Shield, BookOpen, Zap, Star, Award } from 'lucide-react';
 import dynamic from 'next/dynamic';
+import styles from './PackageBuilderDialog.module.css';
 
 const Car3DCard = dynamic(() => import('./Car3DCard'), {
   ssr: false,
@@ -170,36 +171,8 @@ export default function PackageBuilderDialog({ isOpen, onClose, type }: PackageB
   };
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background: 'rgba(0, 0, 0, 0.85)',
-      backdropFilter: 'blur(10px)',
-      zIndex: 9999,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '2rem',
-      animation: 'fadeIn 0.3s ease-out',
-    }}>
+    <div className={styles.overlay}>
       <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px) scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
         @keyframes pulse {
           0%, 100% { transform: scale(1); }
           50% { transform: scale(1.05); }
@@ -208,24 +181,9 @@ export default function PackageBuilderDialog({ isOpen, onClose, type }: PackageB
           0% { background-position: -1000px 0; }
           100% { background-position: 1000px 0; }
         }
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
       `}</style>
 
-      <div style={{
-        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
-        borderRadius: '32px',
-        maxWidth: '1400px',
-        width: '100%',
-        maxHeight: '90vh',
-        overflow: 'hidden',
-        position: 'relative',
-        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 100px rgba(0, 101, 166, 0.3)',
-        border: '2px solid rgba(0, 101, 166, 0.3)',
-        animation: 'slideUp 0.4s ease-out',
-      }}>
+      <div className={styles.dialogContainer}>
         {/* Close Button */}
         <button
           onClick={() => {
@@ -261,19 +219,9 @@ export default function PackageBuilderDialog({ isOpen, onClose, type }: PackageB
           <X size={24} />
         </button>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', height: '90vh' }}>
+        <div className={styles.dialogGrid}>
           {/* Left Side - 3D Preview */}
-          <div style={{
-            background: 'linear-gradient(135deg, rgba(0, 101, 166, 0.1) 0%, rgba(0, 101, 166, 0.05) 100%)',
-            padding: '3rem',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderRight: '2px solid rgba(0, 101, 166, 0.2)',
-            position: 'relative',
-            overflow: 'hidden',
-          }}>
+          <div className={styles.leftSide}>
             {/* Animated Background */}
             <div style={{
               position: 'absolute',
@@ -307,13 +255,7 @@ export default function PackageBuilderDialog({ isOpen, onClose, type }: PackageB
                     {step === 'experience' ? 'STAP 1: ERVARING' : 'STAP 2: AANPASSEN'}
                   </span>
                 </div>
-                <h2 style={{
-                  fontSize: '2.5rem',
-                  fontWeight: '700',
-                  color: 'white',
-                  marginBottom: '0.5rem',
-                  textShadow: '0 2px 10px rgba(0, 101, 166, 0.5)',
-                }}>
+                <h2 className={styles.dialogTitle}>
                   {titles[type]}
                 </h2>
                 <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '1.125rem' }}>
@@ -324,16 +266,7 @@ export default function PackageBuilderDialog({ isOpen, onClose, type }: PackageB
                 </p>
               </div>
 
-              <div style={{
-                width: '500px',
-                height: '400px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                background: 'radial-gradient(circle, rgba(0, 101, 166, 0.15) 0%, transparent 70%)',
-                borderRadius: '24px',
-                animation: 'float 3s ease-in-out infinite',
-              }}>
+              <div className={styles.previewContainer}>
                 {type === 'motor' ? (
                   <Motor3DCard isCardHovered={true} />
                 ) : (
@@ -344,11 +277,7 @@ export default function PackageBuilderDialog({ isOpen, onClose, type }: PackageB
           </div>
 
           {/* Right Side - Content */}
-          <div style={{
-            padding: '3rem',
-            overflowY: 'auto',
-            color: 'white',
-          }}>
+          <div className={styles.rightSide}>
             {step === 'experience' ? (
               // Step 1: Experience Selection
               <>
@@ -491,22 +420,17 @@ export default function PackageBuilderDialog({ isOpen, onClose, type }: PackageB
                   marginBottom: '2rem',
                   border: '2px solid rgba(0, 101, 166, 0.3)',
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
+                  <div className={styles.packageHeader}>
                     <div>
                       <h4 style={{ fontSize: '1.125rem', fontWeight: '700', marginBottom: '0.5rem', color: 'white' }}>
                         Jouw pakket bevat:
                       </h4>
                     </div>
-                    <div style={{
-                      background: 'rgba(255, 215, 0, 0.2)',
-                      padding: '0.75rem 1.5rem',
-                      borderRadius: '12px',
-                      border: '2px solid rgba(255, 215, 0, 0.4)',
-                    }}>
-                      <span style={{ fontSize: '2rem', fontWeight: '700', color: '#FFD700' }}>
+                    <div className={styles.lessonBadge}>
+                      <span className={styles.lessonNumber}>
                         {lessons}
                       </span>
-                      <span style={{ fontSize: '0.875rem', color: 'rgba(255, 255, 255, 0.8)', marginLeft: '0.5rem' }}>
+                      <span className={styles.lessonText}>
                         lessen
                       </span>
                     </div>
@@ -570,7 +494,7 @@ export default function PackageBuilderDialog({ isOpen, onClose, type }: PackageB
                   <h5 style={{ fontSize: '1rem', fontWeight: '700', marginBottom: '1rem', color: 'white' }}>
                     Pas aantal lessen aan:
                   </h5>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.75rem' }}>
+                  <div className={styles.lessonGrid}>
                     {availableLessons.map((num) => (
                       <button
                         key={num}

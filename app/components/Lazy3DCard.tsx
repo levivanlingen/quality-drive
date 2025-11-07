@@ -51,33 +51,15 @@ interface Lazy3DCardProps {
 }
 
 export default function Lazy3DCard({ type, isHovered = false }: Lazy3DCardProps) {
-  const [hasBeenHovered, setHasBeenHovered] = useState(false);
-  const [shouldLoad3D, setShouldLoad3D] = useState(false);
+  const [shouldLoad3D, setShouldLoad3D] = useState(true); // Changed to true to load immediately
   const [delayed3DHover, setDelayed3DHover] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const loadTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Only load 3D when user actually hovers (with delay to prevent accidental hovers)
+  // Load 3D immediately on mount
   useEffect(() => {
-    if (loadTimeoutRef.current) {
-      clearTimeout(loadTimeoutRef.current);
-    }
-
-    if (isHovered && !hasBeenHovered) {
-      // Wait 200ms to ensure user really wants to hover (prevents accidental hovers during scroll)
-      loadTimeoutRef.current = setTimeout(() => {
-        setHasBeenHovered(true);
-        setShouldLoad3D(true);
-      }, 200);
-    }
-
-    return () => {
-      if (loadTimeoutRef.current) {
-        clearTimeout(loadTimeoutRef.current);
-      }
-    };
-  }, [isHovered, hasBeenHovered]);
+    setShouldLoad3D(true);
+  }, []);
 
   // Delay 3D animation until card CSS animation is complete
   useEffect(() => {

@@ -11,8 +11,8 @@ function CarModel() {
     <primitive
       object={scene}
       scale={1.5}
-      position={[0, -0.5, 0]}
-      rotation={[0, Math.PI / 4, 0]}
+      position={[0.3, -0.65, 0]}
+      rotation={[0, Math.PI / 4 - Math.PI / 10, 0]}
     />
   );
 }
@@ -35,7 +35,10 @@ function Loader() {
 export default function Car3DViewer() {
   return (
     <div style={{ width: '100%', height: '600px', position: 'relative' }}>
-      <Canvas>
+      <Canvas
+        dpr={[1.5, 2]}
+        gl={{ antialias: true, powerPreference: 'high-performance' }}
+      >
         <PerspectiveCamera makeDefault position={[5, 2, 5]} fov={50} />
 
         {/* Lighting */}
@@ -54,10 +57,13 @@ export default function Car3DViewer() {
           enableZoom={true}
           minDistance={3}
           maxDistance={10}
-          autoRotate
+          autoRotate={true}
           autoRotateSpeed={1}
         />
       </Canvas>
     </div>
   );
 }
+
+// Preload the model for immediate availability
+useGLTF.preload("/source/2021 Volkswagen Golf GTI.glb");

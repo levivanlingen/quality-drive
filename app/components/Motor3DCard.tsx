@@ -1,8 +1,8 @@
 "use client";
 
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Environment, PerspectiveCamera } from "@react-three/drei";
-import { Suspense, useRef, useMemo } from "react";
+import { Suspense, useMemo } from "react";
 
 // Configureer Draco decoder voor gecomprimeerde modellen
 useGLTF.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
@@ -10,26 +10,12 @@ useGLTF.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/'
 function MotorModel({ isHovered }: { isHovered: boolean }) {
   const { scene } = useGLTF("/source motor/kawasaki_ninja_h2r.glb");
   const clonedScene = useMemo(() => scene.clone(), [scene]);
-  const modelRef = useRef<any>(null);
-
-  useFrame(({ clock }) => {
-    // Alleen animeren tijdens hover voor betere performance
-    if (modelRef.current && isHovered) {
-      const amplitude = 0.035;
-      const speed = 7;
-      modelRef.current.position.y = -0.55 + Math.sin(clock.getElapsedTime() * speed) * amplitude;
-    } else if (modelRef.current) {
-      // Reset naar base positie als niet gehovered
-      modelRef.current.position.y = -0.55;
-    }
-  });
 
   return (
     <primitive
-      ref={modelRef}
       object={clonedScene}
       scale={1.6}
-      position={[0, -0.55, 0]}
+      position={[0.25, -0.7, 0]}
       rotation={[0, Math.PI / 2, 0]}
     />
   );
@@ -55,10 +41,10 @@ export default function Motor3DCard({ isCardHovered = false }: { isCardHovered?:
       }}
     >
       <Canvas
-        frameloop={isCardHovered ? 'always' : 'demand'}
-        dpr={[1, 1.2]}
+        frameloop="always"
+        dpr={[1.5, 2]}
         performance={{ min: 0.5, max: 1 }}
-        gl={{ antialias: false, powerPreference: 'high-performance' }}
+        gl={{ antialias: true, powerPreference: 'high-performance' }}
       >
         <PerspectiveCamera makeDefault position={[3.5, 1.2, 3.5]} fov={45} />
 
@@ -78,12 +64,14 @@ export default function Motor3DCard({ isCardHovered = false }: { isCardHovered?:
           enableZoom={false}
           minDistance={3}
           maxDistance={8}
-          enabled={isCardHovered}
+          enabled={true}
+          autoRotate={!isCardHovered}
+          autoRotateSpeed={0.5}
         />
       </Canvas>
     </div>
   );
 }
 
-// Note: Removed useGLTF.preload() - models now load on-demand when user hovers
-// This significantly reduces initial GPU load and memory usage
+// Preload the model for immediate availability
+useGLTF.preload("/source motor/kawasaki_ninja_h2r.glb");
