@@ -48,7 +48,7 @@ export default function Header() {
           <Link href="/#pakketten" scroll={true}>Pakketten</Link>
           <Link href="/#theorie" scroll={true}>Theorie</Link>
           <Link href="/about">Over ons</Link>
-          <Link href="/#rijopleidingen" scroll={true}>Rijopleidingen</Link>
+          <Link href="/rijopleidingen">Rijopleidingen</Link>
           <Link href="/contact">Contact</Link>
           <Link href="/blog">Blog</Link>
         </div>
@@ -71,7 +71,7 @@ export default function Header() {
           <Link href="/#pakketten" onClick={closeMobileMenu} scroll={true}>Pakketten</Link>
           <Link href="/#theorie" onClick={closeMobileMenu} scroll={true}>Theorie</Link>
           <Link href="/about" onClick={closeMobileMenu}>Over ons</Link>
-          <Link href="/#rijopleidingen" onClick={closeMobileMenu} scroll={true}>Rijopleidingen</Link>
+          <Link href="/rijopleidingen" onClick={closeMobileMenu}>Rijopleidingen</Link>
           <Link href="/contact" onClick={closeMobileMenu}>Contact</Link>
           <Link href="/blog" onClick={closeMobileMenu}>Blog</Link>
         </div>

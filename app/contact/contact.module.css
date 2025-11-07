@@ -1,0 +1,46 @@
+/* Contact Page Responsive Styles */
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.formFieldsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sidebarContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactGrid {
+    gap: 1.5rem;
+  }
+
+  .formFieldsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactGrid {
+    gap: 1rem;
+  }
+}

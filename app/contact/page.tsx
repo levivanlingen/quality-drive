@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
 import styles from '../page.module.css';
+import contactStyles from './contact.module.css';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 
 export default function ContactPage() {
@@ -60,7 +61,7 @@ export default function ContactPage() {
             Je kunt ook direct bellen of mailen via bovenstaande contactgegevens.
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 400px', gap: '3rem', alignItems: 'start' }}>
+          <div className={contactStyles.contactGrid}>
             {/* Contact Form */}
             <form onSubmit={handleSubmit}>
             <div style={{
@@ -117,7 +118,7 @@ export default function ContactPage() {
               </div>
 
               {/* Email en Telefoon */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
+              <div className={contactStyles.formFieldsGrid}>
                 <div>
                   <label style={{
                     display: 'block',
@@ -359,7 +360,7 @@ export default function ContactPage() {
           </form>
 
           {/* Sidebar: Openingstijden en Map */}
-          <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+          <div className={contactStyles.sidebarContainer}>
             {/* Openingstijden */}
             <div style={{
               background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%)',

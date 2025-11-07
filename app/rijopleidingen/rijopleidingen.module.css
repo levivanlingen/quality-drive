@@ -1,0 +1,562 @@
+/* Rijopleidingen Page Styles */
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
+  padding: 8rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.10'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.45;
+}
+
+.heroContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.breadcrumb a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: white;
+}
+
+.breadcrumbSeparator {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+/* Courses Section */
+.coursesSection {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.coursesContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.coursesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.courseCard {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+  /* REMOVED: backdrop-filter - too heavy for GPU! */
+  border-radius: 24px;
+  will-change: transform;
+  padding: 3rem 2.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  /* Only animate transform and box-shadow (GPU accelerated) */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  /* Force GPU acceleration */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.courseCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 101, 166, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  will-change: opacity;
+}
+
+/* Shadow layer - animates via opacity instead of box-shadow property */
+.courseCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.15),
+    0 0 80px rgba(0, 101, 166, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: -1;
+  will-change: opacity;
+}
+
+.courseCard:hover::before {
+  opacity: 1;
+}
+
+.courseCard:hover::after {
+  opacity: 1;
+}
+
+.courseCard:hover {
+  transform: translateY(-8px) scale(1.02) rotate(-1deg);
+  /* Base shadow remains static - only ::after shadow animates via opacity */
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 101, 166, 0.4);
+  /* REMOVED: backdrop-filter - too heavy for GPU during animations! */
+  /* REMOVED: background gradient change - moved to fix 3 */
+}
+
+.courseIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.courseCard:hover .courseIcon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.courseTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #1a1a1a;
+  position: relative;
+  z-index: 1;
+}
+
+.courseDescription {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.courseArrow {
+  font-size: 1.5rem;
+  color: #0065A6;
+  font-weight: 700;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.courseCard:hover .courseArrow {
+  transform: translateX(8px);
+}
+
+/* Image Section */
+.imageSection {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.imageContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.imageRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.imageBox {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.imageBox:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 101, 166, 0.2);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Divider Section */
+.dividerSection {
+  padding: 3rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0065A6, transparent);
+}
+
+.dividerIcon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 101, 166, 0.3);
+}
+
+.dividerIcon svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* CTA Section */
+.ctaSection {
+  padding: 6rem 2rem;
+  background-image:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.4) 100%),
+    url('/uploads/Night-Driving-CarBaba-1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.ctaContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ctaContent {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+  backdrop-filter: blur(30px) saturate(200%);
+  border-radius: 32px;
+  padding: 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.ctaLabel {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(0, 101, 166, 0.1) 0%, rgba(0, 101, 166, 0.05) 100%);
+  color: #0065A6;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(0, 101, 166, 0.2);
+}
+
+.ctaTitle {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.ctaText {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.guaranteeSection {
+  background: linear-gradient(135deg, rgba(0, 101, 166, 0.05) 0%, rgba(0, 101, 166, 0.02) 100%);
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border: 2px solid rgba(0, 101, 166, 0.1);
+}
+
+.guaranteeTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0065A6;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.guaranteeText {
+  font-size: 0.9rem;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #C11517 0%, #a00f11 100%);
+  color: white;
+  padding: 0.875rem 1.75rem;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(193, 21, 23, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ctaButton:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(193, 21, 23, 0.4);
+  background: linear-gradient(135deg, #dc3234 0%, #C11517 100%);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .coursesGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 8rem 1.5rem 3rem;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.25rem;
+  }
+
+  .coursesSection {
+    padding: 4rem 1.5rem;
+  }
+
+  .coursesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .courseCard {
+    padding: 2rem;
+  }
+
+  .courseIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .courseTitle {
+    font-size: 1.25rem;
+  }
+
+  .courseDescription {
+    font-size: 0.9rem;
+  }
+
+  .imageSection {
+    padding: 4rem 1.5rem;
+  }
+
+  .imageRow {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .dividerSection {
+    padding: 2rem 1.5rem;
+  }
+
+  .ctaSection {
+    padding: 4rem 1.5rem;
+  }
+
+  .ctaContent {
+    padding: 3rem 2rem;
+  }
+
+  .ctaTitle {
+    font-size: 2rem;
+  }
+
+  .ctaText {
+    font-size: 1rem;
+  }
+
+  .guaranteeSection {
+    padding: 2rem;
+  }
+
+  .guaranteeTitle {
+    font-size: 1.5rem;
+  }
+
+  .guaranteeText {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 7rem 1rem 2rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.125rem;
+  }
+
+  .breadcrumb {
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .coursesSection {
+    padding: 3rem 1rem;
+  }
+
+  .coursesGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .courseCard {
+    padding: 1.5rem;
+  }
+
+  .imageSection {
+    padding: 3rem 1rem;
+  }
+
+  .imageRow {
+    gap: 1.5rem;
+  }
+
+  .ctaSection {
+    padding: 3rem 1rem;
+  }
+
+  .ctaContent {
+    padding: 2rem 1.5rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.75rem;
+  }
+
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 2rem;
+  }
+
+  .guaranteeSection {
+    padding: 1.5rem;
+  }
+
+  .guaranteeTitle {
+    font-size: 1.25rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

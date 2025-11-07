@@ -10,13 +10,12 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
-      // Als je WordPress media moet importeren van externe URL:
-      // {
-      //   protocol: 'https',
-      //   hostname: 'jouw-wordpress-site.nl',
-      //   port: '',
-      //   pathname: '/wp-content/uploads/**',
-      // },
+      {
+        protocol: 'https',
+        hostname: 'quality-drive.nl',
+        port: '',
+        pathname: '/wp-content/uploads/**',
+      },
     ],
   },
 
