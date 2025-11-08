@@ -6,14 +6,21 @@ import { PrismaClient } from '@prisma/client';
 
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
-// Force Railway database if Replit's helium database is detected
+// Force Railway database if Replit's helium database is detected or if DATABASE_URL is missing
 const getDatabaseUrl = () => {
   const envUrl = process.env.DATABASE_URL;
+  const railwayUrl = 'postgresql://postgres:bHlnhxdXDICEwGSxJmeDuHQgoEdvqmPO@gondola.proxy.rlwy.net:57946/railway';
+
+  // If no DATABASE_URL, use Railway
+  if (!envUrl) {
+    console.warn('⚠️  No DATABASE_URL found, using Railway database');
+    return railwayUrl;
+  }
 
   // If URL contains 'helium' (Replit auto-injected), use Railway instead
-  if (envUrl?.includes('helium')) {
+  if (envUrl.includes('helium')) {
     console.warn('⚠️  Detected Replit database, switching to Railway database');
-    return 'postgresql://postgres:bHlnhxdXDICEwGSxJmeDuHQgoEdvqmPO@gondola.proxy.rlwy.net:57946/railway';
+    return railwayUrl;
   }
 
   return envUrl;
