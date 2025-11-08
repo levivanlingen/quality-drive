@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Disc3, Shield, Car } from 'lucide-react';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
 import prisma from '@/lib/prisma';
@@ -9,6 +10,7 @@ import styles from '../../page.module.css';
 import cityStyles from './city.module.css';
 import StepsSection from './StepsSection';
 import ContentSections from './ContentSections';
+import PakkettenSection from './PakkettenSection';
 
 // Generate static params for all rijschool city pages
 export async function generateStaticParams() {
@@ -273,84 +275,59 @@ export default async function RijschoolCityPage({ params }: { params: { city: st
           </div>
         </section>
 
-        {/* Text Content Section */}
-        <section className={cityStyles.textContentSection}>
-          <div className={cityStyles.textContentContainer}>
-            {/* Intro Paragraph */}
-            <div className={cityStyles.textBlock}>
-              <p className={cityStyles.textParagraph}>
-                Het rijbewijs, categorie B, heb je nodig om een auto te besturen waarvan de maximale toegelaten massa minder is dan 3,5 ton. Daarnaast mag je, wanneer je in het bezit bent van dit rijbewijs, een wagen besturen met een aanhanger tot 750 kg. Erg handig dus!
-              </p>
-              <p className={cityStyles.textParagraph}>
-                Woon je in {page.location.name}, wil je snel slagen of een spoedcursus rijbewijs volgen maar heb je geen zin in hoge kosten? Bij Quality-Drive ben je dan aan het goede adres! Ons basispakket van 20 rijlessen voor het halen van je rijbewijs in {page.location.name}, heb je al vanaf €780! Start daarom direct!
-              </p>
-              <p className={cityStyles.textParagraph}>
-                Een familiebedrijf dat inmiddels al meerdere jaren bestaat als rijschool Den Haag – Zoetermeer – Delft – Rijswijk – Berkel en Rodenrijs en omgeving. Wij kunnen bij onze autorijschool jouw rijlessen volledig op maat verzorgen. Ben je geïnteresseerd in een spoedpakket of wil je in je eigen tempo de rijlessen opbouwen. Bij autorijschool Quality-Drive kan het allemaal!
-              </p>
-              <p className={cityStyles.textParagraph}>
-                Je kunt naar wens versneld je rijbewijs halen in 10 dagen of de rijlessen helemaal in jouw tempo laten plannen. De keuze is aan jou!
-              </p>
-            </div>
+        {/* FAQ and Why Quality Drive Sections */}
+        <ContentSections cityName={page.location.name} />
 
-            {/* ADHD/ADD Section */}
-            <div className={cityStyles.textBlock}>
-              <h2 className={cityStyles.textSectionTitle}>Ook de beste rijschool voor ADHD - ADD - Faalangst en opfriscursus</h2>
-              <p className={cityStyles.textParagraph}>
-                Heeft u een lange tijd geen auto gereden of bent u net verhuist van een andere plek of heeft u een andere reden, en bent u toe aan een opfriscursus? Bij rijschool Quality-Drive zorgen wij ervoor dat u binnen enkele lessen weer zelfstandig de weg op durft te rijden. Autorijlessen voor leerlingen met ADHD – ADD of (faal)angst om achter het stuur te kruipen? Bij autorijschool Quality-Drive Den Haag – Zoetermeer – Delft – Rijswijk en omgeving hebben we gespecialiseerde instructeurs met speciale cursussen en trainingen. Zo bent u verzekerd van maatwerk rijlessen. Dit is immers de beste autorijschool van {page.location.name} en omgeving, met persoonlijke aandacht voor elke individu. Uiteraard wordt bij elke les maximaal Quality gegeven, dit vinden we zeer belangrijk bij autorijschool Quality-Drive. En nu met de unieke 6 zekerheden is succes gegarandeerd!
-              </p>
-              <p className={cityStyles.textHighlight}>
-                BIJ ONS HAALT IEDEREEN ZIJN/HAAR RIJBEWIJS!
-              </p>
-              <p className={cityStyles.textParagraph}>
-                Heb jij ook de barstende vraag welke de beste rijschool ADD van Den Haag – Zoetermeer – Delft – Rijswijk – Voorburg – Nootdorp – Berkel en Rodenrijs – Pijnacker – Landsingerland – Scheveningen en omgeving is? Wij hebben een unieke lesmethode ontwikkeld waarbij je elke lespakket kunt vergelijken met een spoedpakket bij onze autorijschool.
-              </p>
-              <p className={cityStyles.textParagraph}>
-                Met de succesvolle Quality-Drive Lesmethode slaag je gegarandeerd bij de beste rijschool van {page.location.name} en omgeving. Deze unieke formule begint met een gratis proefles door een gespecialiseerde proefles rijinstructeur, op basis hiervan wordt een persoonlijk lesadvies opgesteld en een rijcoach toegewezen die het beste bij jou past. Met onze lesmethode leer je alles over alle mogelijke verkeerssituaties waar je in terecht kunt komen.
-              </p>
-            </div>
+        {/* Section Divider */}
+        <div className={styles.sectionDivider}>
+          <div className={styles.dividerLine}></div>
+          <div className={styles.dividerIcon}>
+            <Disc3 size={48} strokeWidth={2} color="#cbd5e1" />
+          </div>
+          <div className={styles.dividerLine}></div>
+        </div>
 
-            {/* Why Quality Drive Section */}
-            <div className={cityStyles.textBlock}>
-              <h2 className={cityStyles.textSectionTitle}>Waarom Quality Drive?</h2>
+        {/* Populaire Pakketten Section */}
+        <PakkettenSection />
 
-              <div className={cityStyles.whyItem}>
-                <h3 className={cityStyles.whyItemTitle}>Succes Gegarandeerd</h3>
-                <p className={cityStyles.textParagraph}>
-                  Bij Quality Drive bent u verzekerd van succes. Dankzij onze bewezen methodes en ervaren instructeurs heeft u de hoogste kans om uw rijbewijs te behalen. Ons slagingspercentage spreekt voor zich: met Quality Drive slaagt u!
+        {/* CTA Section */}
+        <section className={cityStyles.ctaSection}>
+          <div className={cityStyles.ctaContainer}>
+            <div className={cityStyles.ctaContent}>
+              <p className={cityStyles.ctaLabel}>Begin vandaag nog</p>
+              <h2 className={cityStyles.ctaTitle}>
+                Start jouw Rijavontuur bij Quality Drive!
+              </h2>
+              <p className={cityStyles.ctaText}>
+                Kies hierboven jouw stad en ontdek wat Quality Drive voor jou kan betekenen.
+                Wij werken in <strong>Den Haag, Zoetermeer, Delft, Rijswijk</strong> en omgeving.
+              </p>
+              <p className={cityStyles.ctaText}>
+                Als je vragen hebt kun je geheel vrijblijvend contact met ons opnemen,
+                we helpen je graag verder.
+              </p>
+
+              <div className={cityStyles.guaranteeSection}>
+                <h3 className={cityStyles.guaranteeTitle}>
+                  <Shield size={28} />
+                  Onze Zekerheid aan jou
+                </h3>
+                <p className={cityStyles.guaranteeText}>
+                  Bij Quality Drive zorgen we ervoor dat je met zekerheid jouw rijbewijs haalt.
+                  Wij bieden niet alleen uitstekende rijlessen, maar ook de garantie dat je goed
+                  voorbereid en vol vertrouwen je rijexamen aflegt.
                 </p>
               </div>
 
-              <div className={cityStyles.whyItem}>
-                <h3 className={cityStyles.whyItemTitle}>Top Instructeurs</h3>
-                <p className={cityStyles.textParagraph}>
-                  Onze instructeurs zijn deskundig, geduldig en toegewijd aan uw succes. Ze zijn er om u te ondersteunen bij elke stap, u gerust te stellen en uw zelfvertrouwen op te bouwen. Hun persoonlijke aanpak zorgt ervoor dat u zich altijd op uw gemak voelt.
-                </p>
-              </div>
-
-              <div className={cityStyles.whyItem}>
-                <h3 className={cityStyles.whyItemTitle}>Moderne en Veilige Voertuigen</h3>
-                <p className={cityStyles.textParagraph}>
-                  U leert rijden in goed onderhouden, moderne voertuigen die voorzien zijn van de nieuwste veiligheidsvoorzieningen. Dit zorgt voor een veilige en comfortabele leeromgeving, waardoor u zich volledig kunt concentreren op uw rijvaardigheden.
-                </p>
-              </div>
-
-              <div className={cityStyles.whyItem}>
-                <h3 className={cityStyles.whyItemTitle}>Individueel Aangepaste Lesprogramma&apos;s</h3>
-                <p className={cityStyles.textParagraph}>
-                  Bij Quality Drive geloven we dat maatwerk de sleutel tot succes is. Onze lesprogramma&apos;s worden aangepast aan uw specifieke behoeften en leerstijl, zodat u zich in uw eigen tempo kunt ontwikkelen en zelfverzekerd naar uw rijexamen kunt toewerken.
-                </p>
-              </div>
-
-              <div className={cityStyles.whyItem}>
-                <h3 className={cityStyles.whyItemTitle}>Uitgebreide Theorieondersteuning</h3>
-                <p className={cityStyles.textParagraph}>
-                  Wij bieden uitgebreide ondersteuning bij uw theorie-examen. Met onze effectieve cursussen en oefenmateriaal bent u goed voorbereid en heeft u de kennis die nodig is om te slagen.
-                </p>
-              </div>
-
-              <p className={cityStyles.textCta}>
-                Meld je dus nu aan voor jouw gratis proefles.
-              </p>
+              <a
+                href="https://calendly.com/qualitydrive/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cityStyles.ctaButton}
+              >
+                <Car size={20} />
+                Gratis proefles plannen
+              </a>
             </div>
           </div>
         </section>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Trophy, Users, Car, Settings, BookOpen } from 'lucide-react';
+import { Trophy, Users, Car, Settings, BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
 import styles from './city.module.css';
 
 interface ContentSectionsProps {
@@ -9,53 +9,87 @@ interface ContentSectionsProps {
 }
 
 export default function ContentSections({ cityName }: ContentSectionsProps) {
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const toggleFaq = (index: number) => {
-    setOpenFaqIndex(openFaqIndex === index ? null : index);
-  };
-
-  const faqItems = [
+  const slides = [
     {
-      question: `Wat maakt Quality-Drive in ${cityName} uniek?`,
-      answer: `Het rijbewijs, categorie B, heb je nodig om een auto te besturen waarvan de maximale toegelaten massa minder is dan 3,5 ton. Daarnaast mag je, wanneer je in het bezit bent van dit rijbewijs, een wagen besturen met een aanhanger tot 750 kg. Erg handig dus! Woon je in ${cityName}, wil je snel slagen of een spoedcursus rijbewijs volgen maar heb je geen zin in hoge kosten? Bij Quality-Drive ben je dan aan het goede adres! Ons basispakket van 20 rijlessen voor het halen van je rijbewijs in ${cityName}, heb je al vanaf €780! Start daarom direct!`
+      title: `Beste Rijschool ${cityName}`,
+      content: [
+        `Het rijbewijs, categorie B, heb je nodig om een auto te besturen waarvan de maximale toegelaten massa minder is dan 3,5 ton. Daarnast mag je, wanneer je in het bezit bent van dit rijbewijs, een wagen besturen met een aanhanger tot 750 kg. erg handig dus!`,
+        `Woon je in ${cityName}, wil je snel slagen of een spoedcursus rijbewijs volgen maar heb je geen zin in hoge kosten? Bij Quality-Drive ben je dan aan het goede adres! ons basispakket van 20! rijlessen voor het halen van je rijbewijs in ${cityName}, heb je al vanaf €780! start daarom direct!`,
+        `Een familiebedrijf dat inmiddels al meerdere jaren bestaat als rijschool Den Haag – Zoetermeer – Delft – Rijswijk – Berkel en Rodenrijs  en omgeving. Wij kunnen bij onze autorijschool jouw rijlessen volledig op maat verzorgen. Ben je geïnteresseerd in een spoedpakket of wil je in je eigen tempo de rijlessen opbouwen. Bij autorijschool Quality-Drive kan het allemaal!`,
+        `Je kunt naar wens versneld je rijbewijs halen in 10 dagen of de rijlessen helemaal in jouw tempo laten plannen. De keuze is aan jou!`
+      ]
     },
     {
-      question: 'Wat is de Quality-Drive Lesmethode?',
-      answer: `Een familiebedrijf dat inmiddels al meerdere jaren bestaat als rijschool Den Haag – Zoetermeer – Delft – Rijswijk – Berkel en Rodenrijs en omgeving. Wij kunnen bij onze autorijschool jouw rijlessen volledig op maat verzorgen. Ben je geïnteresseerd in een spoedpakket of wil je in je eigen tempo de rijlessen opbouwen. Bij autorijschool Quality-Drive kan het allemaal! Je kunt naar wens versneld je rijbewijs halen in 10 dagen of de rijlessen helemaal in jouw tempo laten plannen. De keuze is aan jou!`
+      title: "Ook de beste rijschool voor ADHD - ADD - Faalangst en opfriscursus",
+      content: [
+        `Heeft u een lange tijd geen auto gereden of bent u net verhuist van een andere plek of heeft u een andere reden, en bent u toe aan een opfriscursus? Bij rijschool Quality-Drive zorgen wij ervoor dat u binnen enkele lessen weer zelfstandig de weg op durft te rijden. Autorijlessen voor leerlingen met ADHD – ADD of (faal)angst om achter het stuur te kruipen? Bij autorijschool Quality-Drive Den Haag – Zoetermeer – Delft – Rijswijk en omgeving hebben we gespecialiseerde instructeurs met speciale cursussen en trainingen. Zo bent u verzekerd van maatwerk rijlessen. Dit is immers de beste autorijschool van ${cityName} en omgeving, met persoonlijke aandacht voor elke individu. Uiteraard wordt bij elke les maximaal Quality gegeven, dit vinden we zeer belangrijk bij autorijschool Quality-Drive. En nu met de unieke 6 zekerheden is succes gegarandeerd!`,
+        `BIJ ONS HAALT IEDEREEN ZIJN/HAAR RIJBEWIJS!`
+      ]
     },
     {
-      question: 'Ondersteuning voor ADHD, ADD en Faalangst',
-      answer: `Heeft u een lange tijd geen auto gereden of bent u net verhuist van een andere plek of heeft u een andere reden, en bent u toe aan een opfriscursus? Bij rijschool Quality-Drive zorgen wij ervoor dat u binnen enkele lessen weer zelfstandig de weg op durft te rijden. Autorijlessen voor leerlingen met ADHD – ADD of (faal)angst om achter het stuur te kruipen? Bij autorijschool Quality-Drive Den Haag – Zoetermeer – Delft – Rijswijk en omgeving hebben we gespecialiseerde instructeurs met speciale cursussen en trainingen. Zo bent u verzekerd van maatwerk rijlessen. Dit is immers de beste autorijschool van ${cityName} en omgeving, met persoonlijke aandacht voor elke individu.`
-    },
-    {
-      question: 'Hoe werkt de unieke lesmethode?',
-      answer: `BIJ ONS HAALT IEDEREEN ZIJN/HAAR RIJBEWIJS! Heb jij ook de barstende vraag welke de beste rijschool ADD van Den Haag – Zoetermeer – Delft – Rijswijk – Voorburg – Nootdorp – Berkel en Rodenrijs – Pijnacker – Landsingerland – Scheveningen en omgeving is? Wij hebben een unieke lesmethode ontwikkeld waarbij je elke lespakket kunt vergelijken met een spoedpakket bij onze autorijschool. Met de succesvolle Quality-Drive Lesmethode slaag je gegarandeerd bij de beste rijschool van ${cityName} en omgeving. Deze unieke formule begint met een gratis proefles door een gespecialiseerde proefles rijinstructeur, op basis hiervan wordt een persoonlijk lesadvies opgesteld en een rijcoach toegewezen die het beste bij jou past.`
+      title: "Unieke Quality-Drive Lesmethode",
+      content: [
+        `Heb jij ook de barstende vraag welke de beste rijschool ADD van Den Haag – Zoetermeer – Delft – Rijswijk – Voorburg – Nootdorp – Berkel en Rodenrijs – Pijnacker – Landsingerland – Scheveningen en omgeving is? Wij hebben een unieke lesmethode ontwikkeld waarbij je elke lespakket kunt vergelijken met een spoedpakket bij onze autorijschool.`,
+        `Met de succesvolle Quality-Drive Lesmethode slaag je gegarandeerd bij de beste rijschool van ${cityName} en omgeving. Deze unieke formule begint met een gratis proefles door een gespecialiseerde proefles rijinstructeur, op basis hiervan wordt een persoonlijk lesadvies opgesteld en een rijcoach toegewezen die het beste bij jou past. Met onze lesmethode leer je alles over alle mogelijke verkeerssituaties waar je in terecht kunt komen.`
+      ]
     }
   ];
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
   return (
     <>
-      {/* FAQ Section */}
-      <section className={styles.faqSection}>
-        <div className={styles.faqContent}>
-          <h2 className={styles.faqTitle}>Alles over rijlessen in {cityName}</h2>
-          <p className={styles.faqSubtitle}>Ontdek waarom Quality Drive de beste keuze is voor jouw rijbewijs</p>
+      {/* Carousel Section */}
+      <section className={styles.carouselSection}>
+        <div className={styles.carouselContainer}>
+          <h2 className={styles.carouselMainTitle}>Over Quality Drive in {cityName}</h2>
 
-          <div className={styles.faqList}>
-            {faqItems.map((item, index) => (
-              <div key={index} className={styles.faqItem}>
-                <button
-                  className={`${styles.faqQuestion} ${openFaqIndex === index ? styles.faqQuestionActive : ''}`}
-                  onClick={() => toggleFaq(index)}
-                >
-                  <span>{item.question}</span>
-                  <span className={styles.faqIcon}>{openFaqIndex === index ? '−' : '+'}</span>
-                </button>
-                <div className={`${styles.faqAnswer} ${openFaqIndex === index ? styles.faqAnswerOpen : ''}`}>
-                  <p>{item.answer}</p>
-                </div>
-              </div>
+          <div className={styles.carouselContent}>
+            <div className={styles.carouselSlide}>
+              <h3>{slides[currentSlide].title}</h3>
+              {slides[currentSlide].content.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
+
+            {/* Navigation Arrows */}
+            <button
+              className={`${styles.carouselArrow} ${styles.carouselArrowLeft}`}
+              onClick={prevSlide}
+              aria-label="Vorige slide"
+            >
+              <ChevronLeft size={32} />
+            </button>
+            <button
+              className={`${styles.carouselArrow} ${styles.carouselArrowRight}`}
+              onClick={nextSlide}
+              aria-label="Volgende slide"
+            >
+              <ChevronRight size={32} />
+            </button>
+          </div>
+
+          {/* Dots Navigation */}
+          <div className={styles.carouselDots}>
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                className={`${styles.carouselDot} ${index === currentSlide ? styles.carouselDotActive : ''}`}
+                onClick={() => goToSlide(index)}
+                aria-label={`Ga naar slide ${index + 1}`}
+              />
             ))}
           </div>
         </div>
@@ -116,18 +150,6 @@ export default function ContentSections({ cityName }: ContentSectionsProps) {
                 Wij bieden uitgebreide ondersteuning bij uw theorie-examen. Met onze effectieve cursussen en oefenmateriaal bent u goed voorbereid en heeft u de kennis die nodig is om te slagen.
               </p>
             </div>
-          </div>
-
-          <div className={styles.ctaFooter}>
-            <p>Meld je dus nu aan voor jouw gratis proefles.</p>
-            <a
-              href="https://calendly.com/qualitydrive/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.ctaFooterButton}
-            >
-              Gratis proefles inplannen
-            </a>
           </div>
         </div>
       </section>
