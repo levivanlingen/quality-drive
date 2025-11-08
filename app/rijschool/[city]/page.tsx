@@ -8,6 +8,7 @@ import { PageCategory } from '@prisma/client';
 import styles from '../../page.module.css';
 import cityStyles from './city.module.css';
 import StepsSection from './StepsSection';
+import ContentSections from './ContentSections';
 
 // Generate static params for all rijschool city pages
 export async function generateStaticParams() {
