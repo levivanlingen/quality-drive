@@ -1,0 +1,106 @@
+/* Content HTML Styling - Blue theme for Rijschool */
+.contentHtml h1,
+.contentHtml h2,
+.contentHtml h3,
+.contentHtml h4,
+.contentHtml h5,
+.contentHtml h6 {
+  color: #0065A6;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.contentHtml h1 { font-size: 2.5rem; }
+.contentHtml h2 { font-size: 2rem; }
+.contentHtml h3 { font-size: 1.75rem; }
+.contentHtml h4 { font-size: 1.5rem; }
+.contentHtml h5 { font-size: 1.25rem; }
+.contentHtml h6 { font-size: 1.125rem; }
+
+.contentHtml p {
+  margin-bottom: 1.5rem;
+}
+
+.contentHtml ul,
+.contentHtml ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.contentHtml li {
+  margin-bottom: 0.5rem;
+}
+
+.contentHtml a {
+  color: #0065A6;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.contentHtml a:hover {
+  color: #004d7a;
+}
+
+.contentHtml strong,
+.contentHtml b {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.contentHtml img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 2rem 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contentHtml blockquote {
+  border-left: 4px solid #0065A6;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #4a5568;
+}
+
+.contentHtml table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+.contentHtml th,
+.contentHtml td {
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.contentHtml th {
+  background: #f8f9fa;
+  font-weight: 700;
+  color: #0065A6;
+}
+
+.contentHtml code {
+  background: #f8f9fa;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.contentHtml pre {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.contentHtml pre code {
+  background: transparent;
+  padding: 0;
+}

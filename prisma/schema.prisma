@@ -29,7 +29,8 @@ model Location {
   slug      String   @unique // e.g., "den-haag", "zoetermeer"
 
   // Relations
-  pages     Page[]
+  pages          Page[]
+  autorijlesStad AutorijlesStad?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -78,4 +79,84 @@ model Page {
   @@index([category])
   @@index([locationId])
   @@index([category, locationId])
+}
+
+// Gestructureerde autorijles stad pagina's
+model AutorijlesStad {
+  id        Int      @id @default(autoincrement())
+
+  // Relatie met locatie
+  location   Location @relation(fields: [locationId], references: [id])
+  locationId Int      @unique
+
+  // Hero Sectie
+  heroTitle           String   // "Rijschool Den Haag"
+  heroSubtitle        String   @db.Text // "Professionele rijlessen..."
+  heroImage           String?  // URL naar hero image
+  heroButtonText      String   @default("Gratis proefles plannen")
+  heroButtonLink      String   @default("https://calendly.com/qualitydrive/30min")
+
+  // Introductie Sectie
+  introTitle          String?  // "Autorijlessen in Den Haag"
+  introText           String?  @db.Text // Introductie paragraaf
+
+  // Features/USPs (JSON array)
+  // [{ "title": "Gratis proefles", "description": "...", "icon": "gift" }]
+  features            Json?
+
+  // Waarom Quality Drive sectie
+  whyTitle            String   @default("Waarom kiezen voor Quality Drive?")
+  whyText             String?  @db.Text
+  whyPoints           Json?    // [{ "title": "Ervaren instructeurs", "description": "..." }]
+
+  // Pakketten sectie
+  showPricing         Boolean  @default(true)
+  pricingTitle        String   @default("Rijles pakketten")
+  pricingSubtitle     String?
+  packages            Json?    // [{ "name": "Basis", "price": 1099, "lessons": 20, "features": [] }]
+
+  // Lokale info
+  localTitle          String?  // "Rijlessen in [Stad]"
+  localText           String?  @db.Text // Stad-specifieke informatie
+  examLocation        String?  // "CBR Examenlokatie"
+  popularRoutes       Json?    // ["Route 1", "Route 2"]
+
+  // Testimonials
+  showTestimonials    Boolean  @default(true)
+  testimonials        Json?    // [{ "name": "Jan", "text": "...", "rating": 5, "image": "..." }]
+
+  // FAQ
+  showFaq             Boolean  @default(true)
+  faqTitle            String   @default("Veelgestelde vragen")
+  faqs                Json?    // [{ "question": "...", "answer": "..." }]
+
+  // CTA Sectie
+  ctaTitle            String   @default("Start vandaag nog!")
+  ctaText             String   @db.Text
+  ctaButtonText       String   @default("Gratis proefles plannen")
+  ctaButtonLink       String   @default("https://calendly.com/qualitydrive/30min")
+  ctaImage            String?  // Background image voor CTA
+
+  // Statistieken
+  studentCount        Int?     // "Aantal geslaagde leerlingen"
+  successRate         Float?   // "Slagingspercentage"
+  yearsActive         Int?     // "Jaar actief"
+  instructorCount     Int?     // "Aantal instructeurs"
+
+  // SEO
+  seoTitle            String
+  seoDescription      String   @db.Text
+  seoKeywords         String?
+  ogImage             String?  // Open Graph image
+
+  // Status
+  isPublished         Boolean  @default(true)
+  publishedAt         DateTime?
+
+  // Timestamps
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@index([locationId])
+  @@index([isPublished])
 }

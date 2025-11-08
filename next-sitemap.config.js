@@ -26,11 +26,18 @@ module.exports = {
     if (path === '/') {
       priority = 1.0;
       changefreq = 'daily';
-    } else if (path.includes('/blog/')) {
-      priority = 0.8;
+    } else if (path.includes('/rijschool/') || path.includes('/taxi-rijles/')) {
+      // Stad pagina's zijn cruciaal voor local SEO
+      priority = 0.95;
+      changefreq = 'weekly';
+    } else if (path.includes('/autorijles') || path.includes('/rijopleidingen')) {
+      priority = 0.9;
       changefreq = 'weekly';
     } else if (path.includes('/pakketten') || path.includes('/theorie')) {
       priority = 0.9;
+      changefreq = 'weekly';
+    } else if (path.includes('/blog/')) {
+      priority = 0.8;
       changefreq = 'weekly';
     }
 

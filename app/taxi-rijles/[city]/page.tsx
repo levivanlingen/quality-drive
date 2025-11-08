@@ -1,10 +1,14 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
 import prisma from '@/lib/prisma';
 import { PageCategory } from '@prisma/client';
 import styles from '../../page.module.css';
+import cityStyles from './city.module.css';
+import contentStyles from '../content.module.css';
+import { Car, Disc3 } from 'lucide-react';
 
 // Generate static params for all taxi city pages
 export async function generateStaticParams() {
@@ -94,117 +98,68 @@ export default async function TaxiRijlesCityPage({ params }: { params: { city: s
       <Header />
 
       {/* Hero Section */}
-      <section style={{
-        background: 'linear-gradient(135deg, #FFB800 0%, #ff9500 100%)',
-        padding: '8rem 2rem 4rem',
-        position: 'relative',
-        overflow: 'hidden',
-      }}>
-        <div style={{
-          maxWidth: '1400px',
-          margin: '0 auto',
-          color: 'white',
-        }}>
-          <nav style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            padding: '0.75rem 1.5rem',
-            background: 'rgba(255, 255, 255, 0.1)',
-            backdropFilter: 'blur(10px)',
-            borderRadius: '50px',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            fontSize: '0.875rem',
-            marginBottom: '2rem',
-          }}>
-            <a href="/" style={{ color: 'rgba(255, 255, 255, 0.9)', textDecoration: 'none' }}>Home</a>
-            <span style={{ color: 'rgba(255, 255, 255, 0.5)' }}>/</span>
+      <section className={cityStyles.hero}>
+        <div className={cityStyles.heroContent}>
+          {/* Breadcrumb */}
+          <nav className={cityStyles.breadcrumb}>
+            <Link href="/">Home</Link>
+            <span className={cityStyles.breadcrumbSeparator}>/</span>
             <span>Taxi Rijles</span>
-            <span style={{ color: 'rgba(255, 255, 255, 0.5)' }}>/</span>
+            <span className={cityStyles.breadcrumbSeparator}>/</span>
             <span>{page.location.name}</span>
           </nav>
 
-          <h1 style={{
-            fontSize: '4rem',
-            fontWeight: 900,
-            marginBottom: 0,
-            lineHeight: 1.1,
-            textShadow: '0 4px 30px rgba(0, 0, 0, 0.3)',
-            letterSpacing: '-0.02em',
-          }}>
+          <p className={cityStyles.label}>
+            Quality Drive Taxirijschool
+          </p>
+          <h1 className={cityStyles.title}>
             {page.title}
           </h1>
+          {page.excerpt && (
+            <p className={cityStyles.excerpt}>
+              {page.excerpt}
+            </p>
+          )}
         </div>
       </section>
 
       {/* Content Section */}
-      <section style={{
-        padding: '6rem 2rem',
-        background: 'linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%)',
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-        }}>
-          {/* Render HTML content safely */}
+      <section className={cityStyles.contentSection}>
+        <div className={cityStyles.contentContainer}>
           <div
-            style={{
-              fontSize: '1.125rem',
-              color: '#4a5568',
-              lineHeight: 1.8,
-            }}
+            className={contentStyles.contentHtml}
             dangerouslySetInnerHTML={{ __html: page.content }}
           />
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className={styles.sectionDivider}>
+        <div className={styles.dividerLine}></div>
+        <div className={styles.dividerIcon}>
+          <Disc3 size={48} strokeWidth={2} color="#cbd5e1" />
+        </div>
+        <div className={styles.dividerLine}></div>
+      </div>
+
       {/* CTA Section */}
-      <section style={{
-        padding: '6rem 2rem',
-        backgroundImage: 'linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.4) 100%), url("/uploads/Night-Driving-CarBaba-1.jpg")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}>
-        <div style={{
-          maxWidth: '1400px',
-          margin: '0 auto',
-          display: 'flex',
-          justifyContent: 'center',
-        }}>
-          <div style={{
-            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%)',
-            backdropFilter: 'blur(30px) saturate(200%)',
-            borderRadius: '32px',
-            padding: '3rem',
-            textAlign: 'center',
-            maxWidth: '600px',
-            width: '100%',
-          }}>
-            <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '1rem' }}>
-              Start je taxi opleiding in {page.location.name}!
-            </h2>
-            <p style={{ marginBottom: '2rem', color: '#4a5568' }}>
-              Word professioneel taxichauffeur met Quality Drive.
-            </p>
+      <section className={styles.zekerhedenSection}>
+        <div className={styles.zekerhedenContent}>
+          <h2 className={styles.sectionTitle}>
+            Start vandaag nog met je taxirijbewijs in {page.location.name}!
+          </h2>
+          <p style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 2.5rem', fontSize: '1.125rem', color: '#4a5568' }}>
+            Wij werken in Den Haag, Zoetermeer, Delft, Rijswijk en omgeving. Plan je gratis proefles en start morgen al met taxirijlessen!
+          </p>
+          <div className={styles.zekerhedenButtons}>
             <a
               href="https://calendly.com/qualitydrive/30min"
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                background: 'linear-gradient(135deg, #FFB800 0%, #ff9500 100%)',
-                color: 'white',
-                padding: '1rem 2rem',
-                borderRadius: '16px',
-                fontSize: '1rem',
-                fontWeight: 700,
-                textDecoration: 'none',
-                boxShadow: '0 10px 30px rgba(255, 184, 0, 0.3)',
-              }}
+              className={styles.rijschoolButton}
             >
-              Plan je proefles in
+              <Car size={20} />
+              Gratis proefles plannen
             </a>
           </div>
         </div>
