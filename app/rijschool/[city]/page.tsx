@@ -8,20 +8,31 @@ import styles from '../../page.module.css';
 
 // Generate static params for all rijschool city pages
 export async function generateStaticParams() {
-  const pages = await prisma.page.findMany({
-    where: {
-      category: PageCategory.RIJSCHOOL_AUTO,
-    },
-    include: {
-      location: true,
-    },
-  });
+  // Fallback for build time when DATABASE_URL might not be available
+  if (!process.env.DATABASE_URL) {
+    console.warn('⚠️  DATABASE_URL not found during build, skipping static generation');
+    return [];
+  }
 
-  return pages
-    .filter(page => page.location)
-    .map((page) => ({
-      city: page.location!.slug,
-    }));
+  try {
+    const pages = await prisma.page.findMany({
+      where: {
+        category: PageCategory.RIJSCHOOL_AUTO,
+      },
+      include: {
+        location: true,
+      },
+    });
+
+    return pages
+      .filter(page => page.location)
+      .map((page) => ({
+        city: page.location!.slug,
+      }));
+  } catch (error) {
+    console.error('Error generating static params:', error);
+    return [];
+  }
 }
 
 // Generate metadata for SEO
