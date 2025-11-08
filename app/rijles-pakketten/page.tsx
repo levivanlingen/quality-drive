@@ -137,13 +137,6 @@ export default function RijlesPakkettenPage() {
               ))}
             </ul>
           </div>
-
-          <p className={pakkettenStyles.ctaText}>
-            Waar wacht je nog op?!{' '}
-            <Link href="/contact" className={pakkettenStyles.ctaLink}>
-              <strong>Klik hier voor een Gratis Proefles</strong>
-            </Link>
-          </p>
         </div>
       </section>
 

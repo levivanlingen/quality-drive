@@ -5,13 +5,17 @@
   "scripts": {
     "dev": "next dev -p 5000 -H 0.0.0.0",
     "dev:clean": "rm -rf .next .turbo && next dev -p 5000 -H 0.0.0.0",
-    "build": "next build && npm run postbuild",
+    "build": "prisma generate && next build && npm run postbuild",
     "postbuild": "next-sitemap",
     "start": "next start -p ${PORT:-5000} -H 0.0.0.0",
     "lint": "eslint",
-    "analyze": "ANALYZE=true npm run build"
+    "analyze": "ANALYZE=true npm run build",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio"
   },
   "dependencies": {
+    "@prisma/client": "^6.19.0",
     "@react-three/drei": "^10.7.6",
     "@react-three/fiber": "^9.4.0",
     "dotenv": "^17.2.3",
@@ -19,6 +23,7 @@
     "next": "16.0.1",
     "next-seo": "^7.0.1",
     "next-sitemap": "^4.2.3",
+    "prisma": "^6.19.0",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-icons": "^5.5.0",
@@ -31,6 +36,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.0.1",
     "sharp": "^0.34.4",
+    "tsx": "^4.20.6",
     "typescript": "^5"
   }
 }

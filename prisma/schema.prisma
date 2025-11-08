@@ -1,0 +1,81 @@
+// Prisma schema for Quality Drive pages
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Page categories enum
+enum PageCategory {
+  RIJSCHOOL_AUTO    // rijschool-{stad} pages
+  RIJSCHOOL_MOTOR   // motor rijschool pages
+  RIJSCHOOL_TAXI    // taxi rijles pages
+  RIJSCHOOL_AUTOMAAT // automaat rijles pages
+  THEORIE           // theory pages
+  BLOG              // blog posts
+  CONTACT           // contact page
+  ABOUT             // about pages
+  GENERAL           // other pages
+}
+
+// Location/City model
+model Location {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique // e.g., "Den Haag", "Zoetermeer"
+  slug      String   @unique // e.g., "den-haag", "zoetermeer"
+
+  // Relations
+  pages     Page[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([slug])
+}
+
+// Main Page model
+model Page {
+  id            Int          @id @default(autoincrement())
+  wordpressId   Int?         @unique // Original WordPress ID
+  slug          String       @unique
+  title         String
+  content       String       @db.Text // HTML content
+  excerpt       String?      @db.Text // Short description
+
+  // Categorization
+  category      PageCategory @default(GENERAL)
+
+  // Location relation (for city-specific pages)
+  location      Location?    @relation(fields: [locationId], references: [id])
+  locationId    Int?
+
+  // Media
+  featuredImage String?
+
+  // SEO
+  seoTitle      String?
+  seoDescription String?
+  seoKeywords   String?
+
+  // Meta
+  originalUrl   String?
+  publishedAt   DateTime?
+
+  // Page hierarchy
+  parentId      Int?
+  parent        Page?        @relation("PageHierarchy", fields: [parentId], references: [id], onDelete: SetNull)
+  children      Page[]       @relation("PageHierarchy")
+
+  // Timestamps
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  @@index([slug])
+  @@index([category])
+  @@index([locationId])
+  @@index([category, locationId])
+}

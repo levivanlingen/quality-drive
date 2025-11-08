@@ -46,7 +46,7 @@ export default function Header() {
         {/* Desktop Navigation */}
         <div className={styles.navLinks}>
           <Link href="/rijles-pakketten">Pakketten</Link>
-          <Link href="/#theorie" scroll={true}>Theorie</Link>
+          <Link href="/theorie">Theorie</Link>
           <Link href="/about">Over ons</Link>
           <Link href="/rijopleidingen">Rijopleidingen</Link>
           <Link href="/contact">Contact</Link>
@@ -69,7 +69,7 @@ export default function Header() {
       <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
         <div className={styles.mobileMenuContent}>
           <Link href="/rijles-pakketten" onClick={closeMobileMenu}>Pakketten</Link>
-          <Link href="/#theorie" onClick={closeMobileMenu} scroll={true}>Theorie</Link>
+          <Link href="/theorie" onClick={closeMobileMenu}>Theorie</Link>
           <Link href="/about" onClick={closeMobileMenu}>Over ons</Link>
           <Link href="/rijopleidingen" onClick={closeMobileMenu}>Rijopleidingen</Link>
           <Link href="/contact" onClick={closeMobileMenu}>Contact</Link>

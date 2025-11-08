@@ -1,0 +1,559 @@
+/* Theorie Page Styles */
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
+  padding: 8rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.10'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.45;
+}
+
+.heroContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.breadcrumb a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: white;
+}
+
+.breadcrumbSeparator {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.heroTitle {
+  font-size: 4rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 0;
+  line-height: 1.1;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.02em;
+}
+
+/* Content Section */
+.contentSection {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.contentContainer {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.mainTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0065A6;
+  margin-bottom: 2rem;
+  line-height: 1.3;
+}
+
+.contentText {
+  font-size: 1.125rem;
+  color: #4a5568;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.contentText p {
+  margin-bottom: 1.5rem;
+}
+
+.highlightBox {
+  background: linear-gradient(135deg, rgba(0, 101, 166, 0.05) 0%, rgba(0, 101, 166, 0.02) 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 2px solid rgba(0, 101, 166, 0.1);
+}
+
+.highlightTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0065A6;
+  margin-bottom: 1rem;
+}
+
+.highlightBox p {
+  margin-bottom: 0;
+  color: #4a5568;
+  line-height: 1.8;
+}
+
+.featuresList {
+  margin: 3rem 0 1rem 0;
+}
+
+.featuresTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+.featureIcon {
+  color: #0065A6;
+  flex-shrink: 0;
+}
+
+/* Methods Section */
+.methodsSection {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0065A6;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.sectionIntro {
+  font-size: 1.125rem;
+  color: #4a5568;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  line-height: 1.8;
+}
+
+.methodsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.methodCard {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.methodCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 101, 166, 0.3);
+}
+
+.methodIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  color: white;
+  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
+}
+
+.methodTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.methodContent {
+  color: #4a5568;
+  line-height: 1.8;
+}
+
+.methodContent p {
+  margin-bottom: 1.25rem;
+}
+
+.methodPrice {
+  background: linear-gradient(135deg, rgba(0, 101, 166, 0.08) 0%, rgba(0, 101, 166, 0.04) 100%);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 101, 166, 0.15);
+  margin: 1.5rem 0;
+  font-weight: 600;
+}
+
+.methodPrice strong {
+  color: #0065A6;
+  font-size: 1.25rem;
+}
+
+.methodSubtitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 1.5rem 0 1rem;
+}
+
+.methodList {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.methodList li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.methodList li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #0065A6;
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+/* Exam Section */
+.examSection {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.examInfo {
+  background: linear-gradient(135deg, rgba(0, 101, 166, 0.05) 0%, rgba(0, 101, 166, 0.02) 100%);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin: 2rem 0;
+  border: 2px solid rgba(0, 101, 166, 0.1);
+}
+
+.examInfoTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0065A6;
+  margin-bottom: 1.5rem;
+}
+
+.examComponents {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.examComponent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  font-size: 1.125rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.examIcon {
+  color: #0065A6;
+  flex-shrink: 0;
+}
+
+/* CTA Section */
+.ctaSection {
+  padding: 6rem 2rem;
+  background-image:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.4) 100%),
+    url('/uploads/Night-Driving-CarBaba-1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.ctaContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ctaContent {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+  backdrop-filter: blur(30px) saturate(200%);
+  border-radius: 32px;
+  padding: 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.ctaLabel {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(0, 101, 166, 0.1) 0%, rgba(0, 101, 166, 0.05) 100%);
+  color: #0065A6;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(0, 101, 166, 0.2);
+}
+
+.ctaTitle {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.ctaTextBox {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.guaranteeBox {
+  background: linear-gradient(135deg, rgba(0, 101, 166, 0.05) 0%, rgba(0, 101, 166, 0.02) 100%);
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border: 2px solid rgba(0, 101, 166, 0.1);
+}
+
+.guaranteeBoxTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0065A6;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.guaranteeBoxText {
+  font-size: 0.9rem;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #C11517 0%, #a00f11 100%);
+  color: white;
+  padding: 0.875rem 1.75rem;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(193, 21, 23, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ctaButton:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(193, 21, 23, 0.4);
+  background: linear-gradient(135deg, #dc3234 0%, #C11517 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero {
+    padding: 8rem 1.5rem 3rem;
+  }
+
+  .heroTitle {
+    font-size: 3rem;
+  }
+
+  .contentSection,
+  .methodsSection,
+  .examSection {
+    padding: 4rem 1.5rem;
+  }
+
+  .mainTitle,
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .contentText,
+  .sectionIntro {
+    font-size: 1rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .methodsGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .methodCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .highlightBox,
+  .examInfo {
+    padding: 1.5rem;
+  }
+
+  .ctaSection {
+    padding: 4rem 1.5rem;
+  }
+
+  .ctaContent {
+    padding: 3rem 2rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 7rem 1rem 2rem;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .breadcrumb {
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .contentSection,
+  .methodsSection,
+  .examSection {
+    padding: 3rem 1rem;
+  }
+
+  .mainTitle,
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .featuresTitle,
+  .methodTitle {
+    font-size: 1.25rem;
+  }
+
+  .methodCard {
+    padding: 1.5rem;
+  }
+
+  .methodIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .highlightBox,
+  .examInfo {
+    padding: 1.25rem;
+  }
+
+  .highlightTitle,
+  .examInfoTitle {
+    font-size: 1.25rem;
+  }
+
+  .ctaSection {
+    padding: 3rem 1rem;
+  }
+
+  .ctaContent {
+    padding: 2rem 1.5rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.5rem;
+  }
+
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 2rem;
+  }
+
+  .guaranteeBox {
+    padding: 1.5rem;
+  }
+
+  .guaranteeBoxTitle {
+    font-size: 1.125rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
