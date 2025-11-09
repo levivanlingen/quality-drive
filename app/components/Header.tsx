@@ -171,7 +171,7 @@ export default function Header() {
                 <Link href="/about" onClick={() => setIsAboutDropdownOpen(false)}>Over ons</Link>
                 <Link href="/about#team" onClick={() => setIsAboutDropdownOpen(false)}>Team</Link>
                 <Link href="/about#reviews" onClick={() => setIsAboutDropdownOpen(false)}>Reviews</Link>
-                <Link href="/about#faq" onClick={() => setIsAboutDropdownOpen(false)}>Veelgestelde vragen</Link>
+                <Link href="/veelgestelde-vragen" onClick={() => setIsAboutDropdownOpen(false)}>Veelgestelde vragen</Link>
               </div>
             )}
           </div>
@@ -307,7 +307,7 @@ export default function Header() {
                 <Link href="/about" onClick={closeMobileMenu}>Over ons</Link>
                 <Link href="/about#team" onClick={closeMobileMenu}>Team</Link>
                 <Link href="/about#reviews" onClick={closeMobileMenu}>Reviews</Link>
-                <Link href="/about#faq" onClick={closeMobileMenu}>Veelgestelde vragen</Link>
+                <Link href="/veelgestelde-vragen" onClick={closeMobileMenu}>Veelgestelde vragen</Link>
               </div>
             )}
           </div>

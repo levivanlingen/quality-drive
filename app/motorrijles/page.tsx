@@ -7,7 +7,8 @@ import prisma from '@/lib/prisma';
 import { PageCategory } from '@prisma/client';
 import styles from '../page.module.css';
 import motorrijlesStyles from './motorrijles.module.css';
-import { Bike, MapPin, Shield, Disc3 } from 'lucide-react';
+import { MapPin, Disc3 } from 'lucide-react';
+import MotorFAQ from './MotorFAQ';
 
 export const metadata: Metadata = {
   title: 'Motorrijles in alle steden | Quality Drive Rijschool',
@@ -126,58 +127,8 @@ export default async function MotorrijlesPage() {
         <div className={styles.dividerLine}></div>
       </div>
 
-      {/* Info Section */}
-      <section className={motorrijlesStyles.infoSection}>
-        <div className={motorrijlesStyles.infoContainer}>
-          <h2 className={motorrijlesStyles.infoTitle}>
-            Motorrijlessen bij Quality Drive
-          </h2>
-          <div className={motorrijlesStyles.infoText}>
-            <p>
-              Bij Quality Drive bieden we professionele motorrijlessen in de regio Den Haag,
-              Zoetermeer, Delft, Rijswijk en omgeving. Onze ervaren motorrijinstructeurs begeleiden
-              je van de eerste motorrijles tot je motorrijexamen.
-            </p>
-            <p>
-              We werken met moderne lesmotoren en een bewezen lesmethode die jou helpt om
-              veilig en zelfverzekerd de weg op te gaan. Of je nu helemaal geen ervaring hebt
-              of al wat rijervaring hebt opgedaan, wij passen onze lessen aan jouw niveau aan.
-            </p>
-          </div>
-
-          <div className={motorrijlesStyles.featuresGrid}>
-            <div className={motorrijlesStyles.featureCard}>
-              <div className={motorrijlesStyles.featureIcon}>
-                <Bike size={32} />
-              </div>
-              <h3 className={motorrijlesStyles.featureTitle}>Moderne Lesmotoren</h3>
-              <p className={motorrijlesStyles.featureText}>
-                Motorrijlessen op goed onderhouden, moderne motoren
-              </p>
-            </div>
-
-            <div className={motorrijlesStyles.featureCard}>
-              <div className={motorrijlesStyles.featureIcon}>
-                <Shield size={32} />
-              </div>
-              <h3 className={motorrijlesStyles.featureTitle}>Ervaren Instructeurs</h3>
-              <p className={motorrijlesStyles.featureText}>
-                Professionele begeleiding door gecertificeerde motorrijinstructeurs
-              </p>
-            </div>
-
-            <div className={motorrijlesStyles.featureCard}>
-              <div className={motorrijlesStyles.featureIcon}>
-                <MapPin size={32} />
-              </div>
-              <h3 className={motorrijlesStyles.featureTitle}>Lokale Kennis</h3>
-              <p className={motorrijlesStyles.featureText}>
-                Instructeurs met uitstekende kennis van jouw regio
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* FAQ Section */}
+      <MotorFAQ />
 
       {/* Section Divider */}
       <div className={styles.sectionDivider}>
