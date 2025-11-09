@@ -32,16 +32,9 @@
 }
 
 .pricingGrid > * {
-  flex: 0 1 calc(25% - 2rem);
+  flex: 0 1 calc(33.333% - 2rem);
   min-width: 280px;
-  max-width: 400px;
-}
-
-@media (max-width: 1400px) {
-  .pricingGrid > * {
-    flex: 0 1 calc(33.333% - 2rem);
-    max-width: 450px;
-  }
+  max-width: 450px;
 }
 
 @media (max-width: 1024px) {

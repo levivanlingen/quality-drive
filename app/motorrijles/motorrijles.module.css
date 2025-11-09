@@ -1,0 +1,310 @@
+/* Motorrijles Page Styles */
+
+/* Cities Section */
+.citiesSection {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, #f8f9fa 0%, var(--color-white) 100%);
+}
+
+.citiesContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.citiesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.cityCard {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+  border-radius: 24px;
+  will-change: transform;
+  padding: 2.5rem 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.cityCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 101, 166, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  will-change: opacity;
+}
+
+.cityCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.15),
+    0 0 80px rgba(0, 101, 166, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: -1;
+  will-change: opacity;
+}
+
+.cityCard:hover::before {
+  opacity: 1;
+}
+
+.cityCard:hover::after {
+  opacity: 1;
+}
+
+.cityCard:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 101, 166, 0.4);
+}
+
+.cityIcon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--color-white);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.cityCard:hover .cityIcon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.cityTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+  line-height: var(--line-height-headings);
+  letter-spacing: var(--letter-spacing-headings);
+  position: relative;
+  z-index: 1;
+}
+
+.cityDescription {
+  font-size: var(--section-label-size);
+  color: var(--color-gray-700);
+  line-height: var(--line-height-body);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cityArrow {
+  font-size: var(--text-xl);
+  color: var(--color-primary);
+  font-weight: 700;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.cityCard:hover .cityArrow {
+  transform: translateX(8px);
+}
+
+/* Info Section */
+.infoSection {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, var(--color-white) 0%, #f8f9fa 100%);
+}
+
+.infoContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.infoTitle {
+  font-size: var(--section-title-size);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.infoText {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  font-size: var(--text-lg);
+  color: var(--color-gray-700);
+  line-height: var(--line-height-body);
+}
+
+.infoText p {
+  margin-bottom: 1.5rem;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.featureCard {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 2px solid rgba(0, 101, 166, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 101, 166, 0.15);
+}
+
+.featureIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0, 101, 166, 0.1) 0%, rgba(0, 101, 166, 0.05) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--color-primary);
+}
+
+.featureTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: #1a1a1a;
+  margin-bottom: 0.75rem;
+  line-height: var(--line-height-headings);
+  letter-spacing: var(--letter-spacing-headings);
+}
+
+.featureText {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-gray-700);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .citiesGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .featuresGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .citiesSection,
+  .infoSection {
+    padding: 4rem 1.5rem;
+  }
+
+  .infoTitle {
+    font-size: var(--text-2xl);
+  }
+
+  .citiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .cityCard {
+    padding: 2rem;
+  }
+
+  .cityIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .cityTitle {
+    font-size: var(--text-lg);
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .citiesSection,
+  .infoSection {
+    padding: 3rem 1rem;
+  }
+
+  .infoTitle {
+    font-size: var(--text-xl);
+  }
+
+  .citiesGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .cityCard {
+    padding: 1.5rem;
+  }
+}

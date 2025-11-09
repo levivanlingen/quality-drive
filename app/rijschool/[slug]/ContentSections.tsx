@@ -9,10 +9,14 @@ interface ContentSectionsProps {
   cityName: string;
   cityImage?: string | null;
   cityImageAlt?: string | null;
+  slug?: string;
 }
 
-export default function ContentSections({ cityName, cityImage, cityImageAlt }: ContentSectionsProps) {
+export default function ContentSections({ cityName, cityImage, cityImageAlt, slug }: ContentSectionsProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Check if this is a special category page (ADD/ADHD/Faalangst)
+  const isSpecialCategory = slug && (slug.includes('add') || slug.includes('adhd') || slug.includes('faalangst'));
 
   const slides = [
     {
@@ -31,7 +35,7 @@ export default function ContentSections({ cityName, cityImage, cityImageAlt }: C
       ]
     },
     {
-      title: "BIJ ONS HAALT IEDEREEN ZIJN/HAAR RIJBEWIJS!",
+      title: isSpecialCategory ? "Unieke Quality-Drive Lesmethode: succes gegarandeerd" : "BIJ ONS HAALT IEDEREEN ZIJN/HAAR RIJBEWIJS!",
       content: [
         `Heb jij ook de barstende vraag welke de beste rijschool ADD van Den Haag – Zoetermeer – Delft – Rijswijk – Voorburg – Nootdorp – Berkel en Rodenrijs – Pijnacker – Landsingerland – Scheveningen en omgeving is? Wij hebben een unieke lesmethode ontwikkeld waarbij je elke lespakket kunt vergelijken met een spoedpakket bij onze autorijschool.`,
         `Met de succesvolle Quality-Drive Lesmethode slaag je gegarandeerd bij de beste rijschool van ${cityName} en omgeving. Deze unieke formule begint met een gratis proefles door een gespecialiseerde proefles rijinstructeur, op basis hiervan wordt een persoonlijk lesadvies opgesteld en een rijcoach toegewezen die het beste bij jou past. Met onze lesmethode leer je alles over alle mogelijke verkeerssituaties waar je in terecht kunt komen.`
@@ -60,7 +64,7 @@ export default function ContentSections({ cityName, cityImage, cityImageAlt }: C
 
           <div className={styles.carouselContent}>
             <div className={styles.carouselSlide}>
-              <h3>{slides[currentSlide].title}</h3>
+              <h3 className={styles.carouselSlideTitle}>{slides[currentSlide].title}</h3>
               {slides[currentSlide].content.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
@@ -113,14 +117,14 @@ export default function ContentSections({ cityName, cityImage, cityImageAlt }: C
       {/* Waarom Quality Drive Section */}
       <section className={styles.waaromQDSection}>
         <div className={styles.waaromQDContent}>
-          <h2 className={pageStyles.sectionHeaderTitle}>Waarom Quality Drive?</h2>
+          <h3 className={pageStyles.sectionHeaderTitle}>Waarom Quality Drive?</h3>
 
           <div className={styles.benefitsGrid}>
             <div className={styles.benefitCard}>
               <div className={styles.benefitIcon}>
                 <Trophy size={40} strokeWidth={1.5} />
               </div>
-              <h3>Succes Gegarandeerd</h3>
+              <h4>Succes Gegarandeerd</h4>
               <p>
                 Bij Quality Drive bent u verzekerd van succes. Dankzij onze bewezen methodes en ervaren instructeurs heeft u de hoogste kans om uw rijbewijs te behalen. Ons slagingspercentage spreekt voor zich: met Quality Drive slaagt u!
               </p>
@@ -130,7 +134,7 @@ export default function ContentSections({ cityName, cityImage, cityImageAlt }: C
               <div className={styles.benefitIcon}>
                 <Users size={40} strokeWidth={1.5} />
               </div>
-              <h3>Top Instructeurs</h3>
+              <h4>Top Instructeurs</h4>
               <p>
                 Onze instructeurs zijn deskundig, geduldig en toegewijd aan uw succes. Ze zijn er om u te ondersteunen bij elke stap, u gerust te stellen en uw zelfvertrouwen op te bouwen. Hun persoonlijke aanpak zorgt ervoor dat u zich altijd op uw gemak voelt.
               </p>
@@ -140,7 +144,7 @@ export default function ContentSections({ cityName, cityImage, cityImageAlt }: C
               <div className={styles.benefitIcon}>
                 <Car size={40} strokeWidth={1.5} />
               </div>
-              <h3>Moderne en Veilige Voertuigen</h3>
+              <h4>Moderne en Veilige Voertuigen</h4>
               <p>
                 U leert rijden in goed onderhouden, moderne voertuigen die voorzien zijn van de nieuwste veiligheidsvoorzieningen. Dit zorgt voor een veilige en comfortabele leeromgeving, waardoor u zich volledig kunt concentreren op uw rijvaardigheden.
               </p>
@@ -150,7 +154,7 @@ export default function ContentSections({ cityName, cityImage, cityImageAlt }: C
               <div className={styles.benefitIcon}>
                 <Settings size={40} strokeWidth={1.5} />
               </div>
-              <h3>Individueel Aangepaste Lesprogramma&apos;s</h3>
+              <h4>Individueel Aangepaste Lesprogramma&apos;s</h4>
               <p>
                 Bij Quality Drive geloven we dat maatwerk de sleutel tot succes is. Onze lesprogramma&apos;s worden aangepast aan uw specifieke behoeften en leerstijl, zodat u zich in uw eigen tempo kunt ontwikkelen en zelfverzekerd naar uw rijexamen kunt toewerken.
               </p>
@@ -160,7 +164,7 @@ export default function ContentSections({ cityName, cityImage, cityImageAlt }: C
               <div className={styles.benefitIcon}>
                 <BookOpen size={40} strokeWidth={1.5} />
               </div>
-              <h3>Uitgebreide Theorieondersteuning</h3>
+              <h4>Uitgebreide Theorieondersteuning</h4>
               <p>
                 Wij bieden uitgebreide ondersteuning bij uw theorie-examen. Met onze effectieve cursussen en oefenmateriaal bent u goed voorbereid en heeft u de kennis die nodig is om te slagen.
               </p>

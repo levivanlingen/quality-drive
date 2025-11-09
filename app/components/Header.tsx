@@ -211,27 +211,22 @@ export default function Header() {
                   <Link href="/rijschool-bergschenhoek" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Bergschenhoek</Link>
                   <Link href="/rijschool-bleiswijk" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Bleiswijk</Link>
                   <Link href="/rijschool-lansingerland" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Lansingerland</Link>
-                  <Link href="/rijschool-pijnacker" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Pijnacker</Link>
                   <Link href="/rijschool-wateringen" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Wateringen</Link>
-                  <Link href="/rijschool-leidschendam" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Leidschendam</Link>
                 </div>
 
                 <div className={styles.megaMenuSection}>
                   <div className={styles.megaMenuTitle}>Motorrijles</div>
                   <Link href="/motorrijles" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Algemeen</Link>
-                  <Link href="/motor-rijles/den-haag" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Den Haag</Link>
-                  <Link href="/motor-rijles/zoetermeer" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Zoetermeer</Link>
-                  <Link href="/motor-rijles/delft" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Delft</Link>
-                  <Link href="/motor-rijles/rijswijk" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Rijswijk</Link>
-                  <Link href="/motor-rijles/voorburg" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Voorburg</Link>
-                  <Link href="/motor-rijles/nootdorp" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Nootdorp</Link>
-                  <Link href="/motor-rijles/berkel-en-rodenrijs" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Berkel en Rodenrijs</Link>
-                  <Link href="/motor-rijles/bergschenhoek" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Bergschenhoek</Link>
-                  <Link href="/motor-rijles/bleiswijk" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Bleiswijk</Link>
-                  <Link href="/motor-rijles/lansingerland" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Lansingerland</Link>
-                  <Link href="/motor-rijles/pijnacker" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Pijnacker</Link>
-                  <Link href="/motor-rijles/wateringen" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Wateringen</Link>
-                  <Link href="/motor-rijles/leidschendam" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Leidschendam</Link>
+                  <Link href="/motorrijschool-den-haag" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Den Haag</Link>
+                  <Link href="/motorrijschool-zoetermeer" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Zoetermeer</Link>
+                  <Link href="/motorrijschool-delft" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Delft</Link>
+                  <Link href="/motorrijschool-rijswijk" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Rijswijk</Link>
+                  <Link href="/motorrijschool-voorburg" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Voorburg</Link>
+                  <Link href="/motorrijschool-nootdorp" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Nootdorp</Link>
+                  <Link href="/motorrijschool-lansingerland" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Lansingerland</Link>
+                  <Link href="/motorrijschool-wateringen" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Wateringen</Link>
+                  <Link href="/motorrijschool-leidschenveen" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Leidschenveen</Link>
+                  <Link href="/motorrijschool-ypenburg" onClick={() => setIsRijopleidingenDropdownOpen(false)}>Ypenburg</Link>
                 </div>
 
                 <div className={styles.megaMenuSection}>
@@ -350,26 +345,21 @@ export default function Header() {
                   <Link href="/rijschool-bergschenhoek" onClick={closeMobileMenu}>Bergschenhoek</Link>
                   <Link href="/rijschool-bleiswijk" onClick={closeMobileMenu}>Bleiswijk</Link>
                   <Link href="/rijschool-lansingerland" onClick={closeMobileMenu}>Lansingerland</Link>
-                  <Link href="/rijschool-pijnacker" onClick={closeMobileMenu}>Pijnacker</Link>
                   <Link href="/rijschool-wateringen" onClick={closeMobileMenu}>Wateringen</Link>
-                  <Link href="/rijschool-leidschendam" onClick={closeMobileMenu}>Leidschendam</Link>
                 </div>
                 <div className={styles.mobileMenuSubsection}>
                   <div className={styles.mobileMenuSubtitle}>Motorrijles</div>
                   <Link href="/motorrijles" onClick={closeMobileMenu}>Algemeen</Link>
-                  <Link href="/motor-rijles/den-haag" onClick={closeMobileMenu}>Den Haag</Link>
-                  <Link href="/motor-rijles/zoetermeer" onClick={closeMobileMenu}>Zoetermeer</Link>
-                  <Link href="/motor-rijles/delft" onClick={closeMobileMenu}>Delft</Link>
-                  <Link href="/motor-rijles/rijswijk" onClick={closeMobileMenu}>Rijswijk</Link>
-                  <Link href="/motor-rijles/voorburg" onClick={closeMobileMenu}>Voorburg</Link>
-                  <Link href="/motor-rijles/nootdorp" onClick={closeMobileMenu}>Nootdorp</Link>
-                  <Link href="/motor-rijles/berkel-en-rodenrijs" onClick={closeMobileMenu}>Berkel en Rodenrijs</Link>
-                  <Link href="/motor-rijles/bergschenhoek" onClick={closeMobileMenu}>Bergschenhoek</Link>
-                  <Link href="/motor-rijles/bleiswijk" onClick={closeMobileMenu}>Bleiswijk</Link>
-                  <Link href="/motor-rijles/lansingerland" onClick={closeMobileMenu}>Lansingerland</Link>
-                  <Link href="/motor-rijles/pijnacker" onClick={closeMobileMenu}>Pijnacker</Link>
-                  <Link href="/motor-rijles/wateringen" onClick={closeMobileMenu}>Wateringen</Link>
-                  <Link href="/motor-rijles/leidschendam" onClick={closeMobileMenu}>Leidschendam</Link>
+                  <Link href="/motorrijschool-den-haag" onClick={closeMobileMenu}>Den Haag</Link>
+                  <Link href="/motorrijschool-zoetermeer" onClick={closeMobileMenu}>Zoetermeer</Link>
+                  <Link href="/motorrijschool-delft" onClick={closeMobileMenu}>Delft</Link>
+                  <Link href="/motorrijschool-rijswijk" onClick={closeMobileMenu}>Rijswijk</Link>
+                  <Link href="/motorrijschool-voorburg" onClick={closeMobileMenu}>Voorburg</Link>
+                  <Link href="/motorrijschool-nootdorp" onClick={closeMobileMenu}>Nootdorp</Link>
+                  <Link href="/motorrijschool-lansingerland" onClick={closeMobileMenu}>Lansingerland</Link>
+                  <Link href="/motorrijschool-wateringen" onClick={closeMobileMenu}>Wateringen</Link>
+                  <Link href="/motorrijschool-leidschenveen" onClick={closeMobileMenu}>Leidschenveen</Link>
+                  <Link href="/motorrijschool-ypenburg" onClick={closeMobileMenu}>Ypenburg</Link>
                 </div>
                 <div className={styles.mobileMenuSubsection}>
                   <div className={styles.mobileMenuSubtitle}>Automaat rijles</div>

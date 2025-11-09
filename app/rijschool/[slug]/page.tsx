@@ -229,9 +229,9 @@ export default async function RijschoolPage({ params }: { params: { slug: string
             <div className={cityStyles.contentGrid}>
               {/* Left: Image */}
               <div className={cityStyles.imageColumn}>
-                <h3 className={cityStyles.imageTitle}>
+                <h2 className={cityStyles.imageTitle}>
                   Beste goedkope rijschool {locationName ? `${locationName} en omgeving` : ''}
-                </h3>
+                </h2>
                 <img
                   src="/uploads/pexels-element-digital-1051071-scaled.webp"
                   alt={`Beste goedkope rijschool ${locationName ? `${locationName} en omgeving` : ''}`}
@@ -300,6 +300,7 @@ export default async function RijschoolPage({ params }: { params: { slug: string
           cityName={locationName || page.title}
           cityImage={page.featuredImage}
           cityImageAlt={page.featuredImageAlt}
+          slug={page.slug}
         />
 
         {/* Section Divider */}

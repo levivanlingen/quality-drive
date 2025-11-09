@@ -247,21 +247,21 @@
 .carouselImageWrapper {
   margin-top: 2.5rem;
   margin-bottom: 0;
-  border-radius: 32px !important;
+  border-radius: 12px !important;
   overflow: hidden;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-  max-width: 250px !important;
-  width: 250px !important;
-  margin-left: auto;
+  max-width: 450px !important;
+  width: 450px !important;
+  margin-left: 0;
   margin-right: auto;
 }
 
 .carouselImage {
-  width: 250px !important;
-  height: 150px !important;
+  width: 450px !important;
+  height: 250px !important;
   object-fit: cover;
   display: block;
-  border-radius: 32px !important;
+  border-radius: 12px !important;
 }
 
 .carouselArrow {
