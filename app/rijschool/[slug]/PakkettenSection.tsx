@@ -1,14 +1,15 @@
 "use client";
 
 import { CheckCircle2 } from 'lucide-react';
+import pageStyles from '../../page.module.css';
 import styles from './city.module.css';
 
 export default function PakkettenSection() {
   return (
     <section className={styles.pricingSection}>
       <div className={styles.pricingContent}>
-        <h2 className={styles.sectionTitle}>Populaire Pakketten</h2>
-        <p className={styles.sectionSubtitle}>Kies het pakket dat bij jou past en start vandaag nog</p>
+        <h2 className={pageStyles.sectionHeaderTitle}>Populaire Pakketten</h2>
+        <p className={pageStyles.sectionHeaderSubtitle}>Kies het pakket dat bij jou past en start vandaag nog</p>
 
         <div className={styles.pricingGrid}>
           {/* Auto: Basis Pakket */}

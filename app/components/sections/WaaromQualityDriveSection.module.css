@@ -1,0 +1,164 @@
+/* Waarom Quality Drive Section - Exact copy from rijschool/[city]/city.module.css */
+.waaromQDSection {
+  background: #fff;
+  padding: 5rem 2rem 3rem;
+}
+
+.waaromQDContent {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: var(--section-label-size);
+  font-weight: var(--font-semibold);
+  color: #0065A6;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  text-align: center;
+  display: block;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2.5rem;
+  margin-top: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.benefitCard:nth-child(1),
+.benefitCard:nth-child(2) {
+  grid-column: span 3;
+}
+
+.benefitCard:nth-child(3),
+.benefitCard:nth-child(4),
+.benefitCard:nth-child(5) {
+  grid-column: span 2;
+}
+
+.benefitCard {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 100%);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s ease;
+  transform: translateZ(0);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.benefitCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 101, 166, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  will-change: opacity;
+}
+
+.benefitCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.15), 0 0 80px rgba(0, 101, 166, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: -1;
+  will-change: opacity;
+}
+
+.benefitCard:hover::before {
+  opacity: 1;
+}
+
+.benefitCard:hover::after {
+  opacity: 1;
+}
+
+.benefitCard:hover {
+  transform: translateY(-16px) scale(1.03);
+  border-color: rgba(0, 101, 166, 0.4);
+}
+
+.benefitIcon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  color: #0065A6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(0, 101, 166, 0.1) 0%, rgba(193, 21, 23, 0.05) 100%);
+  border-radius: 20px;
+  border: 2px solid rgba(0, 101, 166, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.benefitCard:hover .benefitIcon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 24px rgba(0, 101, 166, 0.2);
+}
+
+.benefitCard h3 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #0065A6;
+  letter-spacing: var(--letter-spacing-headings);
+  position: relative;
+  z-index: 1;
+}
+
+.benefitCard p {
+  color: #4a5568;
+  line-height: 1.7;
+  font-size: var(--text-base);
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .waaromQDSection {
+    padding: 4rem 1rem 2rem;
+  }
+
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .benefitCard:nth-child(1),
+  .benefitCard:nth-child(2),
+  .benefitCard:nth-child(3),
+  .benefitCard:nth-child(4),
+  .benefitCard:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .benefitCard {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Responsive styles handled by universal sectionHeaderTitle */
+}

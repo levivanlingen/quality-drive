@@ -1,6 +1,255 @@
 :root {
+  /* Legacy variables (keep for backwards compatibility) */
   --background: #ffffff;
   --foreground: #000000;
+
+  /* ============================================
+     DESIGN TOKENS - Quality Drive Design System
+     ============================================ */
+
+  /* === Brand Colors === */
+  --color-primary: #0065A6;
+  --color-primary-dark: #004d7a;
+  --color-primary-light: #0088cc;
+
+  --color-accent: #C11517;
+  --color-accent-dark: #a00f11;
+  --color-accent-light: #d93133;
+
+  --color-highlight: #FFD700;
+
+  /* === Neutral Colors === */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-50: #f9f9f9;
+  --color-gray-100: #f8f9fa;
+  --color-gray-200: #e9ecef;
+  --color-gray-300: #cbd5e1;
+  --color-gray-400: #94a3b8;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #4a5568;
+  --color-gray-800: #2d2d2d;
+  --color-gray-900: #1a1a1a;
+
+  /* === Semantic Colors === */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* === Gradients === */
+  --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  --gradient-light: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+
+  /* === Spacing Scale === */
+  --spacing-1: 0.25rem;   /* 4px */
+  --spacing-2: 0.5rem;    /* 8px */
+  --spacing-3: 0.75rem;   /* 12px */
+  --spacing-4: 1rem;      /* 16px */
+  --spacing-5: 1.25rem;   /* 20px */
+  --spacing-6: 1.5rem;    /* 24px */
+  --spacing-8: 2rem;      /* 32px */
+  --spacing-10: 2.5rem;   /* 40px */
+  --spacing-12: 3rem;     /* 48px */
+  --spacing-16: 4rem;     /* 64px */
+  --spacing-20: 5rem;     /* 80px */
+  --spacing-24: 6rem;     /* 96px */
+  --spacing-32: 8rem;     /* 128px */
+
+  /* ============================================
+     TYPOGRAPHY SYSTEM - design.md Compliant
+     ============================================
+
+     🎯 CENTRAAL BEHEER: Wijzig fonts hier, hele website past aan!
+
+     Font strategie: 1 font (Montserrat) met 3 gewichten
+     - 400 (Regular) voor body tekst
+     - 600 (SemiBold) voor subkoppen, knoppen, labels
+     - 700 (Bold) voor hoofdheaders
+     ============================================ */
+
+  /* === Font Families === */
+  --font-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: var(--font-primary);
+  --font-heading: var(--font-primary);
+
+  /* Legacy support (deprecated - gebruik --font-primary) */
+  --font-sans: var(--font-primary);
+  --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
+
+  /* === Font Sizes - DESKTOP (design.md) === */
+  --font-h1: 48px;         /* H1 Desktop */
+  --font-h2: 36px;         /* H2 Desktop */
+  --font-h3: 24px;         /* H3 Desktop */
+  --font-body: 18px;       /* Body Desktop */
+
+  /* Aliases voor backwards compatibility */
+  --text-5xl: var(--font-h1);      /* 48px */
+  --text-4xl: var(--font-h2);      /* 36px */
+  --text-2xl: var(--font-h3);      /* 24px */
+  --text-lg: var(--font-body);     /* 18px */
+  --text-base: 16px;               /* 16px - standaard fallback */
+  --text-sm: 14px;                 /* 14px - kleine tekst */
+  --text-xs: 12px;                 /* 12px - zeer klein */
+
+  /* Deprecated sizes (oude systeem) */
+  --text-xl: 20px;
+  --text-3xl: 30px;
+  --text-6xl: 60px;
+  --text-7xl: 72px;
+
+  /* Section specifieke sizes (blijven bestaan voor backwards compatibility) */
+  --section-label-size: 0.95rem;
+  --section-title-size: var(--font-h2);    /* 36px - Section titles = H2 */
+  --section-subtitle-size: 1.1rem;
+
+  /* === Font Weights (design.md: max 3 gewichten) === */
+  --font-regular: 400;     /* Body tekst */
+  --font-semibold: 600;    /* Subkoppen, knoppen, labels */
+  --font-bold: 700;        /* Hoofdheaders */
+
+  /* Legacy weights (deprecated) */
+  --font-light: 300;
+  --font-normal: var(--font-regular);
+  --font-medium: 500;
+  --font-extrabold: 800;
+  --font-black: 900;
+
+  /* === Line Heights (design.md) === */
+  --line-height-headings: 1.2;     /* Headings: 1.2 - 1.3 */
+  --line-height-body: 1.5;         /* Body: 1.5 - 1.6 */
+
+  /* Legacy line heights (deprecated - gebruik bovenstaande) */
+  --leading-none: 1;
+  --leading-tight: var(--line-height-headings);    /* 1.2 */
+  --leading-normal: var(--line-height-body);       /* 1.5 */
+  --leading-snug: 1.375;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  /* === Letter Spacing (design.md) === */
+  --letter-spacing-headings: -0.5px;    /* Headings: strakke uitstraling */
+  --letter-spacing-body: 0.2px;         /* Body: leesbaar op mobiel */
+
+  /* === Shadows === */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 6px 12px -2px rgba(0, 0, 0, 0.15), 0 3px 6px -3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
+  /* === Border Radius === */
+  --radius-none: 0;
+  --radius-sm: 0.375rem;   /* 6px */
+  --radius-base: 0.5rem;   /* 8px */
+  --radius-md: 0.75rem;    /* 12px */
+  --radius-lg: 1rem;       /* 16px */
+  --radius-xl: 1.5rem;     /* 24px */
+  --radius-2xl: 2rem;      /* 32px */
+  --radius-full: 9999px;   /* Pills/circles */
+
+  /* === Transitions === */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 200ms ease-in-out;
+  --transition-slow: 300ms ease-in-out;
+  --transition-slower: 400ms ease-in-out;
+
+  /* === Breakpoints (for reference in JS) === */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* === Z-index Scale === */
+  --z-0: 0;
+  --z-10: 10;
+  --z-20: 20;
+  --z-30: 30;
+  --z-40: 40;
+  --z-50: 50;
+  --z-modal: 1000;
+  --z-popover: 1500;
+  --z-tooltip: 2000;
+
+  /* === Max Widths === */
+  --max-width-xs: 20rem;    /* 320px */
+  --max-width-sm: 24rem;    /* 384px */
+  --max-width-md: 28rem;    /* 448px */
+  --max-width-lg: 32rem;    /* 512px */
+  --max-width-xl: 36rem;    /* 576px */
+  --max-width-2xl: 42rem;   /* 672px */
+  --max-width-3xl: 48rem;   /* 768px */
+  --max-width-4xl: 56rem;   /* 896px */
+  --max-width-5xl: 64rem;   /* 1024px */
+  --max-width-6xl: 72rem;   /* 1152px */
+  --max-width-7xl: 80rem;   /* 1280px */
+  --max-width-full: 100%;
+  --max-width-container: 1200px;
+
+}
+
+/* ============================================
+   GLOBAL UTILITY CLASSES
+   ============================================ */
+
+/* Section Label - Klein label boven titels */
+.section-label {
+  font-size: var(--section-label-size);
+  font-weight: var(--font-semibold);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--spacing-4);
+  display: block;
+}
+
+/* Section Title - Standaard grote titel */
+.section-title {
+  font-size: var(--section-title-size);
+  font-weight: var(--font-bold);
+  color: var(--color-gray-900);
+  line-height: var(--line-height-headings);
+  margin-bottom: var(--spacing-12);
+}
+
+/* Section Subtitle - Optionele subtitel */
+.section-subtitle {
+  font-size: var(--section-subtitle-size);
+  color: var(--color-gray-500);
+  line-height: var(--line-height-body);
+  margin-bottom: var(--spacing-8);
+}
+
+/* ============================================
+   RESPONSIVE TYPOGRAPHY - design.md Compliant
+   ============================================ */
+
+/* Mobiel: H1:32px, H2:24px, H3:18px, Body:16px */
+@media (max-width: 768px) {
+  :root {
+    --font-h1: 32px;           /* H1 Mobiel */
+    --font-h2: 24px;           /* H2 Mobiel */
+    --font-h3: 18px;           /* H3 Mobiel */
+    --font-body: 16px;         /* Body Mobiel */
+
+    /* Update aliases */
+    --text-5xl: var(--font-h1);      /* 32px */
+    --text-4xl: var(--font-h2);      /* 24px */
+    --text-2xl: var(--font-h3);      /* 18px */
+    --text-lg: var(--font-body);     /* 16px */
+
+    /* Section sizes */
+    --section-label-size: 0.85rem;
+    --section-title-size: var(--font-h2);    /* 24px - Section titles = H2 */
+    --section-subtitle-size: 1rem;
+  }
 }
 
 * {
@@ -19,11 +268,50 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-primary);
+  font-size: var(--font-body);
+  font-weight: var(--font-regular);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   GLOBAL HEADING STYLES - design.md Compliant
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-bold);
+  line-height: var(--line-height-headings);
+  letter-spacing: var(--letter-spacing-headings);
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--font-h1);
+}
+
+h2 {
+  font-size: var(--font-h2);
+}
+
+h3 {
+  font-size: var(--font-h3);
+}
+
+/* H4-H6 gebruik H3 size */
+h4, h5, h6 {
+  font-size: var(--font-h3);
+  font-weight: var(--font-semibold);
+}
+
+p {
+  font-size: var(--font-body);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
+  margin: 0;
 }
 
 a {

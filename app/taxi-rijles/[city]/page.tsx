@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
+import { StartRijavontuurCTA, HeroSection } from '@/app/components/sections';
 import prisma from '@/lib/prisma';
 import { PageCategory } from '@prisma/client';
 import styles from '../../page.module.css';
@@ -98,30 +99,16 @@ export default async function TaxiRijlesCityPage({ params }: { params: { city: s
       <Header />
 
       {/* Hero Section */}
-      <section className={cityStyles.hero}>
-        <div className={cityStyles.heroContent}>
-          {/* Breadcrumb */}
-          <nav className={cityStyles.breadcrumb}>
-            <Link href="/">Home</Link>
-            <span className={cityStyles.breadcrumbSeparator}>/</span>
-            <span>Taxi Rijles</span>
-            <span className={cityStyles.breadcrumbSeparator}>/</span>
-            <span>{page.location.name}</span>
-          </nav>
-
-          <p className={cityStyles.label}>
-            Quality Drive Taxirijschool
-          </p>
-          <h1 className={cityStyles.title}>
-            {page.title}
-          </h1>
-          {page.excerpt && (
-            <p className={cityStyles.excerpt}>
-              {page.excerpt}
-            </p>
-          )}
-        </div>
-      </section>
+      <HeroSection
+        label="Quality Drive Taxirijschool"
+        title={page.title}
+        subtitle={page.excerpt || undefined}
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Taxi Rijles' },
+          { label: page.location.name }
+        ]}
+      />
 
       {/* Content Section */}
       <section className={cityStyles.contentSection}>
@@ -143,27 +130,13 @@ export default async function TaxiRijlesCityPage({ params }: { params: { city: s
       </div>
 
       {/* CTA Section */}
-      <section className={styles.zekerhedenSection}>
-        <div className={styles.zekerhedenContent}>
-          <h2 className={styles.sectionTitle}>
-            Start vandaag nog met je taxirijbewijs in {page.location.name}!
-          </h2>
-          <p style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 2.5rem', fontSize: '1.125rem', color: '#4a5568' }}>
-            Wij werken in Den Haag, Zoetermeer, Delft, Rijswijk en omgeving. Plan je gratis proefles en start morgen al met taxirijlessen!
-          </p>
-          <div className={styles.zekerhedenButtons}>
-            <a
-              href="https://calendly.com/qualitydrive/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.rijschoolButton}
-            >
-              <Car size={20} />
-              Gratis proefles plannen
-            </a>
-          </div>
-        </div>
-      </section>
+      <StartRijavontuurCTA
+        label="Begin vandaag nog"
+        title={`Start vandaag nog met je taxirijbewijs in ${page.location.name}!`}
+        text="Wij werken in Den Haag, Zoetermeer, Delft, Rijswijk en omgeving. Plan je gratis proefles en start morgen al met taxirijlessen!"
+        buttonText="Gratis proefles plannen"
+        buttonLink="https://calendly.com/qualitydrive/30min"
+      />
 
       <Footer />
     </div>

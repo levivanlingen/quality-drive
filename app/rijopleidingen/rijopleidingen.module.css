@@ -1,74 +1,9 @@
 /* Rijopleidingen Page Styles */
 
-/* Hero Section */
-.hero {
-  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
-  padding: 8rem 2rem 4rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.10'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.45;
-}
-
-.heroContent {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: left;
-  position: relative;
-  z-index: 1;
-}
-
-.breadcrumb {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 0.875rem;
-  margin-bottom: 2rem;
-  color: white;
-}
-
-.breadcrumb a {
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.breadcrumb a:hover {
-  color: white;
-}
-
-.breadcrumbSeparator {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.heroTitle {
-  font-size: 4rem;
-  font-weight: 900;
-  color: white;
-  margin-bottom: 0;
-  line-height: 1.1;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-  letter-spacing: -0.02em;
-}
-
 /* Courses Section */
 .coursesSection {
   padding: 6rem 2rem;
-  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+  background: linear-gradient(180deg, var(--color-gray-100) 0%, var(--color-white) 100%);
 }
 
 .coursesContainer {
@@ -81,19 +16,6 @@
   margin-bottom: 4rem;
 }
 
-.sectionTitle {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #0065A6;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-
-.sectionSubtitle {
-  font-size: 1.25rem;
-  color: #0065A6;
-  font-weight: 500;
-}
 
 .coursesGrid {
   display: grid;
@@ -199,18 +121,23 @@
 }
 
 .courseTitle {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
   margin-bottom: 0.75rem;
-  color: #1a1a1a;
+  color: var(--color-gray-900);
+  line-height: var(--line-height-headings);
+  letter-spacing: var(--letter-spacing-headings);
   position: relative;
   z-index: 1;
 }
 
 .courseDescription {
-  font-size: 1rem;
-  color: #4a5568;
-  line-height: 1.6;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-gray-700);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
   margin-bottom: 1.5rem;
   flex: 1;
   position: relative;
@@ -218,8 +145,8 @@
 }
 
 .courseArrow {
-  font-size: 1.5rem;
-  color: #0065A6;
+  font-size: var(--text-xl);
+  color: var(--color-primary);
   font-weight: 700;
   transition: transform 0.3s ease;
   position: relative;
@@ -233,7 +160,7 @@
 /* Image Section */
 .imageSection {
   padding: 6rem 2rem;
-  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  background: linear-gradient(180deg, var(--color-white) 0%, var(--color-gray-100) 100%);
 }
 
 .imageContainer {
@@ -279,13 +206,13 @@
 .dividerLine {
   flex: 1;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #0065A6, transparent);
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
 }
 
 .dividerIcon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -333,29 +260,34 @@
 .ctaLabel {
   display: inline-block;
   background: linear-gradient(135deg, rgba(0, 101, 166, 0.1) 0%, rgba(0, 101, 166, 0.05) 100%);
-  color: #0065A6;
+  color: var(--color-primary);
   padding: 0.5rem 1rem;
   border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
+  font-family: var(--font-body);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 1rem;
   border: 1px solid rgba(0, 101, 166, 0.2);
 }
 
 .ctaTitle {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: #1a1a1a;
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-gray-900);
   margin-bottom: 1rem;
-  line-height: 1.2;
+  line-height: var(--line-height-headings);
+  letter-spacing: var(--letter-spacing-headings);
 }
 
 .ctaText {
-  font-size: 0.95rem;
-  color: #4a5568;
-  line-height: 1.6;
+  font-family: var(--font-body);
+  font-size: var(--section-label-size);
+  color: var(--color-gray-700);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
   margin-bottom: 1rem;
 }
 
@@ -368,10 +300,13 @@
 }
 
 .guaranteeTitle {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #0065A6;
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
   margin-bottom: 0.75rem;
+  line-height: var(--line-height-headings);
+  letter-spacing: var(--letter-spacing-headings);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -379,21 +314,24 @@
 }
 
 .guaranteeText {
-  font-size: 0.9rem;
-  color: #4a5568;
-  line-height: 1.6;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-gray-700);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
 }
 
 .ctaButton {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #C11517 0%, #a00f11 100%);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
   color: white;
   padding: 0.875rem 1.75rem;
   border-radius: 16px;
-  font-size: 1rem;
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 10px 30px rgba(193, 21, 23, 0.3);
@@ -403,7 +341,7 @@
 .ctaButton:hover {
   transform: translateY(-4px);
   box-shadow: 0 15px 40px rgba(193, 21, 23, 0.4);
-  background: linear-gradient(135deg, #dc3234 0%, #C11517 100%);
+  background: linear-gradient(135deg, #dc3234 0%, var(--color-accent) 100%);
 }
 
 /* Animations */
@@ -427,24 +365,8 @@
 }
 
 @media (max-width: 768px) {
-  .hero {
-    padding: 8rem 1.5rem 3rem;
-  }
-
-  .heroTitle {
-    font-size: 3rem;
-  }
-
   .sectionHeader {
     margin-bottom: 3rem;
-  }
-
-  .sectionTitle {
-    font-size: 2rem;
-  }
-
-  .sectionSubtitle {
-    font-size: 1.125rem;
   }
 
   .coursesSection {
@@ -466,11 +388,11 @@
   }
 
   .courseTitle {
-    font-size: 1.25rem;
+    font-size: var(--text-lg);
   }
 
   .courseDescription {
-    font-size: 0.9rem;
+    font-size: var(--section-label-size);
   }
 
   .imageSection {
@@ -495,11 +417,11 @@
   }
 
   .ctaTitle {
-    font-size: 2rem;
+    font-size: var(--text-2xl);
   }
 
   .ctaText {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 
   .guaranteeSection {
@@ -507,38 +429,17 @@
   }
 
   .guaranteeTitle {
-    font-size: 1.5rem;
+    font-size: var(--text-xl);
   }
 
   .guaranteeText {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 }
 
 @media (max-width: 480px) {
-  .hero {
-    padding: 7rem 1rem 2rem;
-  }
-
-  .heroTitle {
-    font-size: 2.5rem;
-  }
-
-  .breadcrumb {
-    font-size: 0.75rem;
-    padding: 0.5rem 1rem;
-  }
-
   .sectionHeader {
     margin-bottom: 2.5rem;
-  }
-
-  .sectionTitle {
-    font-size: 1.75rem;
-  }
-
-  .sectionSubtitle {
-    font-size: 1rem;
   }
 
   .coursesSection {
@@ -571,7 +472,7 @@
   }
 
   .ctaTitle {
-    font-size: 1.75rem;
+    font-size: var(--text-xl);
   }
 
   .ctaButton {
@@ -585,7 +486,7 @@
   }
 
   .guaranteeTitle {
-    font-size: 1.25rem;
+    font-size: var(--text-lg);
     flex-direction: column;
     gap: 0.5rem;
   }

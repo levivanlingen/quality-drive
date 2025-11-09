@@ -2,13 +2,16 @@
 
 import { useState } from 'react';
 import { Trophy, Users, Car, Settings, BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
+import pageStyles from '../../page.module.css';
 import styles from './city.module.css';
 
 interface ContentSectionsProps {
   cityName: string;
+  cityImage?: string | null;
+  cityImageAlt?: string | null;
 }
 
-export default function ContentSections({ cityName }: ContentSectionsProps) {
+export default function ContentSections({ cityName, cityImage, cityImageAlt }: ContentSectionsProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
@@ -24,12 +27,11 @@ export default function ContentSections({ cityName }: ContentSectionsProps) {
     {
       title: "Ook de beste rijschool voor ADHD - ADD - Faalangst en opfriscursus",
       content: [
-        `Heeft u een lange tijd geen auto gereden of bent u net verhuist van een andere plek of heeft u een andere reden, en bent u toe aan een opfriscursus? Bij rijschool Quality-Drive zorgen wij ervoor dat u binnen enkele lessen weer zelfstandig de weg op durft te rijden. Autorijlessen voor leerlingen met ADHD – ADD of (faal)angst om achter het stuur te kruipen? Bij autorijschool Quality-Drive Den Haag – Zoetermeer – Delft – Rijswijk en omgeving hebben we gespecialiseerde instructeurs met speciale cursussen en trainingen. Zo bent u verzekerd van maatwerk rijlessen. Dit is immers de beste autorijschool van ${cityName} en omgeving, met persoonlijke aandacht voor elke individu. Uiteraard wordt bij elke les maximaal Quality gegeven, dit vinden we zeer belangrijk bij autorijschool Quality-Drive. En nu met de unieke 6 zekerheden is succes gegarandeerd!`,
-        `BIJ ONS HAALT IEDEREEN ZIJN/HAAR RIJBEWIJS!`
+        `Heeft u een lange tijd geen auto gereden of bent u net verhuist van een andere plek of heeft u een andere reden, en bent u toe aan een opfriscursus? Bij rijschool Quality-Drive zorgen wij ervoor dat u binnen enkele lessen weer zelfstandig de weg op durft te rijden. Autorijlessen voor leerlingen met ADHD – ADD of (faal)angst om achter het stuur te kruipen? Bij autorijschool Quality-Drive Den Haag – Zoetermeer – Delft – Rijswijk en omgeving hebben we gespecialiseerde instructeurs met speciale cursussen en trainingen. Zo bent u verzekerd van maatwerk rijlessen. Dit is immers de beste autorijschool van ${cityName} en omgeving, met persoonlijke aandacht voor elke individu. Uiteraard wordt bij elke les maximaal Quality gegeven, dit vinden we zeer belangrijk bij autorijschool Quality-Drive. En nu met de unieke 6 zekerheden is succes gegarandeerd!`
       ]
     },
     {
-      title: "Unieke Quality-Drive Lesmethode",
+      title: "BIJ ONS HAALT IEDEREEN ZIJN/HAAR RIJBEWIJS!",
       content: [
         `Heb jij ook de barstende vraag welke de beste rijschool ADD van Den Haag – Zoetermeer – Delft – Rijswijk – Voorburg – Nootdorp – Berkel en Rodenrijs – Pijnacker – Landsingerland – Scheveningen en omgeving is? Wij hebben een unieke lesmethode ontwikkeld waarbij je elke lespakket kunt vergelijken met een spoedpakket bij onze autorijschool.`,
         `Met de succesvolle Quality-Drive Lesmethode slaag je gegarandeerd bij de beste rijschool van ${cityName} en omgeving. Deze unieke formule begint met een gratis proefles door een gespecialiseerde proefles rijinstructeur, op basis hiervan wordt een persoonlijk lesadvies opgesteld en een rijcoach toegewezen die het beste bij jou past. Met onze lesmethode leer je alles over alle mogelijke verkeerssituaties waar je in terecht kunt komen.`
@@ -54,7 +56,7 @@ export default function ContentSections({ cityName }: ContentSectionsProps) {
       {/* Carousel Section */}
       <section className={styles.carouselSection}>
         <div className={styles.carouselContainer}>
-          <h2 className={styles.carouselMainTitle}>Over Quality Drive in {cityName}</h2>
+          <h2 className={styles.carouselMainTitle}>Over rijschool {cityName}</h2>
 
           <div className={styles.carouselContent}>
             <div className={styles.carouselSlide}>
@@ -62,6 +64,19 @@ export default function ContentSections({ cityName }: ContentSectionsProps) {
               {slides[currentSlide].content.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
+              {/* Show city image only on first slide - BELOW text */}
+              {cityImage && (
+                <div
+                  className={styles.carouselImageWrapper}
+                  style={{ display: currentSlide === 0 ? 'block' : 'none' }}
+                >
+                  <img
+                    src={cityImage}
+                    alt={cityImageAlt || `Rijschool ${cityName}`}
+                    className={styles.carouselImage}
+                  />
+                </div>
+              )}
             </div>
 
             {/* Navigation Arrows */}
@@ -98,7 +113,7 @@ export default function ContentSections({ cityName }: ContentSectionsProps) {
       {/* Waarom Quality Drive Section */}
       <section className={styles.waaromQDSection}>
         <div className={styles.waaromQDContent}>
-          <h2 className={styles.sectionTitle}>Waarom Quality Drive?</h2>
+          <h2 className={pageStyles.sectionHeaderTitle}>Waarom Quality Drive?</h2>
 
           <div className={styles.benefitsGrid}>
             <div className={styles.benefitCard}>

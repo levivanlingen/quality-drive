@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import StructuredData from "./components/StructuredData";
 import BottomNav from "./components/BottomNav";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+/**
+ * Montserrat Font - design.md compliant
+ * 1 font met 3 gewichten voor maximale consistentie:
+ * - 400 (Regular) voor body tekst
+ * - 600 (SemiBold) voor subkoppen, knoppen, labels
+ * - 700 (Bold) voor hoofdheaders
+ */
+const montserrat = Montserrat({
   subsets: ["latin"],
-  display: 'swap',
-  preload: true,
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: 'swap',
+  weight: ["400", "600", "700"],
+  variable: "--font-montserrat",
+  display: "swap",
   preload: true,
 });
 
@@ -90,7 +91,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.gstatic.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://maps.googleapis.com" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={montserrat.className}>
         <StructuredData type="LocalBusiness" />
         <StructuredData type="WebSite" />
         {children}

@@ -1,0 +1,61 @@
+/* Features Section - Exact copy from page.module.css */
+.features {
+  background: #fff;
+  padding: 3rem 2rem;
+}
+
+.featuresList {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: var(--section-label-size);
+  color: #1a202c;
+  font-weight: var(--font-semibold);
+}
+
+.checkIcon {
+  color: #0065A6;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .features {
+    padding: 2rem 1.5rem;
+  }
+
+  .featuresList {
+    gap: 2rem;
+  }
+
+  .featureItem {
+    font-size: var(--text-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .features {
+    padding: 1.5rem 1rem;
+  }
+
+  .featuresList {
+    gap: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .featureItem {
+    font-size: var(--text-sm);
+  }
+}

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
+import { HeroSection, StartRijavontuurCTA } from '@/app/components/sections';
 import prisma from '@/lib/prisma';
 import { PageCategory } from '@prisma/client';
 import styles from '../page.module.css';
@@ -66,32 +67,23 @@ export default async function AutorijlesPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className={autorijlesStyles.hero}>
-        <div className={autorijlesStyles.heroContent}>
-          {/* Breadcrumb */}
-          <nav className={autorijlesStyles.breadcrumb}>
-            <Link href="/">Home</Link>
-            <span className={autorijlesStyles.breadcrumbSeparator}>/</span>
-            <span>Autorijles</span>
-          </nav>
-
-          <h1 className={autorijlesStyles.heroTitle}>
-            Autorijles
-          </h1>
-          <p className={autorijlesStyles.heroSubtitle}>
-            Kies jouw stad en start met rijlessen
-          </p>
-        </div>
-      </section>
+      <HeroSection
+        title="Autorijles"
+        subtitle="Kies jouw stad en start met rijlessen"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Autorijles' }
+        ]}
+      />
 
       {/* Cities Grid Section */}
       <section className={autorijlesStyles.citiesSection}>
         <div className={autorijlesStyles.citiesContainer}>
           <div className={autorijlesStyles.sectionHeader}>
-            <h2 className={autorijlesStyles.sectionTitle}>
+            <h2 className={styles.sectionHeaderTitle}>
               Autorijles in {uniqueCities.length} steden
             </h2>
-            <p className={autorijlesStyles.sectionSubtitle}>
+            <p className={styles.sectionHeaderSubtitle}>
               Selecteer jouw stad voor meer informatie
             </p>
           </div>
@@ -100,7 +92,7 @@ export default async function AutorijlesPage() {
             {uniqueCities.map((city, index) => (
               <Link
                 key={city.id}
-                href={`/rijschool/${city.location!.slug}`}
+                href={`/${city.slug}`}
                 className={autorijlesStyles.cityCard}
                 style={{
                   animationDelay: `${index * 0.05}s`,
@@ -196,46 +188,7 @@ export default async function AutorijlesPage() {
       </div>
 
       {/* CTA Section */}
-      <section className={autorijlesStyles.ctaSection}>
-        <div className={autorijlesStyles.ctaContainer}>
-          <div className={autorijlesStyles.ctaContent}>
-            <p className={autorijlesStyles.ctaLabel}>Begin vandaag nog</p>
-            <h2 className={autorijlesStyles.ctaTitle}>
-              Start jouw Rijavontuur bij Quality Drive!
-            </h2>
-            <p className={autorijlesStyles.ctaText}>
-              Kies hierboven jouw stad en ontdek wat Quality Drive voor jou kan betekenen.
-              Wij werken in <strong>Den Haag, Zoetermeer, Delft, Rijswijk</strong> en omgeving.
-            </p>
-            <p className={autorijlesStyles.ctaText}>
-              Als je vragen hebt kun je geheel vrijblijvend contact met ons opnemen,
-              we helpen je graag verder.
-            </p>
-
-            <div className={autorijlesStyles.guaranteeSection}>
-              <h3 className={autorijlesStyles.guaranteeTitle}>
-                <Shield size={28} />
-                Onze Zekerheid aan jou
-              </h3>
-              <p className={autorijlesStyles.guaranteeText}>
-                Bij Quality Drive zorgen we ervoor dat je met zekerheid jouw rijbewijs haalt.
-                Wij bieden niet alleen uitstekende rijlessen, maar ook de garantie dat je goed
-                voorbereid en vol vertrouwen je rijexamen aflegt.
-              </p>
-            </div>
-
-            <a
-              href="https://calendly.com/qualitydrive/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={autorijlesStyles.ctaButton}
-            >
-              <Car size={20} />
-              Gratis proefles plannen
-            </a>
-          </div>
-        </div>
-      </section>
+      <StartRijavontuurCTA />
 
       <Footer />
     </div>

@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { Disc3, Shield, Car } from 'lucide-react';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
+import { StartRijavontuurCTA, HeroSection } from '@/app/components/sections';
 import prisma from '@/lib/prisma';
 import { PageCategory } from '@prisma/client';
 import styles from '../../page.module.css';
@@ -12,11 +13,19 @@ import StepsSection from './StepsSection';
 import ContentSections from './ContentSections';
 import PakkettenSection from './PakkettenSection';
 
-// Generate static params for all rijschool city pages
+// Generate static params for all rijschool pages (except automaat, motor, taxi)
 export async function generateStaticParams() {
+  // Fallback slugs if database is not available
+  const fallbackSlugs = [
+    'den-haag', 'zoetermeer', 'delft', 'rijswijk', 'voorburg', 'nootdorp',
+    'berkel-en-rodenrijs', 'bergschenhoek', 'bleiswijk', 'lansingerland',
+    'pijnacker', 'wateringen', 'leidschendam',
+    'adhd', 'faalangst', 'add'
+  ];
+
   if (!process.env.DATABASE_URL) {
-    console.warn('⚠️  DATABASE_URL not found during build, skipping static generation');
-    return [];
+    console.warn('⚠️  DATABASE_URL not found during build, using fallback slugs');
+    return fallbackSlugs.map(slug => ({ slug }));
   }
 
   try {
@@ -29,27 +38,29 @@ export async function generateStaticParams() {
       },
     });
 
-    return pages
-      .filter(page => page.location)
-      .map((page) => ({
-        city: page.location!.slug,
-      }));
+    if (pages.length === 0) {
+      console.warn('⚠️  No pages found in database, using fallback slugs');
+      return fallbackSlugs.map(slug => ({ slug }));
+    }
+
+    return pages.map((page) => ({
+      // Strip "rijschool-" prefix from slug for URL
+      slug: page.slug.replace(/^rijschool-/, ''),
+    }));
   } catch (error) {
     console.error('Error generating static params:', error);
-    return [];
+    return fallbackSlugs.map(slug => ({ slug }));
   }
 }
 
 // Generate metadata for SEO
-export async function generateMetadata({ params }: { params: { city: string } }): Promise<Metadata> {
-  const { city } = await params;
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const { slug } = await params;
 
   const page = await prisma.page.findFirst({
     where: {
+      slug: `rijschool-${slug}`,
       category: PageCategory.RIJSCHOOL_AUTO,
-      location: {
-        slug: city,
-      },
     },
     include: {
       location: true,
@@ -63,11 +74,12 @@ export async function generateMetadata({ params }: { params: { city: string } })
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://quality-drive.nl';
-  const canonicalUrl = `${siteUrl}/rijschool/${page.location!.slug}`;
+  const canonicalUrl = `${siteUrl}/rijschool-${slug}`;
+  const locationName = page.location?.name || '';
 
   return {
     title: page.seoTitle || page.title,
-    description: page.seoDescription || `Autorijlessen in ${page.location?.name}. Professionele rijschool met ervaren instructeurs.`,
+    description: page.seoDescription || `Autorijlessen ${locationName ? `in ${locationName}` : ''}. Professionele rijschool met ervaren instructeurs.`,
     keywords: page.seoKeywords,
     alternates: {
       canonical: canonicalUrl,
@@ -102,46 +114,58 @@ export async function generateMetadata({ params }: { params: { city: string } })
   };
 }
 
-export default async function RijschoolCityPage({ params }: { params: { city: string } }) {
-  const { city } = await params;
+export default async function RijschoolPage({ params }: { params: { slug: string } }) {
+  const { slug } = await params;
 
-  // Fetch page data from database
+  // Fetch page data from database (add rijschool- prefix to match database slug)
   const page = await prisma.page.findFirst({
     where: {
+      slug: `rijschool-${slug}`,
       category: PageCategory.RIJSCHOOL_AUTO,
-      location: {
-        slug: city,
-      },
     },
-    include: {
+    select: {
+      id: true,
+      slug: true,
+      title: true,
+      content: true,
+      excerpt: true,
+      category: true,
+      featuredImage: true,
+      featuredImageAlt: true,
+      seoTitle: true,
+      seoDescription: true,
+      seoKeywords: true,
+      originalUrl: true,
+      publishedAt: true,
       location: true,
     },
   });
 
-  if (!page || !page.location) {
+  if (!page) {
     notFound();
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://quality-drive.nl';
+  const locationName = page.location?.name || '';
 
-  // Structured Data - LocalBusiness Schema
-  const localBusinessSchema = {
+  // Structured Data - LocalBusiness Schema (only for city pages)
+  const localBusinessSchema = page.location ? {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': `${siteUrl}/rijschool/${page.location.slug}#organization`,
-    name: `Quality Drive Rijschool ${page.location.name}`,
+    '@id': `${siteUrl}/rijschool-${slug}#organization`,
+    name: `Quality Drive Rijschool ${locationName}`,
     image: page.featuredImage || `${siteUrl}/uploads/quality-drive-og.jpg`,
-    description: page.seoDescription || `Autorijlessen in ${page.location.name}`,
-    url: `${siteUrl}/rijschool/${page.location.slug}`,
+    description: page.seoDescription || `Autorijlessen in ${locationName}`,
+    url: `${siteUrl}/rijschool-${slug}`,
     telephone: '+31-70-123-4567',
     priceRange: '€€',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: page.location.name,
+      addressLocality: locationName,
       addressRegion: 'Zuid-Holland',
       addressCountry: 'NL',
     },
-  };
+  } : null;
 
   // Breadcrumb Schema
   const breadcrumbSchema = {
@@ -163,8 +187,8 @@ export default async function RijschoolCityPage({ params }: { params: { city: st
       {
         '@type': 'ListItem',
         position: 3,
-        name: page.location.name,
-        item: `${siteUrl}/rijschool/${page.location.slug}`,
+        name: page.title,
+        item: `${siteUrl}/rijschool-${slug}`,
       },
     ],
   };
@@ -172,10 +196,12 @@ export default async function RijschoolCityPage({ params }: { params: { city: st
   return (
     <>
       {/* Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-      />
+      {localBusinessSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -185,22 +211,14 @@ export default async function RijschoolCityPage({ params }: { params: { city: st
         <Header />
 
         {/* Hero Section - Breadcrumbs en H1 */}
-        <section className={cityStyles.hero}>
-          <div className={cityStyles.heroContent}>
-            {/* Breadcrumb */}
-            <nav className={cityStyles.breadcrumb} aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
-              <span className={cityStyles.breadcrumbSeparator} aria-hidden="true">/</span>
-              <Link href="/autorijles">Autorijles</Link>
-              <span className={cityStyles.breadcrumbSeparator} aria-hidden="true">/</span>
-              <span aria-current="page">{page.location.name}</span>
-            </nav>
-
-            <h1 className={cityStyles.title}>
-              {page.title}
-            </h1>
-          </div>
-        </section>
+        <HeroSection
+          title={page.title}
+          breadcrumbs={[
+            { label: 'Home', href: '/' },
+            { label: 'Autorijles', href: '/autorijles' },
+            { label: locationName || page.title }
+          ]}
+        />
 
         {/* Steps Section with Animated Car */}
         <StepsSection />
@@ -211,10 +229,12 @@ export default async function RijschoolCityPage({ params }: { params: { city: st
             <div className={cityStyles.contentGrid}>
               {/* Left: Image */}
               <div className={cityStyles.imageColumn}>
-                <h3 className={cityStyles.imageTitle}>Beste goedkope rijschool {page.location.name} en omgeving</h3>
+                <h3 className={cityStyles.imageTitle}>
+                  Beste goedkope rijschool {locationName ? `${locationName} en omgeving` : ''}
+                </h3>
                 <img
                   src="/uploads/pexels-element-digital-1051071-scaled.webp"
-                  alt={`Beste goedkope rijschool ${page.location.name} en omgeving`}
+                  alt={`Beste goedkope rijschool ${locationName ? `${locationName} en omgeving` : ''}`}
                   className={cityStyles.contentImage}
                 />
               </div>
@@ -276,7 +296,11 @@ export default async function RijschoolCityPage({ params }: { params: { city: st
         </section>
 
         {/* FAQ and Why Quality Drive Sections */}
-        <ContentSections cityName={page.location.name} />
+        <ContentSections
+          cityName={locationName || page.title}
+          cityImage={page.featuredImage}
+          cityImageAlt={page.featuredImageAlt}
+        />
 
         {/* Section Divider */}
         <div className={styles.sectionDivider}>
@@ -291,46 +315,7 @@ export default async function RijschoolCityPage({ params }: { params: { city: st
         <PakkettenSection />
 
         {/* CTA Section */}
-        <section className={cityStyles.ctaSection}>
-          <div className={cityStyles.ctaContainer}>
-            <div className={cityStyles.ctaContent}>
-              <p className={cityStyles.ctaLabel}>Begin vandaag nog</p>
-              <h2 className={cityStyles.ctaTitle}>
-                Start jouw Rijavontuur bij Quality Drive!
-              </h2>
-              <p className={cityStyles.ctaText}>
-                Kies hierboven jouw stad en ontdek wat Quality Drive voor jou kan betekenen.
-                Wij werken in <strong>Den Haag, Zoetermeer, Delft, Rijswijk</strong> en omgeving.
-              </p>
-              <p className={cityStyles.ctaText}>
-                Als je vragen hebt kun je geheel vrijblijvend contact met ons opnemen,
-                we helpen je graag verder.
-              </p>
-
-              <div className={cityStyles.guaranteeSection}>
-                <h3 className={cityStyles.guaranteeTitle}>
-                  <Shield size={28} />
-                  Onze Zekerheid aan jou
-                </h3>
-                <p className={cityStyles.guaranteeText}>
-                  Bij Quality Drive zorgen we ervoor dat je met zekerheid jouw rijbewijs haalt.
-                  Wij bieden niet alleen uitstekende rijlessen, maar ook de garantie dat je goed
-                  voorbereid en vol vertrouwen je rijexamen aflegt.
-                </p>
-              </div>
-
-              <a
-                href="https://calendly.com/qualitydrive/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cityStyles.ctaButton}
-              >
-                <Car size={20} />
-                Gratis proefles plannen
-              </a>
-            </div>
-          </div>
-        </section>
+        <StartRijavontuurCTA />
 
         <Footer />
       </div>
@@ -340,3 +325,6 @@ export default async function RijschoolCityPage({ params }: { params: { city: st
 
 // Enable static generation (ISR) - revalidate every hour
 export const revalidate = 3600;
+
+// Allow dynamic params to be generated on-demand
+export const dynamicParams = true;

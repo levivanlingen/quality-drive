@@ -1,8 +1,30 @@
 /* Rijles Pakketten Page Styles */
 
+/* Package Selection Grid */
+.packageSelectionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .packageSelectionGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .packageSelectionGrid {
+    gap: 1.5rem;
+  }
+}
+
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   padding: 8rem 2rem 4rem;
   position: relative;
   overflow: hidden;
@@ -37,7 +59,7 @@
   backdrop-filter: blur(10px);
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   margin-bottom: 2rem;
   color: white;
 }
@@ -57,19 +79,20 @@
 }
 
 .heroTitle {
-  font-size: 4rem;
-  font-weight: 900;
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
   color: white;
   margin-bottom: 0;
-  line-height: 1.1;
+  line-height: var(--line-height-headings);
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-  letter-spacing: -0.02em;
+  letter-spacing: var(--letter-spacing-headings);
 }
 
 /* Packages Section */
 .packagesSection {
   padding: 6rem 2rem;
-  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+  background: linear-gradient(180deg, #f8f9fa 0%, var(--color-white) 100%);
 }
 
 .packagesContainer {
@@ -80,20 +103,6 @@
 .sectionHeader {
   text-align: center;
   margin-bottom: 4rem;
-}
-
-.sectionTitle {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #0065A6;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-
-.sectionSubtitle {
-  font-size: 1.25rem;
-  color: #0065A6;
-  font-weight: 500;
 }
 
 .packagesGrid {
@@ -180,11 +189,11 @@
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  background: linear-gradient(135deg, #C11517 0%, #a00f11 100%);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 50px;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   font-weight: 700;
   z-index: 2;
 }
@@ -208,17 +217,20 @@
 }
 
 .packageTitle {
-  font-size: 2rem;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
   margin-bottom: 2rem;
   color: #1a1a1a;
+  line-height: var(--line-height-headings);
+  letter-spacing: var(--letter-spacing-headings);
   position: relative;
   z-index: 1;
 }
 
 .packageArrow {
-  font-size: 2rem;
-  color: #0065A6;
+  font-size: var(--text-2xl);
+  color: var(--color-primary);
   font-weight: 700;
   transition: transform 0.3s ease;
   position: relative;
@@ -232,7 +244,7 @@
 /* Content Section */
 .contentSection {
   padding: 6rem 2rem;
-  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  background: linear-gradient(180deg, var(--color-white) 0%, #f8f9fa 100%);
 }
 
 .contentContainer {
@@ -241,7 +253,7 @@
 }
 
 .contentTitle {
-  font-size: 2rem;
+  font-size: var(--text-2xl);
   font-weight: 700;
   color: #1a1a1a;
   margin-bottom: 2rem;
@@ -249,8 +261,8 @@
 }
 
 .contentText {
-  font-size: 1.125rem;
-  color: #4a5568;
+  font-size: var(--section-subtitle-size);
+  color: var(--color-gray-700);
   line-height: 1.8;
   margin-bottom: 3rem;
 }
@@ -268,9 +280,9 @@
 }
 
 .guaranteesTitle {
-  font-size: 1.5rem;
+  font-size: var(--text-xl);
   font-weight: 700;
-  color: #0065A6;
+  color: var(--color-primary);
   margin-bottom: 1.5rem;
 }
 
@@ -285,30 +297,30 @@
   align-items: center;
   gap: 1rem;
   padding: 0.75rem 0;
-  font-size: 1.125rem;
-  color: #4a5568;
+  font-size: var(--section-subtitle-size);
+  color: var(--color-gray-700);
 }
 
 .guaranteeIcon {
-  color: #0065A6;
+  color: var(--color-primary);
   flex-shrink: 0;
 }
 
 .ctaText {
-  font-size: 1.125rem;
-  color: #4a5568;
+  font-size: var(--section-subtitle-size);
+  color: var(--color-gray-700);
   text-align: center;
   margin-top: 3rem;
 }
 
 .ctaLink {
-  color: #C11517;
+  color: var(--color-accent);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .ctaLink:hover {
-  color: #a00f11;
+  color: var(--color-accent-dark);
 }
 
 /* CTA Section */
@@ -345,28 +357,28 @@
 .ctaLabel {
   display: inline-block;
   background: linear-gradient(135deg, rgba(0, 101, 166, 0.1) 0%, rgba(0, 101, 166, 0.05) 100%);
-  color: #0065A6;
+  color: var(--color-primary);
   padding: 0.5rem 1rem;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 1rem;
   border: 1px solid rgba(0, 101, 166, 0.2);
 }
 
 .ctaTitle {
-  font-size: 1.75rem;
-  font-weight: 800;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
   color: #1a1a1a;
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 .ctaTextBox {
-  font-size: 0.95rem;
-  color: #4a5568;
+  font-size: var(--section-label-size);
+  color: var(--color-gray-700);
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -380,9 +392,9 @@
 }
 
 .guaranteeBoxTitle {
-  font-size: 1.25rem;
+  font-size: var(--text-lg);
   font-weight: 700;
-  color: #0065A6;
+  color: var(--color-primary);
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
@@ -391,8 +403,8 @@
 }
 
 .guaranteeBoxText {
-  font-size: 0.9rem;
-  color: #4a5568;
+  font-size: var(--section-label-size);
+  color: var(--color-gray-700);
   line-height: 1.6;
 }
 
@@ -400,11 +412,11 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #C11517 0%, #a00f11 100%);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
   color: white;
   padding: 0.875rem 1.75rem;
   border-radius: 16px;
-  font-size: 1rem;
+  font-size: var(--text-base);
   font-weight: 700;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -415,7 +427,7 @@
 .ctaButton:hover {
   transform: translateY(-4px);
   box-shadow: 0 15px 40px rgba(193, 21, 23, 0.4);
-  background: linear-gradient(135deg, #dc3234 0%, #C11517 100%);
+  background: linear-gradient(135deg, #dc3234 0%, var(--color-accent) 100%);
 }
 
 /* Animations */
@@ -431,26 +443,25 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 8rem 1.5rem 4rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: 8rem 1.5rem 3rem;
   }
 
   .heroTitle {
-    font-size: 3rem;
+    font-size: var(--text-3xl);
   }
 
   .sectionHeader {
     margin-bottom: 3rem;
   }
 
-  .sectionTitle {
-    font-size: 2rem;
-  }
-
-  .sectionSubtitle {
-    font-size: 1.125rem;
-  }
 
   .packagesSection {
     padding: 4rem 1.5rem;
@@ -466,11 +477,11 @@
   }
 
   .contentTitle {
-    font-size: 1.5rem;
+    font-size: var(--text-xl);
   }
 
   .contentText {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 
   .guaranteesSection {
@@ -478,7 +489,7 @@
   }
 
   .guaranteeItem {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 
   .ctaSection {
@@ -490,7 +501,7 @@
   }
 
   .ctaTitle {
-    font-size: 2rem;
+    font-size: var(--text-2xl);
   }
 }
 
@@ -500,11 +511,11 @@
   }
 
   .heroTitle {
-    font-size: 2.5rem;
+    font-size: var(--section-title-size);
   }
 
   .breadcrumb {
-    font-size: 0.75rem;
+    font-size: var(--text-xs);
     padding: 0.5rem 1rem;
   }
 
@@ -512,13 +523,6 @@
     margin-bottom: 2.5rem;
   }
 
-  .sectionTitle {
-    font-size: 1.75rem;
-  }
-
-  .sectionSubtitle {
-    font-size: 1rem;
-  }
 
   .packagesSection {
     padding: 3rem 1rem;
@@ -534,7 +538,7 @@
   }
 
   .packageTitle {
-    font-size: 1.5rem;
+    font-size: var(--text-xl);
   }
 
   .contentSection {
@@ -542,7 +546,7 @@
   }
 
   .contentTitle {
-    font-size: 1.25rem;
+    font-size: var(--text-lg);
   }
 
   .guaranteesSection {
@@ -550,11 +554,11 @@
   }
 
   .guaranteesTitle {
-    font-size: 1.25rem;
+    font-size: var(--text-lg);
   }
 
   .guaranteeItem {
-    font-size: 0.9rem;
+    font-size: var(--section-label-size);
   }
 
   .ctaSection {
@@ -566,7 +570,7 @@
   }
 
   .ctaTitle {
-    font-size: 1.75rem;
+    font-size: var(--text-xl);
   }
 
   .ctaButton {
@@ -580,7 +584,7 @@
   }
 
   .guaranteeBoxTitle {
-    font-size: 1.25rem;
+    font-size: var(--text-lg);
     flex-direction: column;
     gap: 0.5rem;
   }

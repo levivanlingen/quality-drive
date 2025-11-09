@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import pageStyles from '../../page.module.css';
 import styles from './autorijles.module.css';
 import type { FAQ } from './types';
 
@@ -29,7 +30,7 @@ export function FAQSection({
   return (
     <section className={styles.faqSection}>
       <div className={styles.faqContainer}>
-        <h2 className={styles.sectionTitle}>{title}</h2>
+        <h2 className={pageStyles.sectionHeaderTitle}>{title}</h2>
 
         <div className={styles.faqList}>
           {faqs.map((faq, index) => (

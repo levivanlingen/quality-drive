@@ -5,21 +5,26 @@
 .contentHtml h4,
 .contentHtml h5,
 .contentHtml h6 {
+  font-family: var(--font-heading);
   color: #FFB800;
-  font-weight: 700;
+  font-weight: var(--font-bold);
   margin-top: 2rem;
   margin-bottom: 1rem;
-  line-height: 1.3;
+  line-height: var(--line-height-headings);
+  letter-spacing: var(--letter-spacing-headings);
 }
 
-.contentHtml h1 { font-size: 2.5rem; }
-.contentHtml h2 { font-size: 2rem; }
-.contentHtml h3 { font-size: 1.75rem; }
-.contentHtml h4 { font-size: 1.5rem; }
-.contentHtml h5 { font-size: 1.25rem; }
-.contentHtml h6 { font-size: 1.125rem; }
+.contentHtml h1 { font-size: var(--font-h2); }
+.contentHtml h2 { font-size: var(--font-h3); }
+.contentHtml h3 { font-size: var(--text-xl); }
+.contentHtml h4 { font-size: var(--text-xl); }
+.contentHtml h5 { font-size: var(--text-lg); }
+.contentHtml h6 { font-size: var(--text-lg); }
 
 .contentHtml p {
+  font-family: var(--font-body);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
   margin-bottom: 1.5rem;
 }
 
@@ -89,7 +94,7 @@
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
   font-family: monospace;
-  font-size: 0.9em;
+  font-size: var(--text-sm);
 }
 
 .contentHtml pre {

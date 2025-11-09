@@ -1,7 +1,10 @@
 'use client';
 
+import Link from 'next/link';
+import Image from 'next/image';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
+import { HeroSection, FeaturesImageSection } from '@/app/components/sections';
 import styles from '../page.module.css';
 import { Award, Users, Target, Heart, Shield, Clock } from 'lucide-react';
 
@@ -10,11 +13,20 @@ export default function AboutPage() {
     <div className={styles.page}>
       <Header />
 
+      <HeroSection
+        title="Over ons"
+        subtitle="Al meerdere jaren de rijschool waar kwaliteit centraal staat"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Over Ons' }
+        ]}
+      />
+
       {/* Hero Section */}
-      <section className={styles.rijschoolSection} style={{ marginTop: '80px' }}>
+      <section className={styles.rijschoolSection}>
         <div className={styles.rijschoolContent}>
           <p className={styles.rijschoolLabel}>Over ons</p>
-          <h1 className={styles.sectionTitle}>Al meerdere jaren de rijschool waar kwaliteit en hoge slagingspercentage bij CBR centraal staat</h1>
+          <h1 className={styles.sectionHeaderTitle}>Al meerdere jaren de rijschool waar kwaliteit en hoge slagingspercentage bij CBR centraal staat</h1>
           <p className={styles.rijschoolText}>
             Heb jij ook de barstende vraag welke de beste rijschool van Den Haag – Zoetermeer – Delft – Rijswijk en omgeving is?
             Dagelijks streven wij als autorijschool Quality-Drive ernaar om aan onze leerlingen elke dag weer top kwaliteit te leveren.
@@ -31,7 +43,7 @@ export default function AboutPage() {
 
       {/* ADHD/ADD Section */}
       <section className={styles.services} style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
-        <h2 className={styles.sectionTitle}>Rijschool voor ADHD - ADD - faalangst en opfriscursus</h2>
+        <h2 className={styles.sectionHeaderTitle}>Rijschool voor ADHD - ADD - faalangst en opfriscursus</h2>
 
         <div style={{ maxWidth: '900px', margin: '2rem auto' }}>
           <p style={{ fontSize: '1.125rem', lineHeight: '1.8', color: '#4a5568', textAlign: 'center', marginBottom: '2rem' }}>
@@ -47,90 +59,16 @@ export default function AboutPage() {
       </section>
 
       {/* 6 Zekerheden Section */}
-      <section className={styles.rijschoolSection}>
-        <div className={styles.rijschoolContent}>
-          <p className={styles.rijschoolLabel}>Van Starter tot Pro</p>
-          <h2 className={styles.sectionTitle}>De 6 zekerheden alleen bij Quality Drive</h2>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginTop: '3rem' }}>
-            <div style={{
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',
-              backdropFilter: 'blur(20px)',
-              borderRadius: '16px',
-              padding: '2rem',
-              border: '2px solid rgba(0, 101, 166, 0.1)',
-              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.06)',
-            }}>
-              <div style={{ color: '#0065A6', marginBottom: '1rem' }}>✓</div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem' }}>Gratis proefles</h3>
-            </div>
-
-            <div style={{
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',
-              backdropFilter: 'blur(20px)',
-              borderRadius: '16px',
-              padding: '2rem',
-              border: '2px solid rgba(0, 101, 166, 0.1)',
-              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.06)',
-            }}>
-              <div style={{ color: '#0065A6', marginBottom: '1rem' }}>✓</div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem' }}>€ 7,50 korting per rijles</h3>
-            </div>
-
-            <div style={{
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',
-              backdropFilter: 'blur(20px)',
-              borderRadius: '16px',
-              padding: '2rem',
-              border: '2px solid rgba(0, 101, 166, 0.1)',
-              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.06)',
-            }}>
-              <div style={{ color: '#0065A6', marginBottom: '1rem' }}>✓</div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem' }}>Morgen starten met je rijles</h3>
-            </div>
-
-            <div style={{
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',
-              backdropFilter: 'blur(20px)',
-              borderRadius: '16px',
-              padding: '2rem',
-              border: '2px solid rgba(0, 101, 166, 0.1)',
-              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.06)',
-            }}>
-              <div style={{ color: '#0065A6', marginBottom: '1rem' }}>✓</div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem' }}>Succesvolle lesmethode</h3>
-            </div>
-
-            <div style={{
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',
-              backdropFilter: 'blur(20px)',
-              borderRadius: '16px',
-              padding: '2rem',
-              border: '2px solid rgba(0, 101, 166, 0.1)',
-              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.06)',
-            }}>
-              <div style={{ color: '#0065A6', marginBottom: '1rem' }}>✓</div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem' }}>Beoordeling rijinstructeurs 9.1</h3>
-            </div>
-
-            <div style={{
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',
-              backdropFilter: 'blur(20px)',
-              borderRadius: '16px',
-              padding: '2rem',
-              border: '2px solid rgba(0, 101, 166, 0.1)',
-              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.06)',
-            }}>
-              <div style={{ color: '#0065A6', marginBottom: '1rem' }}>✓</div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem' }}>Theorie ondersteuning tijdens je les</h3>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FeaturesImageSection
+        label="Van Starter tot Pro"
+        featuresTitle="De 6 zekerheden alleen bij Quality Drive"
+        imageTitle="Beste goedkope rijschool"
+        imageAlt="Beste goedkope rijschool"
+      />
 
       {/* Rijlessen op maat Section */}
       <section className={styles.services} style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
-        <h2 className={styles.sectionTitle}>Rijlessen op maat</h2>
+        <h2 className={styles.sectionHeaderTitle}>Rijlessen op maat</h2>
         <div style={{ maxWidth: '900px', margin: '2rem auto' }}>
           <p style={{ fontSize: '1.125rem', lineHeight: '1.8', color: '#4a5568', textAlign: 'center' }}>
             Wij heten je van harte welkom bij Quality-Drive in Zuid-Holland. Een familiebedrijf dat inmiddels al meerdere jaren bestaat.
@@ -146,7 +84,7 @@ export default function AboutPage() {
       {/* Lesmethode Section */}
       <section className={styles.rijschoolSection}>
         <div className={styles.rijschoolContent}>
-          <h2 className={styles.sectionTitle}>Unieke Quality-Drive Lesmethode: succes gegarandeerd</h2>
+          <h2 className={styles.sectionHeaderTitle}>Unieke Quality-Drive Lesmethode: succes gegarandeerd</h2>
           <p className={styles.rijschoolText}>
             Met de succesvolle Quality-Drive Lesmethode slaag je gegarandeerd! Deze unieke formule begint met een vrijblijvende proefles.
             Op basis hiervan wordt een persoonlijk lesadvies opgesteld en een rijcoach toegewezen die het beste bij jou past.
@@ -162,7 +100,7 @@ export default function AboutPage() {
 
       {/* Voordelen Section */}
       <section className={styles.services} style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
-        <h2 className={styles.sectionTitle}>Voordelen van Quality-Drive</h2>
+        <h2 className={styles.sectionHeaderTitle}>Voordelen van Quality-Drive</h2>
 
         <div className={styles.serviceGrid}>
           <div className={styles.serviceCard}>
@@ -202,7 +140,7 @@ export default function AboutPage() {
       {/* Testimonials Section */}
       <section className={styles.rijschoolSection} style={{ background: '#f9fafb' }}>
         <div className={styles.rijschoolContent}>
-          <h2 className={styles.sectionTitle}>Wat onze leerlingen zeggen</h2>
+          <h2 className={styles.sectionHeaderTitle}>Wat onze leerlingen zeggen</h2>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginTop: '3rem' }}>
             <div style={{
@@ -295,45 +233,32 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Vacature Section */}
-      <section className={styles.rijschoolSection}>
-        <div className={styles.rijschoolContent}>
-          <h2 className={styles.sectionTitle}>Werken bij Quality Drive</h2>
-          <h3 style={{ fontSize: '1.75rem', fontWeight: '600', marginBottom: '1.5rem', textAlign: 'center' }}>
-            Vacature: Rijinstructeur
-          </h3>
-          <p className={styles.rijschoolText}>
-            Bij Quality Drive zijn we op zoek naar gemotiveerde en gepassioneerde collega's om ons team te versterken.
-            We zijn een gerenommeerde rijschool die staat voor kwaliteit, veiligheid en persoonlijke aandacht.
-            Wil jij deel uitmaken van een enthousiast team dat elke dag streeft naar het beste voor onze leerlingen?
-            Neem dan nu snel contact op!
-          </p>
-          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-            <button
-              onClick={() => window.location.href = '/contact'}
-              style={{
-                padding: '1rem 3rem',
-                fontSize: '1.125rem',
-                fontWeight: '600',
-                background: 'linear-gradient(135deg, #0065A6 0%, #004d7a 100%)',
-                color: 'white',
-                border: 'none',
-                borderRadius: '12px',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 8px 24px rgba(0, 101, 166, 0.3)',
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 32px rgba(0, 101, 166, 0.4)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 101, 166, 0.3)';
-              }}
-            >
-              Contact opnemen
-            </button>
+      {/* Werken bij Quality Drive Section */}
+      <section className={styles.careerSection}>
+        <div className={styles.careerContent}>
+          <div className={styles.careerTextArea}>
+            <h2 className={styles.sectionHeaderTitle}>Werken bij Quality Drive</h2>
+            <h3 className={styles.sectionHeaderSubtitle}>Vacature: Rijinstructeur</h3>
+            <p className={styles.careerText}>
+              Bij Quality Drive zijn we op zoek naar gemotiveerde en gepassioneerde collega's om ons team te versterken. We zijn een gerenommeerde rijschool die staat voor kwaliteit, veiligheid en persoonlijke aandacht. Wil jij deel uitmaken van een enthousiast team dat elke dag streeft naar het beste voor onze leerlingen? Neem dan nu snel contact op!
+            </p>
+            <div className={styles.careerButtons}>
+              <Link href="/contact" className={styles.careerButtonPrimary}>
+                Neem Contact Op
+              </Link>
+              <Link href="/vacatures" className={styles.careerButtonSecondary}>
+                Meer Informatie →
+              </Link>
+            </div>
+          </div>
+          <div className={styles.careerImage}>
+            <Image
+              src="/uploads/PHOTO-2025-01-17-10-34-36-3.jpg"
+              alt="Rijinstructeur bij Quality Drive"
+              fill
+              loading="lazy"
+              style={{ objectFit: 'cover' }}
+            />
           </div>
         </div>
       </section>

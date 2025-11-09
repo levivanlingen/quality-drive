@@ -1,4 +1,6 @@
 import { PrismaClient } from '@prisma/client';
+import * as fs from 'fs';
+import * as path from 'path';
 
 // PrismaClient is attached to the `global` object in development to prevent
 // exhausting your database connection limit.
@@ -6,24 +8,26 @@ import { PrismaClient } from '@prisma/client';
 
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
-// Force Railway database if Replit's helium database is detected or if DATABASE_URL is missing
+// Read DATABASE_URL directly from .env file to avoid Replit's auto-injection
 const getDatabaseUrl = () => {
-  const envUrl = process.env.DATABASE_URL;
+  try {
+    const envPath = path.join(process.cwd(), '.env');
+    const envContent = fs.readFileSync(envPath, 'utf8');
+    const match = envContent.match(/^DATABASE_URL=(.+)$/m);
+
+    if (match && match[1]) {
+      const url = match[1].trim();
+      console.log('🚂 Using Railway database from .env file');
+      return url;
+    }
+  } catch (error) {
+    console.warn('⚠️  Could not read .env file:', error);
+  }
+
+  // Fallback to Railway URL
   const railwayUrl = 'postgresql://postgres:bHlnhxdXDICEwGSxJmeDuHQgoEdvqmPO@gondola.proxy.rlwy.net:57946/railway';
-
-  // If no DATABASE_URL, use Railway
-  if (!envUrl) {
-    console.warn('⚠️  No DATABASE_URL found, using Railway database');
-    return railwayUrl;
-  }
-
-  // If URL contains 'helium' (Replit auto-injected), use Railway instead
-  if (envUrl.includes('helium')) {
-    console.warn('⚠️  Detected Replit database, switching to Railway database');
-    return railwayUrl;
-  }
-
-  return envUrl;
+  console.log('🚂 Using Railway database (fallback)');
+  return railwayUrl;
 };
 
 export const prisma =

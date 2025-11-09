@@ -1,4 +1,5 @@
 import { Star } from 'lucide-react';
+import pageStyles from '../../page.module.css';
 import styles from './autorijles.module.css';
 import type { Testimonial } from './types';
 
@@ -18,7 +19,7 @@ export function TestimonialsSection({
   return (
     <section className={styles.testimonialsSection}>
       <div className={styles.testimonialsContainer}>
-        <h2 className={styles.sectionTitle}>Wat onze leerlingen zeggen</h2>
+        <h2 className={pageStyles.sectionHeaderTitle}>Wat onze leerlingen zeggen</h2>
 
         <div className={styles.testimonialsGrid}>
           {testimonials.map((testimonial, index) => (

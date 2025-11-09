@@ -1,0 +1,119 @@
+/* Hero Section - Exact copy from rijopleidingen/rijopleidingen.module.css */
+.hero {
+  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
+  padding: 8rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.10'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.45;
+}
+
+.heroContent {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: var(--section-label-size);
+  font-weight: var(--font-semibold);
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: var(--text-sm);
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.breadcrumb a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: white;
+}
+
+.breadcrumbSeparator {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: var(--font-h1);
+  font-weight: var(--font-bold);
+  color: white;
+  margin-bottom: 0;
+  line-height: var(--line-height-headings);
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  letter-spacing: var(--letter-spacing-headings);
+}
+
+.heroSubtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: var(--font-regular);
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 1rem;
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 8rem 1.5rem 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 7rem 1.5rem 3rem;
+  }
+
+  .heroTitle {
+    font-size: var(--font-h2);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 6rem 1rem 2.5rem;
+  }
+
+  .heroTitle {
+    font-size: var(--font-h2);
+  }
+
+  .breadcrumb {
+    font-size: var(--text-xs);
+    padding: 0.5rem 1rem;
+  }
+}

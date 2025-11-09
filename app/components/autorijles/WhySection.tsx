@@ -1,4 +1,5 @@
 import { CheckCircle2 } from 'lucide-react';
+import pageStyles from '../../page.module.css';
 import styles from './autorijles.module.css';
 import type { WhyPoint } from './types';
 
@@ -18,7 +19,7 @@ export function WhySection({
   return (
     <section className={styles.whySection}>
       <div className={styles.whyContainer}>
-        <h2 className={styles.sectionTitle}>{title}</h2>
+        <h2 className={pageStyles.sectionHeaderTitle}>{title}</h2>
         {text && <p className={styles.whyIntroText}>{text}</p>}
 
         <div className={styles.whyGrid}>

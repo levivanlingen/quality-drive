@@ -1,86 +1,5 @@
 /* City Page Styles */
 
-/* Hero Section */
-.hero {
-  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
-  padding: 8rem 2rem 4rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.10'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.45;
-}
-
-.heroContent {
-  max-width: 1400px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.breadcrumb {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 0.875rem;
-  margin-bottom: 2rem;
-  color: white;
-}
-
-.breadcrumb a {
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.breadcrumb a:hover {
-  color: white;
-}
-
-.breadcrumbSeparator {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.label {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.title {
-  font-size: 4rem;
-  font-weight: 900;
-  color: white;
-  margin-bottom: 1rem;
-  line-height: 1.1;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-  letter-spacing: -0.02em;
-}
-
-.excerpt {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 800px;
-  line-height: 1.6;
-  margin: 0;
-}
-
 /* Steps Section */
 .stepsSection {
   padding: 5rem 2rem;
@@ -94,11 +13,11 @@
 }
 
 .stepsMainTitle {
-  font-size: 3rem;
-  font-weight: 800;
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
   margin-bottom: 4rem;
-  color: #0065A6;
-  letter-spacing: -0.03em;
+  color: var(--color-primary);
+  letter-spacing: var(--letter-spacing-headings);
   text-align: center;
   position: relative;
   z-index: 1;
@@ -118,12 +37,12 @@
   left: 12.5%;
   right: 12.5%;
   height: 2px;
-  background: linear-gradient(90deg, #0065A6 0%, #00a8ff 50%, #0065A6 100%);
+  background: linear-gradient(90deg, var(--color-primary) 0%, #00a8ff 50%, var(--color-primary) 100%);
   z-index: 0;
 }
 
 .stepCard {
-  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  background: linear-gradient(145deg, var(--color-white) 0%, var(--color-gray-100) 100%);
   border-radius: 24px;
   padding: 2.5rem 2rem;
   text-align: center;
@@ -137,34 +56,39 @@
   width: 100px;
   height: 100px;
   margin: 0 auto 1.5rem;
-  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #fff;
+  font-size: var(--section-title-size);
+  font-weight: var(--font-bold);
+  color: var(--color-white);
   box-shadow: 0 8px 24px rgba(0, 101, 166, 0.3);
   position: relative;
 }
 
 .stepTitle {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1a1a1a;
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-gray-900);
   margin-bottom: 1rem;
+  line-height: var(--line-height-headings);
+  letter-spacing: var(--letter-spacing-headings);
 }
 
 .stepDescription {
-  font-size: 1rem;
-  line-height: 1.7;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
   color: #4a4a4a;
 }
 
 /* FAQ Section */
 .faqSection {
-  background: #fff;
+  background: var(--color-white);
   padding: 6rem 2rem;
 }
 
@@ -174,20 +98,20 @@
 }
 
 .faqTitle {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #0065A6;
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
   text-align: center;
   margin-bottom: 0.5rem;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--letter-spacing-headings);
 }
 
 .faqSubtitle {
-  font-size: 1.25rem;
+  font-size: var(--text-lg);
   color: #6b7280;
   text-align: center;
   margin-bottom: 4rem;
-  font-weight: 500;
+  font-weight: var(--font-semibold);
 }
 
 .faqList {
@@ -219,7 +143,7 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  font-size: 1.15rem;
+  font-size: var(--section-subtitle-size);
   font-weight: 600;
   color: #1e293b;
   text-align: left;
@@ -227,17 +151,17 @@
 }
 
 .faqQuestion:hover {
-  color: #0065A6;
+  color: var(--color-primary);
 }
 
 .faqQuestionActive {
-  color: #0065A6;
+  color: var(--color-primary);
 }
 
 .faqIcon {
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: #0065A6;
+  font-size: var(--text-xl);
+  font-weight: var(--font-regular);
+  color: var(--color-primary);
   transition: transform 0.3s ease;
   flex-shrink: 0;
   margin-left: 1rem;
@@ -260,15 +184,15 @@
 }
 
 .faqAnswer p {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #4a5568;
+  font-size: var(--text-base);
+  line-height: var(--line-height-body);
+  color: var(--color-gray-700);
   margin: 0;
 }
 
 /* Carousel Section */
 .carouselSection {
-  background: #fff;
+  background: var(--color-white);
   padding: 6rem 2rem;
 }
 
@@ -278,12 +202,12 @@
 }
 
 .carouselMainTitle {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #0065A6;
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
   text-align: center;
   margin-bottom: 3rem;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--letter-spacing-headings);
 }
 
 .carouselContent {
@@ -302,22 +226,42 @@
 }
 
 .carouselSlide h3 {
-  font-size: 2rem;
+  font-size: var(--text-2xl);
   font-weight: 700;
-  color: #0065A6;
+  color: var(--color-primary);
   margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--letter-spacing-headings);
 }
 
 .carouselSlide p {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #4a5568;
+  font-size: var(--text-base);
+  line-height: var(--line-height-body);
+  color: var(--color-gray-700);
   margin-bottom: 1.25rem;
 }
 
 .carouselSlide p:last-child {
   margin-bottom: 0;
+}
+
+.carouselImageWrapper {
+  margin-top: 2.5rem;
+  margin-bottom: 0;
+  border-radius: 32px !important;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  max-width: 250px !important;
+  width: 250px !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carouselImage {
+  width: 250px !important;
+  height: 150px !important;
+  object-fit: cover;
+  display: block;
+  border-radius: 32px !important;
 }
 
 .carouselArrow {
@@ -335,13 +279,13 @@
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  color: #0065A6;
+  color: var(--color-primary);
   z-index: 10;
 }
 
 .carouselArrow:hover {
-  background: #0065A6;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-white);
   transform: translateY(-50%) scale(1.1);
   box-shadow: 0 8px 20px rgba(0, 101, 166, 0.3);
 }
@@ -365,7 +309,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 2px solid #0065A6;
+  border: 2px solid var(--color-primary);
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -378,7 +322,7 @@
 }
 
 .carouselDotActive {
-  background: #0065A6;
+  background: var(--color-primary);
   transform: scale(1.2);
 }
 
@@ -395,22 +339,13 @@
 
 /* Waarom Quality Drive Section */
 .waaromQDSection {
-  background: #fff;
+  background: var(--color-white);
   padding: 5rem 2rem 3rem;
 }
 
 .waaromQDContent {
   max-width: 1400px;
   margin: 0 auto;
-}
-
-.waaromQDSection .sectionTitle {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #0065A6;
-  text-align: center;
-  margin-bottom: 3rem;
-  letter-spacing: -0.02em;
 }
 
 .benefitsGrid {
@@ -492,7 +427,7 @@
   width: 80px;
   height: 80px;
   margin: 0 auto 1.5rem;
-  color: #0065A6;
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -510,19 +445,19 @@
 }
 
 .benefitCard h3 {
-  font-size: 1.5rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #0065A6;
-  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  letter-spacing: var(--letter-spacing-headings);
   position: relative;
   z-index: 1;
 }
 
 .benefitCard p {
-  color: #4a5568;
-  line-height: 1.7;
-  font-size: 1rem;
+  color: var(--color-gray-700);
+  line-height: var(--line-height-body);
+  font-size: var(--text-base);
   position: relative;
   z-index: 1;
 }
@@ -534,19 +469,19 @@
 }
 
 .ctaFooter p {
-  font-size: 1.25rem;
+  font-size: var(--text-lg);
   font-weight: 600;
-  color: #0065A6;
+  color: var(--color-primary);
   margin-bottom: 1.5rem;
 }
 
 .ctaFooterButton {
   display: inline-block;
-  background: linear-gradient(135deg, #c11517 0%, #a01315 100%);
-  color: #fff;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  color: var(--color-white);
   padding: 1.25rem 3rem;
   border-radius: 16px;
-  font-size: 1.1rem;
+  font-size: var(--section-subtitle-size);
   font-weight: 700;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -588,29 +523,13 @@
 
 /* Pricing Section */
 .pricingSection {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, var(--color-gray-100) 0%, #e2e8f0 100%);
   padding: 5rem 2rem;
 }
 
 .pricingContent {
   max-width: 1400px;
   margin: 0 auto;
-}
-
-.pricingSection .sectionTitle {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #0065A6;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
-}
-
-.pricingSection .sectionSubtitle {
-  text-align: center;
-  font-size: 1.1rem;
-  color: #64748b;
-  margin-bottom: 0;
 }
 
 .pricingGrid {
@@ -660,7 +579,7 @@
 
 .pricingCardFeatured {
   background: linear-gradient(135deg, rgba(0, 101, 166, 0.1) 0%, rgba(255, 255, 255, 0.4) 100%);
-  border: 3px solid #0065A6;
+  border: 3px solid var(--color-primary);
   transform: scale(1.05);
 }
 
@@ -670,7 +589,7 @@
 
 .pricingCardFeatured:hover {
   transform: translateY(-12px) scale(1.08);
-  border-color: #0065A6;
+  border-color: var(--color-primary);
 }
 
 .pricingCardFeatured:hover::after {
@@ -681,15 +600,15 @@
   position: absolute;
   top: -15px;
   right: 20px;
-  background: linear-gradient(135deg, #C11517 0%, #a01214 100%);
-  color: #fff;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  color: var(--color-white);
   padding: 0.5rem 1.5rem;
   border-radius: 8px;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   font-weight: 700;
   box-shadow: 0 4px 12px rgba(193, 21, 23, 0.3);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--letter-spacing-body);
 }
 
 .pricingHeader {
@@ -697,20 +616,20 @@
 }
 
 .pricingHeader h3 {
-  font-size: 1.75rem;
+  font-size: var(--text-xl);
   font-weight: 700;
-  color: #0065A6;
+  color: var(--color-primary);
   margin-bottom: 1rem;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--letter-spacing-headings);
 }
 
 .pricingBadge {
   display: inline-block;
   background: rgba(193, 21, 23, 0.1);
-  color: #C11517;
+  color: var(--color-accent);
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   font-weight: 600;
 }
 
@@ -721,25 +640,25 @@
 }
 
 .pricingPrice .currency {
-  font-size: 1.5rem;
+  font-size: var(--text-xl);
   font-weight: 600;
-  color: #0065A6;
+  color: var(--color-primary);
   margin-right: 0.25rem;
 }
 
 .pricingPrice .amount {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: #0065A6;
-  line-height: 1;
-  letter-spacing: -0.03em;
+  font-size: var(--font-h1);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  line-height: var(--line-height-headings);
+  letter-spacing: var(--letter-spacing-headings);
 }
 
 .pricingLessons {
-  font-size: 1.1rem;
-  color: #4a5568;
+  font-size: var(--section-subtitle-size);
+  color: var(--color-gray-700);
   margin-bottom: 0.5rem;
-  font-weight: 500;
+  font-weight: var(--font-semibold);
 }
 
 .pricingFeatures {
@@ -754,20 +673,20 @@
   align-items: flex-start;
   gap: 0.75rem;
   margin-bottom: 1rem;
-  color: #4a5568;
-  font-size: 1rem;
-  line-height: 1.6;
+  color: var(--color-gray-700);
+  font-size: var(--text-base);
+  line-height: var(--line-height-body);
 }
 
 .pricingFeatures li svg {
-  color: #22c55e;
+  color: var(--color-success);
   flex-shrink: 0;
   margin-top: 2px;
 }
 
 .pricingFeatures .featureNote {
   color: #6b7280;
-  font-size: 0.9rem;
+  font-size: var(--section-label-size);
   font-style: italic;
 }
 
@@ -778,11 +697,11 @@
 .pricingButton {
   width: 100%;
   background: rgba(193, 21, 23, 0.95);
-  color: #fff;
+  color: var(--color-white);
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 1rem 2rem;
   border-radius: 12px;
-  font-size: 1rem;
+  font-size: var(--text-base);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -832,29 +751,29 @@
 .ctaLabel {
   display: inline-block;
   background: linear-gradient(135deg, rgba(0, 101, 166, 0.1) 0%, rgba(0, 101, 166, 0.05) 100%);
-  color: #0065A6;
+  color: var(--color-primary);
   padding: 0.5rem 1rem;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
+  font-size: var(--text-xs);
+  letter-spacing: var(--letter-spacing-body);
   text-transform: uppercase;
   margin-bottom: 1rem;
   border: 1px solid rgba(0, 101, 166, 0.2);
 }
 
 .ctaTitle {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: #1a1a1a;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-gray-900);
   margin-bottom: 1rem;
-  line-height: 1.2;
+  line-height: var(--line-height-headings);
 }
 
 .ctaText {
-  font-size: 0.95rem;
-  color: #4a5568;
-  line-height: 1.6;
+  font-size: var(--section-label-size);
+  color: var(--color-gray-700);
+  line-height: var(--line-height-body);
   margin-bottom: 1rem;
 }
 
@@ -867,9 +786,9 @@
 }
 
 .guaranteeTitle {
-  font-size: 1.25rem;
+  font-size: var(--text-lg);
   font-weight: 700;
-  color: #0065A6;
+  color: var(--color-primary);
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
@@ -878,9 +797,9 @@
 }
 
 .guaranteeText {
-  font-size: 0.9rem;
-  color: #4a5568;
-  line-height: 1.6;
+  font-size: var(--section-label-size);
+  color: var(--color-gray-700);
+  line-height: var(--line-height-body);
   margin: 0;
 }
 
@@ -888,12 +807,13 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #C11517 0%, #a00f11 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  color: var(--color-white);
   padding: 0.875rem 1.75rem;
   border-radius: 16px;
-  font-size: 1rem;
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 10px 30px rgba(193, 21, 23, 0.3);
@@ -903,13 +823,13 @@
 .ctaButton:hover {
   transform: translateY(-4px);
   box-shadow: 0 15px 40px rgba(193, 21, 23, 0.4);
-  background: linear-gradient(135deg, #dc3234 0%, #C11517 100%);
+  background: linear-gradient(135deg, #dc3234 0%, var(--color-accent) 100%);
 }
 
 /* Content Section */
 .contentSection {
   padding: 6rem 2rem;
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f8fafc 100%);
+  background: linear-gradient(180deg, var(--color-gray-100) 0%, var(--color-white) 50%, var(--color-gray-100) 100%);
   position: relative;
 }
 
@@ -926,7 +846,7 @@
 .contentContainer {
   max-width: 1400px;
   margin: 0 auto;
-  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  background: linear-gradient(145deg, var(--color-white) 0%, var(--color-gray-100) 100%);
   border-radius: 32px;
   padding: 4rem;
   border: 1px solid rgba(0, 101, 166, 0.1);
@@ -952,12 +872,12 @@
 }
 
 .imageTitle {
-  font-size: 1.375rem;
-  font-weight: 800;
-  color: #0065A6;
-  letter-spacing: -0.03em;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  letter-spacing: var(--letter-spacing-headings);
   margin-bottom: 1.25rem;
-  line-height: 1.3;
+  line-height: var(--line-height-headings);
 }
 
 .contentImage {
@@ -988,10 +908,10 @@
 }
 
 .featuresLabel {
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: #0065A6;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
   font-weight: 700;
   margin-bottom: 1rem;
   display: inline-block;
@@ -1001,12 +921,12 @@
 }
 
 .featuresTitle {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #0065A6;
-  letter-spacing: -0.03em;
+  font-size: var(--section-title-size);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  letter-spacing: var(--letter-spacing-headings);
   margin-bottom: 3rem;
-  line-height: 1.2;
+  line-height: var(--line-height-headings);
 }
 
 .featuresList {
@@ -1022,9 +942,9 @@
 .featureItem {
   padding: 0.875rem 0;
   padding-left: 2.75rem;
-  font-size: 1.0625rem;
-  color: #1a1a1a;
-  font-weight: 500;
+  font-size: var(--section-subtitle-size);
+  color: var(--color-gray-900);
+  font-weight: var(--font-semibold);
   border-bottom: 1px solid rgba(0, 101, 166, 0.08);
   position: relative;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1032,19 +952,19 @@
 
 .featureItem:hover {
   padding-left: 3.5rem;
-  color: #0065A6;
+  color: var(--color-primary);
 }
 
 .featureItem::before {
   content: '✓';
   position: absolute;
   left: 0.25rem;
-  color: #fff;
+  color: var(--color-white);
   font-weight: bold;
-  font-size: 1rem;
+  font-size: var(--text-base);
   width: 28px;
   height: 28px;
-  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1071,12 +991,12 @@
 }
 
 .rijschoolButton {
-  background: linear-gradient(135deg, #c11517 0%, #a01315 100%);
-  color: #fff;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  color: var(--color-white);
   border: none;
   padding: 1.25rem 2.5rem;
   border-radius: 16px;
-  font-size: 1.0625rem;
+  font-size: var(--section-subtitle-size);
   font-weight: 700;
   cursor: pointer;
   text-decoration: none;
@@ -1115,7 +1035,7 @@
 
 .whatsappButton {
   background: linear-gradient(135deg, #25D366 0%, #20BA5A 100%);
-  color: #fff;
+  color: var(--color-white);
   border: none;
   width: 60px;
   height: 60px;
@@ -1176,47 +1096,36 @@
 }
 
 .statNumber {
-  font-size: 4rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1;
+  line-height: var(--line-height-headings);
   margin-bottom: 1rem;
 }
 
 .statPercent {
-  font-size: 3rem;
-  font-weight: 800;
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
 }
 
 .statLabel {
-  font-size: 1.0625rem;
+  font-size: var(--section-subtitle-size);
   font-weight: 600;
-  color: #2d2d2d;
+  color: var(--color-gray-800);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .hero {
-    padding: 8rem 1.5rem 3rem;
-  }
-
-  .title {
-    font-size: 3rem;
-  }
-
-  .excerpt {
-    font-size: 1.125rem;
-  }
 
   .stepsSection {
     padding: 4rem 1.5rem;
   }
 
   .stepsMainTitle {
-    font-size: 2.5rem;
+    font-size: var(--section-title-size);
     margin-bottom: 3rem;
   }
 
@@ -1232,15 +1141,15 @@
   .stepNumber {
     width: 80px;
     height: 80px;
-    font-size: 2rem;
+    font-size: var(--text-2xl);
   }
 
   .stepTitle {
-    font-size: 1.35rem;
+    font-size: var(--text-xl);
   }
 
   .stepDescription {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 
   .contentSection {
@@ -1258,7 +1167,7 @@
   }
 
   .imageTitle {
-    font-size: 1.25rem;
+    font-size: var(--text-lg);
     margin-bottom: 1rem;
   }
 
@@ -1269,7 +1178,7 @@
   }
 
   .featuresTitle {
-    font-size: 2rem;
+    font-size: var(--text-2xl);
   }
 
   .featuresList {
@@ -1277,7 +1186,7 @@
   }
 
   .featureItem {
-    font-size: 1.0625rem;
+    font-size: var(--section-subtitle-size);
     padding: 1.25rem 0;
   }
 
@@ -1304,23 +1213,23 @@
   }
 
   .statNumber {
-    font-size: 3rem;
+    font-size: var(--text-3xl);
   }
 
   .statPercent {
-    font-size: 2.5rem;
+    font-size: var(--section-title-size);
   }
 
   .statLabel {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 
   .faqTitle {
-    font-size: 2.5rem;
+    font-size: var(--section-title-size);
   }
 
   .faqSubtitle {
-    font-size: 1.1rem;
+    font-size: var(--section-subtitle-size);
   }
 
   .benefitsGrid {
@@ -1338,29 +1247,13 @@
 }
 
 @media (max-width: 480px) {
-  .hero {
-    padding: 7rem 1rem 2rem;
-  }
-
-  .title {
-    font-size: 2.5rem;
-  }
-
-  .excerpt {
-    font-size: 1rem;
-  }
-
-  .breadcrumb {
-    font-size: 0.75rem;
-    padding: 0.5rem 1rem;
-  }
 
   .stepsSection {
     padding: 3rem 1rem;
   }
 
   .stepsMainTitle {
-    font-size: 2rem;
+    font-size: var(--text-2xl);
     margin-bottom: 2.5rem;
   }
 
@@ -1375,16 +1268,16 @@
   .stepNumber {
     width: 70px;
     height: 70px;
-    font-size: 1.75rem;
+    font-size: var(--text-xl);
     margin-bottom: 1.25rem;
   }
 
   .stepTitle {
-    font-size: 1.25rem;
+    font-size: var(--text-lg);
   }
 
   .stepDescription {
-    font-size: 0.95rem;
+    font-size: var(--section-label-size);
   }
 
   .contentSection {
@@ -1401,7 +1294,7 @@
   }
 
   .imageTitle {
-    font-size: 1.125rem;
+    font-size: var(--section-subtitle-size);
     margin-bottom: 1rem;
   }
 
@@ -1412,12 +1305,12 @@
   }
 
   .featuresLabel {
-    font-size: 0.75rem;
+    font-size: var(--text-xs);
     padding: 0.4rem 0.875rem;
   }
 
   .featuresTitle {
-    font-size: 1.75rem;
+    font-size: var(--text-xl);
     margin-bottom: 2rem;
   }
 
@@ -1427,7 +1320,7 @@
   }
 
   .featureItem {
-    font-size: 1rem;
+    font-size: var(--text-base);
     padding: 1.125rem 0;
     padding-left: 2.75rem;
   }
@@ -1435,7 +1328,7 @@
   .featureItem::before {
     width: 28px;
     height: 28px;
-    font-size: 1.125rem;
+    font-size: var(--section-subtitle-size);
   }
 
   .ctaButtons {
@@ -1445,7 +1338,7 @@
 
   .rijschoolButton {
     padding: 1rem 1.75rem;
-    font-size: 1rem;
+    font-size: var(--text-base);
     border-radius: 14px;
   }
 
@@ -1471,15 +1364,15 @@
   }
 
   .statNumber {
-    font-size: 2.75rem;
+    font-size: var(--font-h2);
   }
 
   .statPercent {
-    font-size: 2.25rem;
+    font-size: var(--font-h3);
   }
 
   .statLabel {
-    font-size: 0.95rem;
+    font-size: var(--section-label-size);
   }
 
   .faqSection {
@@ -1487,17 +1380,17 @@
   }
 
   .faqTitle {
-    font-size: 2rem;
+    font-size: var(--text-2xl);
   }
 
   .faqSubtitle {
-    font-size: 1rem;
+    font-size: var(--text-base);
     margin-bottom: 3rem;
   }
 
   .faqQuestion {
     padding: 1.25rem 1.5rem;
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 
   .faqAnswer {
@@ -1522,12 +1415,12 @@
   }
 
   .ctaFooter p {
-    font-size: 1.1rem;
+    font-size: var(--section-subtitle-size);
   }
 
   .ctaFooterButton {
     padding: 1rem 2rem;
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 }
 

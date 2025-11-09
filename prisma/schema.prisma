@@ -55,7 +55,8 @@ model Page {
   locationId    Int?
 
   // Media
-  featuredImage String?
+  featuredImage    String?
+  featuredImageAlt String? // Alt text for featured image
 
   // SEO
   seoTitle      String?

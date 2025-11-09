@@ -1,4 +1,5 @@
 import { Gift, Zap, Shield, Car, Calendar, UserCheck } from 'lucide-react';
+import pageStyles from '../../page.module.css';
 import styles from './autorijles.module.css';
 import type { Feature } from './types';
 
@@ -20,7 +21,7 @@ export function FeaturesGrid({ features, title = 'Waarom Quality Drive?' }: Feat
   return (
     <section className={styles.featuresSection}>
       <div className={styles.featuresContainer}>
-        <h2 className={styles.sectionTitle}>{title}</h2>
+        <h2 className={pageStyles.sectionHeaderTitle}>{title}</h2>
 
         <div className={styles.featuresGrid}>
           {features.map((feature, index) => {

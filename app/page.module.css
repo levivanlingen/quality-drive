@@ -1,8 +1,8 @@
 /* Page Container - Force Recompile */
 .page {
   min-height: 100vh;
-  background: #fff;
-  color: #000;
+  background: var(--color-white);
+  color: var(--color-black);
   overflow-x: hidden;
   position: relative;
 }
@@ -13,7 +13,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background: #000;
+  background: var(--color-black);
   padding: 1rem 2rem;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -49,14 +49,195 @@
 }
 
 .navLinks a {
-  color: #fff;
-  font-size: 0.95rem;
-  font-weight: 500;
+  color: var(--color-white);
+  font-size: var(--section-label-size);
+  font-weight: var(--font-semibold);
   transition: color 0.2s;
 }
 
 .navLinks a:hover {
-  color: #ccc;
+  color: var(--color-gray-300);
+}
+
+/* Desktop Dropdown Menu */
+.navDropdown {
+  position: relative;
+}
+
+.navDropdownButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: var(--section-label-size);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0;
+  font-family: inherit;
+  text-decoration: none;
+}
+
+.navDropdownButton:hover {
+  color: var(--color-gray-300);
+}
+
+.dropdownArrow {
+  transition: transform 0.3s ease;
+}
+
+.dropdownArrowOpen {
+  transform: rotate(180deg);
+}
+
+.navDropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.75rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
+  border-radius: 16px;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.12),
+    0 1px 3px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  min-width: 240px;
+  z-index: 1000;
+  overflow: hidden;
+  animation: fadeInDropdown 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid rgba(0, 101, 166, 0.08);
+  transform: translateZ(0);
+}
+
+@keyframes fadeInDropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navDropdownMenu a {
+  display: block;
+  padding: 0.875rem 1.25rem;
+  color: var(--color-gray-700);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+.navDropdownMenu a:last-child {
+  border-bottom: none;
+}
+
+.navDropdownMenu a:hover {
+  background: linear-gradient(135deg, rgba(0, 101, 166, 0.06) 0%, rgba(0, 101, 166, 0.02) 100%);
+  color: var(--color-primary);
+  padding-left: 1.5rem;
+}
+
+.navDropdownMenu a:hover::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background: linear-gradient(180deg, #0065A6 0%, #004d7a 100%);
+  border-radius: 0 4px 4px 0;
+}
+
+/* Mega Menu for Rijopleidingen */
+.navMegaMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 1rem;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.12),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  width: 1100px;
+  max-width: 90vw;
+  z-index: 1000;
+  overflow: hidden;
+  animation: fadeInDropdown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid rgba(0, 101, 166, 0.1);
+  transform: translateZ(0);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  padding: 0;
+}
+
+.megaMenuSection {
+  padding: 2rem 1.75rem;
+  border-right: 1px solid rgba(0, 101, 166, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: background 0.3s ease;
+  position: relative;
+}
+
+.megaMenuSection:last-child {
+  border-right: none;
+}
+
+.megaMenuSection:hover {
+  background: linear-gradient(135deg, rgba(0, 101, 166, 0.03) 0%, rgba(0, 101, 166, 0.01) 100%);
+}
+
+.megaMenuMainLink {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  padding: 0.75rem 0;
+  transition: all 0.2s;
+  display: block;
+  letter-spacing: var(--letter-spacing-headings);
+}
+
+.megaMenuMainLink:hover {
+  color: #004d7a;
+  transform: translateX(4px);
+}
+
+.megaMenuTitle {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(0, 101, 166, 0.15);
+  letter-spacing: var(--letter-spacing-headings);
+}
+
+.megaMenuSection a {
+  display: block;
+  padding: 0.625rem 0;
+  color: var(--color-gray-700);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  padding-left: 0;
+}
+
+.megaMenuSection a:hover {
+  color: var(--color-primary);
 }
 
 /* Mobile Menu Button - Hidden on desktop */
@@ -76,7 +257,7 @@
 .hamburgerLine {
   width: 100%;
   height: 3px;
-  background: #fff;
+  background: var(--color-white);
   border-radius: 10px;
   transition: transform 0.3s ease, opacity 0.3s ease;
   transform-origin: center;
@@ -102,7 +283,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #000;
+  background: var(--color-black);
   transform: translateX(100%);
   transition: transform 0.3s ease;
   z-index: 999;
@@ -122,16 +303,101 @@
 }
 
 .mobileMenuContent a {
-  color: #fff;
-  font-size: 1.25rem;
-  font-weight: 500;
+  color: var(--color-white);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
   padding: 1rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: color 0.2s;
 }
 
 .mobileMenuContent a:hover {
-  color: #0065A6;
+  color: var(--color-primary);
+}
+
+/* Mobile Dropdown Menu */
+.mobileMenuDropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileMenuDropdownButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  font-family: inherit;
+  transition: color 0.2s;
+}
+
+.mobileMenuDropdownButton:hover {
+  color: var(--color-primary);
+}
+
+.mobileMenuDropdownItems {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+  gap: 0.5rem;
+}
+
+.mobileMenuDropdownItems a {
+  color: var(--color-gray-300);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  padding: 0.75rem 0;
+  border-bottom: none;
+  transition: color 0.2s;
+}
+
+.mobileMenuDropdownItems a:hover {
+  color: var(--color-white);
+}
+
+.mobileMenuSubsection {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobileMenuSubsection:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.mobileMenuSubtitle {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mobileMenuSubsection a {
+  color: var(--color-gray-300);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  padding: 0.5rem 0 0.5rem 1rem;
+  border-bottom: none;
+  transition: color 0.2s;
+}
+
+.mobileMenuSubsection a:hover {
+  color: var(--color-white);
 }
 
 .mobileMenuButtons {
@@ -144,7 +410,7 @@
 .mobileMenuButtons button {
   width: 100%;
   padding: 1rem;
-  font-size: 1.1rem;
+  font-size: var(--section-subtitle-size);
 }
 
 /* Mobile Responsive Styles */
@@ -212,7 +478,7 @@
   }
 
   .mobileMenuContent a {
-    font-size: 1.1rem;
+    font-size: var(--section-subtitle-size);
     padding: 0.75rem 0;
   }
 }
@@ -252,7 +518,7 @@
   }
 
   .mobileMenuContent a {
-    font-size: 1rem;
+    font-size: var(--text-base);
     padding: 0.5rem 0;
   }
 
@@ -265,14 +531,6 @@
     padding: 2rem 0.75rem;
   }
 
-  .zekerhedenLabel {
-    font-size: 0.85rem;
-  }
-
-  .sectionTitle {
-    font-size: 1.75rem;
-    line-height: 1.3;
-  }
 }
 
 /* Hero Section */
@@ -280,7 +538,7 @@
   margin-top: 70px;
   padding: 4rem 2rem;
   min-height: 600px;
-  background: #fff;
+  background: var(--color-white);
   display: flex;
   align-items: center;
   position: relative;
@@ -321,24 +579,28 @@
 }
 
 .heroTitle {
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: #0065A6;
+  font-family: var(--font-heading);
+  font-size: var(--font-h1);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
   margin-bottom: 1rem;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: var(--line-height-headings);
+  letter-spacing: var(--letter-spacing-headings);
 }
 
 .heroSubtitle {
-  font-size: 1.25rem;
-  color: #333;
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  color: var(--color-gray-800);
   margin-bottom: 3rem;
-  font-weight: 400;
+  font-weight: var(--font-regular);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
 }
 
 /* Ride Card */
 .rideCard {
-  background: #fff;
+  background: var(--color-white);
   border-radius: 12px;
   padding: 2rem;
   max-width: 500px;
@@ -349,28 +611,29 @@
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid var(--color-gray-100);
 }
 
 .tab {
   background: transparent;
   border: none;
   padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #6b6b6b;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-700);
   cursor: pointer;
   border-bottom: 3px solid transparent;
   transition: color 0.2s, border-bottom-color 0.2s;
 }
 
 .tabActive {
-  color: #000;
-  border-bottom-color: #000;
+  color: var(--color-black);
+  border-bottom-color: var(--color-black);
 }
 
 .tab:hover {
-  color: #000;
+  color: var(--color-black);
 }
 
 .inputGroup {
@@ -383,14 +646,14 @@
 .inputWrapper {
   display: flex;
   align-items: center;
-  background: #f3f3f3;
+  background: var(--color-gray-100);
   border-radius: 8px;
   padding: 0.75rem 1rem;
   transition: background-color 0.2s;
 }
 
 .inputWrapper:focus-within {
-  background: #e6e6e6;
+  background: var(--color-gray-100);
 }
 
 .inputIcon {
@@ -405,39 +668,40 @@
 .dotIcon {
   width: 8px;
   height: 8px;
-  background: #000;
+  background: var(--color-black);
   border-radius: 50%;
 }
 
 .squareIcon {
   width: 8px;
   height: 8px;
-  background: #000;
+  background: var(--color-black);
 }
 
 .input {
   flex: 1;
   border: none;
   background: transparent;
-  font-size: 1rem;
+  font-size: var(--text-base);
   outline: none;
-  color: #000;
+  color: var(--color-black);
 }
 
 .input::placeholder {
-  color: #6b6b6b;
+  color: var(--color-gray-700);
 }
 
 .searchButton {
   width: 100%;
   background: rgba(193, 21, 23, 0.95);
   /* REMOVED: backdrop-filter - causes GPU thrashing with animations */
-  color: #fff;
+  color: var(--color-white);
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 1rem;
   border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
   cursor: pointer;
   transition: transform 0.3s ease,
               background 0.3s ease,
@@ -454,7 +718,7 @@
 
 /* 3D Car Viewer Section */
 .car3DSection {
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
   padding: 5rem 2rem;
   position: relative;
   overflow: hidden;
@@ -467,7 +731,7 @@
 }
 
 .car3DDescription {
-  font-size: 1.1rem;
+  font-size: var(--section-subtitle-size);
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 3rem;
   max-width: 700px;
@@ -475,14 +739,10 @@
   margin-right: auto;
 }
 
-.car3DSection .sectionTitle {
-  color: #fff;
-  margin-bottom: 1rem;
-}
 
 /* Features Section */
 .features {
-  background: #fff;
+  background: var(--color-white);
   padding: 3rem 2rem;
 }
 
@@ -500,8 +760,8 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.95rem;
-  color: #333;
+  font-size: var(--section-label-size);
+  color: var(--color-gray-800);
   font-weight: 400;
   padding: 0.875rem 1rem;
   background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(34, 197, 94, 0.04) 100%);
@@ -519,7 +779,7 @@
 .checkIcon {
   width: 24px;
   height: 24px;
-  color: #22c55e;
+  color: var(--color-success);
   flex-shrink: 0;
   stroke-width: 2.5;
 }
@@ -535,7 +795,7 @@
   }
 
   .featureItem {
-    font-size: 0.9rem;
+    font-size: var(--section-label-size);
   }
 
   .checkIcon {
@@ -556,7 +816,7 @@
   }
 
   .featureItem {
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
     padding: 0.875rem 0.75rem;
     background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(34, 197, 94, 0.04) 100%);
     border-radius: 12px;
@@ -583,7 +843,7 @@
   }
 
   .featureItem {
-    font-size: 0.75rem;
+    font-size: var(--text-xs);
     padding: 0.75rem 0.65rem;
     gap: 0.5rem;
     flex-direction: column;
@@ -608,7 +868,7 @@
   margin: 3rem auto 6rem;
   background:
     linear-gradient(135deg, rgba(0, 101, 166, 0.03) 0%, rgba(193, 21, 23, 0.03) 100%),
-    linear-gradient(135deg, #f5f7fa 0%, #e8eef5 50%, #d4e0ed 100%);
+    linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-gray-100) 50%, var(--color-gray-100) 100%);
   border-radius: 32px;
   position: relative;
   box-shadow:
@@ -628,42 +888,9 @@
   border-radius: 32px;
 }
 
-.sectionTitle {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  color: #0065A6;
-  letter-spacing: -0.03em;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-  text-shadow: 0 2px 20px rgba(0, 101, 166, 0.1);
-}
 
-.services .sectionTitle::after {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, rgba(0, 101, 166, 0.3) 0%, #0065A6 50%, rgba(0, 101, 166, 0.3) 100%);
-  margin: 1rem auto 0.5rem;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 101, 166, 0.2);
-}
 
-.sectionSubtitle {
-  font-size: 1.1rem;
-  color: #6b7280;
-  text-align: center;
-  margin-bottom: 4rem;
-  font-weight: 400;
-  position: relative;
-  z-index: 1;
-}
 
-.rijschoolSection .sectionTitle {
-  color: #0065A6;
-}
 
 .serviceGrid {
   display: grid;
@@ -821,19 +1048,19 @@
 }
 
 .serviceCard3DContent h3 {
-  font-size: 1.75rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #0065A6;
-  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  letter-spacing: var(--letter-spacing-headings);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .serviceCard3DContent p {
-  color: #4a5568;
-  line-height: 1.7;
+  color: var(--color-gray-700);
+  line-height: var(--line-height-body);
   margin-bottom: 1.5rem;
-  font-size: 1rem;
+  font-size: var(--text-base);
   font-weight: 400;
 }
 
@@ -841,7 +1068,7 @@
   width: 80px;
   height: 80px;
   margin-bottom: 2rem;
-  color: #0065A6;
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -883,29 +1110,29 @@
 }
 
 .serviceCard h3 {
-  font-size: 1.75rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #0065A6;
-  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  letter-spacing: var(--letter-spacing-headings);
   position: relative;
   z-index: 1;
 }
 
 .serviceCard p {
-  color: #4a5568;
-  line-height: 1.7;
+  color: var(--color-gray-700);
+  line-height: var(--line-height-body);
   margin-bottom: 1.5rem;
-  font-size: 1rem;
+  font-size: var(--text-base);
   position: relative;
   z-index: 1;
 }
 
 .serviceLink {
-  color: #0065A6;
+  color: var(--color-primary);
   font-weight: 700;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: var(--text-base);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -917,16 +1144,16 @@
 }
 
 .serviceLink:hover {
-  color: #C11517;
-  border-bottom-color: #C11517;
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
   transform: translateX(4px);
 }
 
 .serviceCard3DContent .serviceLink {
-  color: #0065A6;
+  color: var(--color-primary);
   font-weight: 700;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: var(--text-base);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -935,13 +1162,13 @@
 }
 
 .serviceCard3DContent .serviceLink:hover {
-  color: #C11517;
+  color: var(--color-accent);
   transform: translateX(4px);
 }
 
 /* Rijschool Section */
 .rijschoolSection {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-gray-100) 100%);
   padding: 5rem 2rem;
 }
 
@@ -951,19 +1178,10 @@
   text-align: center;
 }
 
-.rijschoolLabel {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #0065A6;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 1rem;
-}
-
 .rijschoolText {
-  font-size: 1.15rem;
-  color: #4a5568;
-  line-height: 1.8;
+  font-size: var(--section-subtitle-size);
+  color: var(--color-gray-700);
+  line-height: var(--line-height-body);
   max-width: 900px;
   margin: 0 auto 3rem;
   font-weight: 400;
@@ -1028,7 +1246,7 @@
   width: 80px;
   height: 80px;
   margin: 0 auto 1rem;
-  color: #0065A6;
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1039,26 +1257,26 @@
 }
 
 .rijschoolCard h3 {
-  font-size: 1.25rem;
+  font-size: var(--text-lg);
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: #0065A6;
+  color: var(--color-primary);
 }
 
 .rijschoolCard p {
-  color: #4a5568;
-  line-height: 1.6;
-  font-size: 0.95rem;
+  color: var(--color-gray-700);
+  line-height: var(--line-height-body);
+  font-size: var(--section-label-size);
 }
 
 .rijschoolButton {
   background: rgba(193, 21, 23, 0.95);
   /* REMOVED: backdrop-filter - causes GPU thrashing with animations */
-  color: #fff;
+  color: var(--color-white);
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 1rem 2rem;
   border-radius: 12px;
-  font-size: 1rem;
+  font-size: var(--text-base);
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.3s ease,
@@ -1106,22 +1324,13 @@
 /* Zekerheden Section */
 .zekerhedenSection {
   padding: 0.5rem 2rem 1.5rem;
-  background: #fff;
+  background: var(--color-white);
 }
 
 .zekerhedenContent {
   max-width: 1400px;
   margin: 0 auto;
   text-align: center;
-}
-
-.zekerhedenLabel {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #0065A6;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 1rem;
 }
 
 .zekerhedenGrid {
@@ -1152,11 +1361,11 @@
   }
 
   .zekerheidCard h3 {
-    font-size: 1.35rem;
+    font-size: var(--text-xl);
   }
 
   .zekerheidCard p {
-    font-size: 0.95rem;
+    font-size: var(--section-label-size);
   }
 }
 
@@ -1174,16 +1383,16 @@
   .zekerheidNumber {
     width: 50px;
     height: 50px;
-    font-size: 1.5rem;
+    font-size: var(--text-xl);
     margin-bottom: 1.25rem;
   }
 
   .zekerheidCard h3 {
-    font-size: 1.2rem;
+    font-size: var(--text-lg);
   }
 
   .zekerheidCard p {
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
   }
 }
 
@@ -1228,29 +1437,29 @@
 .zekerheidNumber {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
-  color: #fff;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   margin-bottom: 1.5rem;
   box-shadow: 0 8px 24px rgba(0, 101, 166, 0.3);
 }
 
 .zekerheidCard h3 {
-  font-size: 1.5rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #1a202c;
+  color: var(--color-gray-900);
 }
 
 .zekerheidCard p {
-  color: #4a5568;
-  line-height: 1.7;
-  font-size: 1rem;
+  color: var(--color-gray-700);
+  line-height: var(--line-height-body);
+  font-size: var(--text-base);
 }
 
 .zekerhedenButtons {
@@ -1262,8 +1471,8 @@
 }
 
 .whatsappButton {
-  background: #25D366;
-  color: #fff;
+  background: var(--color-success);
+  color: var(--color-white);
   border: none;
   width: 56px;
   height: 56px;
@@ -1281,19 +1490,19 @@
 
 .whatsappButton:hover {
   transform: translateY(-4px) scale(1.1);
-  background: #20BA5A;
+  background: var(--color-success);
   box-shadow: 0 12px 40px rgba(37, 211, 102, 0.4);
 }
 
 /* Stats Section */
 .statsSection {
-  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   padding: 3rem 2rem 6rem;
 }
 
 /* Info Carousel Section */
 .rijlessenOpMaatSection {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-gray-100) 100%);
   padding: 5rem 2rem;
   position: relative;
 }
@@ -1303,30 +1512,10 @@
   margin: 0 auto;
 }
 
-.rijlessenOpMaatTitle {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #0065A6;
-  text-align: center;
-  margin-bottom: 1rem;
-  letter-spacing: -0.03em;
-  text-shadow: 0 2px 20px rgba(0, 101, 166, 0.1);
-}
-
-.rijlessenOpMaatTitle::after {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, rgba(0, 101, 166, 0.3) 0%, #0065A6 50%, rgba(0, 101, 166, 0.3) 100%);
-  margin: 1rem auto 3rem;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 101, 166, 0.2);
-}
 
 /* Waarom Quality Drive Section */
 .waaromQDSection {
-  background: #fff;
+  background: var(--color-white);
   padding: 5rem 2rem 3rem;
 }
 
@@ -1335,13 +1524,10 @@
   margin: 0 auto;
 }
 
-.waaromQDSection .sectionTitle {
-  color: #0065A6;
-}
 
 /* Populaire Pakketten (Pricing) Section */
 .pricingSection {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-gray-100) 100%);
   padding: 5rem 2rem;
 }
 
@@ -1366,9 +1552,9 @@
   /* REMOVED: backdrop-filter - causes GPU thrashing with animations */
   border: 2px solid rgba(0, 101, 166, 0.2);
   border-radius: 16px;
-  font-size: 1.1rem;
+  font-size: var(--section-subtitle-size);
   font-weight: 600;
-  color: #4a5568;
+  color: var(--color-gray-700);
   cursor: pointer;
   transition: background 0.3s ease,
               border-color 0.3s ease,
@@ -1385,15 +1571,15 @@
 }
 
 .pricingTabActive {
-  background: #0065A6;
+  background: var(--color-primary);
   color: white;
-  border-color: #0065A6;
+  border-color: var(--color-primary);
   box-shadow: 0 8px 24px rgba(0, 101, 166, 0.25);
 }
 
 .pricingTabActive:hover {
-  background: #005a92;
-  border-color: #005a92;
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
 }
 
 .pricingGrid {
@@ -1449,7 +1635,7 @@
 
 .pricingCardFeatured {
   background: linear-gradient(135deg, rgba(0, 101, 166, 0.1) 0%, rgba(255, 255, 255, 0.4) 100%);
-  border: 3px solid #0065A6;
+  border: 3px solid var(--color-primary);
   transform: scale(1.05);
 }
 
@@ -1460,7 +1646,7 @@
 
 .pricingCardFeatured:hover {
   transform: translateY(-12px) scale(1.08);
-  border-color: #0065A6;
+  border-color: var(--color-primary);
   /* REMOVED: box-shadow animatie - now handled by ::after pseudo-element */
 }
 
@@ -1472,14 +1658,14 @@
   position: absolute;
   top: -15px;
   right: 20px;
-  background: linear-gradient(135deg, #C11517 0%, #a01214 100%);
-  color: #fff;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  color: var(--color-white);
   padding: 0.5rem 1.5rem;
   border-radius: 20px;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--letter-spacing-body);
   box-shadow: 0 4px 16px rgba(193, 21, 23, 0.4);
 }
 
@@ -1488,20 +1674,20 @@
 }
 
 .pricingHeader h3 {
-  font-size: 1.75rem;
+  font-size: var(--text-xl);
   font-weight: 700;
-  color: #0065A6;
+  color: var(--color-primary);
   margin-bottom: 1rem;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--letter-spacing-headings);
 }
 
 .pricingBadge {
   display: inline-block;
   background: rgba(193, 21, 23, 0.1);
-  color: #C11517;
+  color: var(--color-accent);
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   font-weight: 600;
 }
 
@@ -1512,32 +1698,32 @@
 }
 
 .pricingPrice .currency {
-  font-size: 1.5rem;
+  font-size: var(--text-xl);
   font-weight: 600;
-  color: #0065A6;
+  color: var(--color-primary);
   margin-right: 0.25rem;
 }
 
 .pricingPrice .amount {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: #0065A6;
-  line-height: 1;
-  letter-spacing: -0.03em;
+  font-size: var(--font-h1);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  line-height: var(--line-height-headings);
+  letter-spacing: var(--letter-spacing-headings);
 }
 
 .pricingLessons {
-  font-size: 1.1rem;
-  color: #4a5568;
+  font-size: var(--section-subtitle-size);
+  color: var(--color-gray-700);
   margin-bottom: 0.5rem;
-  font-weight: 500;
+  font-weight: var(--font-semibold);
 }
 
 .pricingPayment {
-  font-size: 0.95rem;
-  color: #64748b;
+  font-size: var(--section-label-size);
+  color: var(--color-gray-400);
   margin-bottom: 2rem;
-  font-weight: 500;
+  font-weight: var(--font-semibold);
   font-style: italic;
 }
 
@@ -1553,20 +1739,20 @@
   align-items: flex-start;
   gap: 0.75rem;
   margin-bottom: 1rem;
-  color: #4a5568;
-  font-size: 1rem;
-  line-height: 1.6;
+  color: var(--color-gray-700);
+  font-size: var(--text-base);
+  line-height: var(--line-height-body);
 }
 
 .pricingFeatures li svg {
-  color: #22c55e;
+  color: var(--color-success);
   flex-shrink: 0;
   margin-top: 2px;
 }
 
 .pricingFeatures .featureNote {
-  color: #6b7280;
-  font-size: 0.9rem;
+  color: var(--color-gray-400);
+  font-size: var(--text-sm);
   font-style: italic;
 }
 
@@ -1578,11 +1764,11 @@
   width: 100%;
   background: rgba(193, 21, 23, 0.95);
   /* REMOVED: backdrop-filter - causes GPU thrashing with animations */
-  color: #fff;
+  color: var(--color-white);
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 1rem 2rem;
   border-radius: 12px;
-  font-size: 1rem;
+  font-size: var(--text-base);
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.3s ease,
@@ -1600,19 +1786,29 @@
 
 .pricingNote {
   text-align: center;
-  color: #6b7280;
-  font-size: 0.95rem;
+  color: var(--color-gray-400);
+  font-size: var(--section-label-size);
   max-width: 800px;
   margin: 3rem auto 0;
-  line-height: 1.6;
+  line-height: var(--line-height-body);
 }
 
 /* Geslaagde Toppers Section */
 .geslaagdeSection {
-  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   padding: 6rem 2rem;
   position: relative;
   overflow: hidden;
+}
+
+/* Witte tekst override voor donkere achtergrond - blijft gecentreerd */
+.geslaagdeSection .sectionHeaderTitle {
+  color: var(--color-white);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.geslaagdeSection .sectionHeaderSubtitle {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .geslaagdeSection::before {
@@ -1634,23 +1830,6 @@
   z-index: 1;
 }
 
-.geslaagdeTitle {
-  font-size: 3.5rem;
-  font-weight: 900;
-  color: #fff;
-  text-align: center;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.03em;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.geslaagdeSubtitle {
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.9);
-  text-align: center;
-  margin-bottom: 4rem;
-  font-weight: 500;
-}
 
 .geslaagdeGrid {
   display: grid;
@@ -1683,11 +1862,11 @@
   display: block;
   margin: 0 auto;
   padding: 1.25rem 3rem;
-  background: #C11517;
-  color: #fff;
+  background: var(--color-accent);
+  color: var(--color-white);
   border: none;
   border-radius: 16px;
-  font-size: 1.25rem;
+  font-size: var(--text-lg);
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
@@ -1702,31 +1881,43 @@
 
 /* FAQ Section */
 .faqSection {
-  background: #fff;
+  background: var(--color-white);
   padding: 6rem 2rem;
 }
+
+/* ============================================
+   UNIVERSELE SECTION HEADER STYLING
+   Gebruikt door ALLE secties voor consistentie
+   ============================================ */
+
+.sectionHeaderTitle {
+  font-size: var(--font-h2);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  letter-spacing: var(--letter-spacing-headings);
+  line-height: var(--line-height-headings);
+}
+
+.sectionHeaderSubtitle {
+  font-size: var(--text-lg);
+  color: var(--color-gray-400);
+  text-align: center;
+  margin-bottom: 4rem;
+  font-weight: var(--font-semibold);
+  line-height: var(--line-height-body);
+}
+
+/* ============================================
+   FAQ SECTION
+   ============================================ */
 
 .faqContent {
   max-width: 900px;
   margin: 0 auto;
 }
 
-.faqTitle {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #0065A6;
-  text-align: center;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.03em;
-}
-
-.faqSubtitle {
-  font-size: 1.25rem;
-  color: #6b7280;
-  text-align: center;
-  margin-bottom: 4rem;
-  font-weight: 500;
-}
 
 .faqList {
   display: flex;
@@ -1759,25 +1950,25 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  font-size: 1.15rem;
+  font-size: var(--section-subtitle-size);
   font-weight: 600;
-  color: #1e293b;
+  color: var(--color-gray-900);
   text-align: left;
   transition: color 0.3s ease;
 }
 
 .faqQuestion:hover {
-  color: #0065A6;
+  color: var(--color-primary);
 }
 
 .faqQuestionActive {
-  color: #0065A6;
+  color: var(--color-primary);
 }
 
 .faqIcon {
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: #0065A6;
+  font-size: var(--text-xl);
+  font-weight: var(--font-regular);
+  color: var(--color-primary);
   transition: transform 0.3s ease;
   flex-shrink: 0;
   margin-left: 1rem;
@@ -1800,15 +1991,15 @@
 }
 
 .faqAnswer p {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #4a5568;
+  font-size: var(--font-body);
+  line-height: var(--line-height-body);
+  color: var(--color-gray-700);
   margin: 0;
 }
 
 /* Blogs Section */
 .blogsSection {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-gray-100) 100%);
   padding: 6rem 2rem;
 }
 
@@ -1817,23 +2008,6 @@
   margin: 0 auto;
 }
 
-.blogsTitle {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #0065A6;
-  text-align: center;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.03em;
-  text-shadow: 0 2px 20px rgba(0, 101, 166, 0.1);
-}
-
-.blogsSubtitle {
-  font-size: 1.25rem;
-  color: #6b7280;
-  text-align: center;
-  margin-bottom: 4rem;
-  font-weight: 500;
-}
 
 .blogsGrid {
   display: grid;
@@ -1901,41 +2075,41 @@
 }
 
 .blogDate {
-  font-size: 0.875rem;
-  color: #6b7280;
-  font-weight: 500;
+  font-size: var(--text-sm);
+  color: var(--color-gray-400);
+  font-weight: var(--font-semibold);
 }
 
 .blogCategory {
   background: rgba(0, 101, 166, 0.1);
-  color: #0065A6;
+  color: var(--color-primary);
   padding: 0.25rem 0.75rem;
   border-radius: 12px;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   font-weight: 600;
 }
 
 .blogTitle {
-  font-size: 1.5rem;
+  font-size: var(--font-h3);
   font-weight: 700;
-  color: #1e293b;
+  color: var(--color-gray-900);
   margin-bottom: 1rem;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
+  line-height: var(--line-height-headings);
+  letter-spacing: var(--letter-spacing-headings);
 }
 
 .blogExcerpt {
-  font-size: 1rem;
-  color: #4a5568;
-  line-height: 1.7;
+  font-size: var(--text-base);
+  color: var(--color-gray-700);
+  line-height: var(--line-height-body);
   margin-bottom: 1.5rem;
 }
 
 .blogLink {
-  color: #0065A6;
+  color: var(--color-primary);
   font-weight: 700;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: var(--text-base);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -1945,8 +2119,8 @@
 }
 
 .blogLink:hover {
-  color: #C11517;
-  border-bottom-color: #C11517;
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
   transform: translateX(4px);
 }
 
@@ -1958,11 +2132,11 @@
 .allBlogsButton {
   display: inline-block;
   padding: 1.25rem 3rem;
-  background: #0065A6;
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--color-white);
   border: none;
   border-radius: 16px;
-  font-size: 1.15rem;
+  font-size: var(--section-subtitle-size);
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
@@ -1972,7 +2146,7 @@
 
 .allBlogsButton:hover {
   transform: translateY(-4px);
-  background: #004d7a;
+  background: var(--color-primary-dark);
   box-shadow: 0 12px 40px rgba(0, 101, 166, 0.4);
 }
 
@@ -2059,7 +2233,7 @@
   width: 80px;
   height: 80px;
   margin: 0 auto 1.5rem;
-  color: #0065A6;
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2078,19 +2252,19 @@
 }
 
 .benefitCard h3 {
-  font-size: 1.5rem;
+  font-size: var(--font-h3);
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #0065A6;
-  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  letter-spacing: var(--letter-spacing-headings);
   position: relative;
   z-index: 1;
 }
 
 .benefitCard p {
-  color: #4a5568;
-  line-height: 1.7;
-  font-size: 1rem;
+  color: var(--color-gray-700);
+  line-height: var(--line-height-body);
+  font-size: var(--text-base);
   position: relative;
   z-index: 1;
 }
@@ -2103,11 +2277,11 @@
 .ctaButton {
   background: rgba(193, 21, 23, 0.95);
   /* REMOVED: backdrop-filter - causes GPU thrashing with animations */
-  color: #fff;
+  color: var(--color-white);
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 1.25rem 3rem;
   border-radius: 12px;
-  font-size: 1.15rem;
+  font-size: var(--section-subtitle-size);
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.3s ease,
@@ -2134,7 +2308,7 @@
 
 .statCard {
   text-align: center;
-  color: #fff;
+  color: var(--color-white);
   position: relative;
 }
 
@@ -2167,24 +2341,24 @@
 }
 
 .statNumber {
-  font-size: 4.5rem;
-  font-weight: 800;
-  line-height: 1;
+  font-size: var(--font-h1);
+  font-weight: var(--font-bold);
+  line-height: var(--line-height-headings);
   margin-bottom: 1rem;
-  color: #fff;
-  letter-spacing: -0.02em;
+  color: var(--color-white);
+  letter-spacing: var(--letter-spacing-headings);
 }
 
 .statPercent {
-  font-size: 3rem;
+  font-size: var(--font-h2);
   font-weight: 700;
 }
 
 .statLabel {
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
   color: rgba(255, 255, 255, 0.9);
-  line-height: 1.4;
+  line-height: var(--line-height-body);
 }
 
 /* Responsive Stats Section */
@@ -2209,12 +2383,12 @@
   }
 
   .statNumber {
-    font-size: 3.5rem;
+    font-size: var(--font-h1);
     margin-bottom: 0.75rem;
   }
 
   .statLabel {
-    font-size: 1.1rem;
+    font-size: var(--font-body);
   }
 }
 
@@ -2242,12 +2416,12 @@
   }
 
   .statNumber {
-    font-size: 3rem;
+    font-size: var(--font-h2);
     margin-bottom: 0.5rem;
   }
 
   .statLabel {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 }
 
@@ -2271,22 +2445,34 @@
   }
 
   .statNumber {
-    font-size: 2.5rem;
+    font-size: var(--font-h2);
     margin-bottom: 0.5rem;
   }
 
   .statLabel {
-    font-size: 0.95rem;
-    line-height: 1.3;
+    font-size: var(--text-base);
+    line-height: var(--line-height-headings);
   }
 }
 
 /* Career Section - Werken bij Quality Drive */
 .careerSection {
-  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   padding: 6rem 2rem;
   position: relative;
   overflow: hidden;
+}
+
+/* Witte tekst override voor donkere achtergrond + links uitlijnen */
+.careerSection .sectionHeaderTitle {
+  color: var(--color-white);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+
+.careerSection .sectionHeaderSubtitle {
+  color: rgba(255, 255, 255, 0.9);
+  text-align: left;
 }
 
 .careerSection::before {
@@ -2316,26 +2502,10 @@
   color: white;
 }
 
-.careerTitle {
-  font-size: 3.5rem;
-  font-weight: 900;
-  color: #fff;
-  margin-bottom: 1rem;
-  letter-spacing: -0.03em;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.careerSubtitle {
-  font-size: 2rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 2rem;
-  letter-spacing: -0.02em;
-}
 
 .careerText {
-  font-size: 1.2rem;
-  line-height: 1.8;
+  font-size: var(--text-lg);
+  line-height: var(--line-height-body);
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 3rem;
 }
@@ -2348,12 +2518,12 @@
 
 .careerButtonPrimary {
   display: inline-block;
-  background: #C11517;
-  color: #fff;
+  background: var(--color-accent);
+  color: var(--color-white);
   border: none;
   padding: 1.25rem 3rem;
   border-radius: 16px;
-  font-size: 1.15rem;
+  font-size: var(--section-subtitle-size);
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
@@ -2370,11 +2540,11 @@
 .careerButtonSecondary {
   display: inline-block;
   background: rgba(255, 255, 255, 0.3);
-  color: #fff;
-  border: 2px solid #fff;
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
   padding: 1.25rem 3rem;
   border-radius: 16px;
-  font-size: 1.15rem;
+  font-size: var(--section-subtitle-size);
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.3s ease,
@@ -2430,8 +2600,8 @@
 
 /* Footer */
 .footer {
-  background: #000;
-  color: #fff;
+  background: var(--color-black);
+  color: var(--color-white);
   padding: 5rem 2rem 2rem;
 }
 
@@ -2445,24 +2615,24 @@
 }
 
 .footerSection h4 {
-  font-size: 1.1rem;
+  font-size: var(--font-body);
   font-weight: 700;
   margin-bottom: 1.5rem;
-  color: #fff;
-  letter-spacing: 0.02em;
+  color: var(--color-white);
+  letter-spacing: var(--letter-spacing-body);
 }
 
 .footerSection a {
   display: block;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0.75rem;
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   transition: color 0.3s ease, transform 0.3s ease;
   text-decoration: none;
 }
 
 .footerSection a:hover {
-  color: #0065A6;
+  color: var(--color-primary);
   transform: translateX(4px);
 }
 
@@ -2473,8 +2643,8 @@
 
 .footerDescription {
   color: rgba(255, 255, 255, 0.7);
-  line-height: 1.7;
-  font-size: 0.95rem;
+  line-height: var(--line-height-body);
+  font-size: var(--text-base);
   margin-bottom: 1.5rem;
 }
 
@@ -2493,14 +2663,14 @@
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
-  color: #fff;
+  color: var(--color-white);
   transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .footerSocial a:hover {
-  background: #0065A6;
-  border-color: #0065A6;
-  color: #fff;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0, 101, 166, 0.3);
 }
@@ -2511,18 +2681,18 @@
   gap: 0.75rem;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0.75rem;
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footerContactItem:hover {
-  color: #0065A6;
+  color: var(--color-primary);
 }
 
 .footerContactItem svg {
   flex-shrink: 0;
-  color: #0065A6;
+  color: var(--color-primary);
 }
 
 .footerBottom {
@@ -2546,12 +2716,12 @@
 
 .footerBottom p {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   margin: 0;
 }
 
 .footerBuiltBy {
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   color: rgba(255, 255, 255, 0.5);
   text-align: center;
   justify-self: center;
@@ -2561,11 +2731,11 @@
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   transition: color 0.3s ease;
-  font-weight: 500;
+  font-weight: var(--font-semibold);
 }
 
 .footerBuiltBy a:hover {
-  color: #0065A6;
+  color: var(--color-primary);
 }
 
 .footerLinks {
@@ -2575,13 +2745,13 @@
 
 .footerLinks a {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   transition: color 0.3s ease;
   text-decoration: none;
 }
 
 .footerLinks a:hover {
-  color: #0065A6;
+  color: var(--color-primary);
 }
 
 /* Responsive Design */
@@ -2609,11 +2779,11 @@
   }
 
   .heroTitle {
-    font-size: 2.5rem;
+    font-size: var(--font-h2);
   }
 
   .heroSubtitle {
-    font-size: 1.15rem;
+    font-size: var(--section-subtitle-size);
     margin-bottom: 2.5rem;
   }
 
@@ -2680,13 +2850,6 @@
     height: 280px;
   }
 
-  .geslaagdeTitle {
-    font-size: 2.5rem;
-  }
-
-  .geslaagdeSubtitle {
-    font-size: 1.25rem;
-  }
 
   .blogsGrid {
     grid-template-columns: repeat(2, 1fr);
@@ -2727,12 +2890,12 @@
   }
 
   .heroTitle {
-    font-size: 2rem;
+    font-size: var(--font-h2);
     margin-bottom: 0.75rem;
   }
 
   .heroSubtitle {
-    font-size: 1rem;
+    font-size: var(--text-base);
     margin-bottom: 2rem;
   }
 
@@ -2746,7 +2909,7 @@
 
   .tab {
     padding: 0.65rem 1.25rem;
-    font-size: 0.95rem;
+    font-size: var(--text-base);
   }
 
   .inputGroup {
@@ -2759,12 +2922,12 @@
   }
 
   .input {
-    font-size: 0.95rem;
+    font-size: var(--text-base);
   }
 
   .searchButton {
     padding: 0.875rem;
-    font-size: 0.95rem;
+    font-size: var(--text-base);
   }
 
   .serviceGrid {
@@ -2775,26 +2938,14 @@
     grid-template-columns: 1fr;
   }
 
-  .sectionTitle {
-    font-size: 2rem;
-  }
 
   .careerSection {
     padding: 4rem 1.5rem;
   }
 
-  .careerTitle {
-    font-size: 2.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .careerSubtitle {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
 
   .careerText {
-    font-size: 1.05rem;
+    font-size: var(--font-body);
     margin-bottom: 2rem;
   }
 
@@ -2808,7 +2959,7 @@
     width: 100%;
     text-align: center;
     padding: 1rem 2rem;
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 
   .careerImage {
@@ -2820,13 +2971,10 @@
   }
 
   .car3DDescription {
-    font-size: 1rem;
+    font-size: var(--text-base);
     padding: 0 1rem;
   }
 
-  .rijlessenOpMaatTitle {
-    font-size: 2rem;
-  }
 
   .rijlessenOpMaatSection {
     padding: 4rem 1.5rem;
@@ -2866,37 +3014,21 @@
     height: 250px;
   }
 
-  .geslaagdeTitle {
-    font-size: 2rem;
-  }
-
-  .geslaagdeSubtitle {
-    font-size: 1.1rem;
-    margin-bottom: 3rem;
-  }
 
   .geslaagdeCTA {
     width: 100%;
     padding: 1rem 2rem;
-    font-size: 1.1rem;
+    font-size: var(--font-body);
   }
 
   .faqSection {
     padding: 4rem 1.5rem;
   }
 
-  .faqTitle {
-    font-size: 2rem;
-  }
-
-  .faqSubtitle {
-    font-size: 1.1rem;
-    margin-bottom: 3rem;
-  }
 
   .faqQuestion {
     padding: 1.25rem 1.5rem;
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 
   .faqAnswer {
@@ -2908,12 +3040,12 @@
   }
 
   .faqAnswer p {
-    font-size: 0.95rem;
+    font-size: var(--text-base);
   }
 
   .ctaButton {
     padding: 1rem 2rem;
-    font-size: 1rem;
+    font-size: var(--text-base);
     width: 100%;
   }
 
@@ -2955,14 +3087,6 @@
     padding: 4rem 1.5rem;
   }
 
-  .blogsTitle {
-    font-size: 2rem;
-  }
-
-  .blogsSubtitle {
-    font-size: 1.1rem;
-    margin-bottom: 3rem;
-  }
 
   .blogsGrid {
     grid-template-columns: 1fr;
@@ -2978,17 +3102,17 @@
   }
 
   .blogTitle {
-    font-size: 1.25rem;
+    font-size: var(--text-lg);
   }
 
   .blogExcerpt {
-    font-size: 0.95rem;
+    font-size: var(--text-base);
   }
 
   .allBlogsButton {
     width: 100%;
     padding: 1rem 2rem;
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 }
 
@@ -3008,12 +3132,12 @@
   }
 
   .heroTitle {
-    font-size: 1.75rem;
-    line-height: 1.2;
+    font-size: var(--text-xl);
+    line-height: var(--line-height-headings);
   }
 
   .heroSubtitle {
-    font-size: 0.95rem;
+    font-size: var(--text-base);
     margin-bottom: 1.5rem;
   }
 
@@ -3029,7 +3153,7 @@
 
   .tab {
     padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
   }
 
   .inputGroup {
@@ -3042,7 +3166,7 @@
   }
 
   .input {
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
   }
 
   .inputIcon {
@@ -3059,7 +3183,7 @@
 
   .searchButton {
     padding: 0.75rem;
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
     border-radius: 10px;
   }
 }

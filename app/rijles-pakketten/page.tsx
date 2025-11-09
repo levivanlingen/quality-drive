@@ -3,7 +3,10 @@
 import Link from 'next/link';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
+import { HeroSection } from '@/app/components/sections';
+import { StartRijavontuurCTA } from '@/app/components/sections/StartRijavontuurCTA';
 import styles from '../page.module.css';
+import pakkettenStyles from './pakketten.module.css';
 import { Car, Bike, Check, Disc3 } from 'lucide-react';
 
 export default function RijlesPakkettenPage() {
@@ -39,14 +42,23 @@ export default function RijlesPakkettenPage() {
     <div className={styles.page}>
       <Header />
 
+      <HeroSection
+        title="Rijles Pakketten"
+        subtitle="Vergelijk onze pakketten en start vandaag nog"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Rijles Pakketten' }
+        ]}
+      />
+
       {/* Packages Section */}
-      <section className={styles.pricingSection} style={{ paddingTop: '10rem' }}>
+      <section className={styles.pricingSection}>
         <div className={styles.pricingContent}>
-          <h2 className={styles.sectionTitle}>Bekijk onze pakketten</h2>
-          <p className={styles.sectionSubtitle}>Kies je pakket categorie en start vandaag nog</p>
+          <h2 className={styles.sectionHeaderTitle}>Bekijk onze pakketten</h2>
+          <p className={styles.sectionHeaderSubtitle}>Kies je pakket categorie en start vandaag nog</p>
 
           <div className={styles.servicesSection} style={{ background: 'transparent', padding: '3rem 0' }}>
-            <div className={styles.serviceGrid} style={{ maxWidth: '900px', margin: '0 auto', gridTemplateColumns: 'repeat(2, 1fr)' }}>
+            <div className={pakkettenStyles.packageSelectionGrid}>
               {packages.map((pkg, index) => {
                 const IconComponent = pkg.icon;
                 return (
@@ -87,8 +99,7 @@ export default function RijlesPakkettenPage() {
       {/* Zekerheden Section */}
       <section className={styles.zekerhedenSection}>
         <div className={styles.zekerhedenContent}>
-          <p className={styles.zekerhedenLabel}>Jouw Rijbewijs, Onze Missie</p>
-          <h2 className={styles.sectionTitle}>Pakketten rijles Den Haag - Zoetermeer - Rijswijk - Delft en omgeving</h2>
+          <h2 className={styles.sectionHeaderTitle}>Pakketten rijles Den Haag - Zoetermeer - Rijswijk - Delft en omgeving</h2>
           <p style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto 3rem', fontSize: '1.125rem', color: '#4a5568', lineHeight: '1.8' }}>
             Ben je 16,5? Sta je te popelen voor je rijbewijs? Dan ben je hier aan het juiste adres.
             Bij rijschool Quality-Drive Den Haag – Zoetermeer – Rijswijk – Delft en omgeving verzorgen
@@ -117,6 +128,18 @@ export default function RijlesPakkettenPage() {
           </div>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className={styles.sectionDivider}>
+        <div className={styles.dividerLine}></div>
+        <div className={styles.dividerIcon}>
+          <Disc3 size={48} strokeWidth={2} color="#cbd5e1" />
+        </div>
+        <div className={styles.dividerLine}></div>
+      </div>
+
+      {/* CTA Section */}
+      <StartRijavontuurCTA />
 
       <Footer />
     </div>

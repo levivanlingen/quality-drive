@@ -78,6 +78,16 @@ const nextConfig: NextConfig = {
     ];
   },
 
+  // Rewrites voor rijschool URLs: externe URL /rijschool-den-haag -> interne route /rijschool/den-haag
+  async rewrites() {
+    return [
+      {
+        source: '/rijschool-:slug',
+        destination: '/rijschool/:slug',
+      },
+    ];
+  },
+
   // Headers voor SEO en performance
   async headers() {
     // In development: GEEN caching voor hot reload

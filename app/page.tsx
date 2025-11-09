@@ -157,8 +157,8 @@ export default function Home() {
 
       {/* Services Section */}
       <section className={styles.services}>
-        <h2 className={styles.sectionTitle}>Stel jouw pakket samen</h2>
-        <p className={styles.sectionSubtitle}>Kies jouw rijles type en begin vandaag nog met je rijbewijs</p>
+        <h2 className={styles.sectionHeaderTitle}>Stel jouw pakket samen</h2>
+        <p className={styles.sectionHeaderSubtitle}>Kies jouw rijles type en begin vandaag nog met je rijbewijs</p>
         <div className={styles.serviceGrid}>
           <div
             className={styles.serviceCard}
@@ -225,8 +225,8 @@ export default function Home() {
       {/* Beste goedkope rijschool Section */}
       <section className={styles.rijschoolSection}>
         <div className={styles.rijschoolContent}>
-          <p className={styles.rijschoolLabel}>Jouw Rijbewijs, Onze Missie</p>
-          <h2 className={styles.sectionTitle}>Beste goedkope rijschool Den Haag en omgeving</h2>
+          <h2 className={styles.sectionHeaderTitle}>Beste goedkope rijschool Den Haag en omgeving</h2>
+          <p className={styles.sectionHeaderSubtitle}>Professionele rijlessen met persoonlijke aandacht voor iedereen</p>
           <p className={styles.rijschoolText}>
             Wij als beste goedkope rijschool Den Haag geloven in de kracht van elke leerling.
             Niet alleen leerlingen die hun rijbewijs willen halen kunnen gebruik maken van de rijlessen.
@@ -277,8 +277,8 @@ export default function Home() {
       {/* Zekerheden Section */}
       <section className={styles.zekerhedenSection}>
         <div className={styles.zekerhedenContent}>
-          <p className={styles.zekerhedenLabel}>Van Starter tot Pro</p>
-          <h2 className={styles.sectionTitle}>De 6 zekerheden alleen bij Quality Drive​</h2>
+          <h2 className={styles.sectionHeaderTitle}>De 6 zekerheden alleen bij Quality Drive​</h2>
+          <p className={styles.sectionHeaderSubtitle}>Ontdek waarom meer dan 3.000 leerlingen voor ons kozen</p>
 
           <div className={styles.zekerhedenGrid}>
             <div className={styles.zekerheidCard}>
@@ -376,7 +376,8 @@ export default function Home() {
       {/* Rijlessen Op Maat Carousel Section */}
       <section className={styles.rijlessenOpMaatSection}>
         <div className={styles.rijlessenOpMaatContent}>
-          <h2 className={styles.rijlessenOpMaatTitle}>Over Quality Drive</h2>
+          <h2 className={styles.sectionHeaderTitle}>Over Quality Drive</h2>
+          <p className={styles.sectionHeaderSubtitle}>Maatwerk rijlessen afgestemd op jouw persoonlijke behoeften</p>
 
           <InfoCarousel />
         </div>
@@ -385,7 +386,8 @@ export default function Home() {
       {/* Waarom Quality Drive Section */}
       <section className={styles.waaromQDSection}>
         <div className={styles.waaromQDContent}>
-          <h2 className={styles.sectionTitle}>Waarom Quality Drive?</h2>
+          <h2 className={styles.sectionHeaderTitle}>Waarom Quality Drive?</h2>
+          <p className={styles.sectionHeaderSubtitle}>De voordelen van Quality Drive op een rij</p>
 
           <div className={styles.benefitsGrid}>
             <div className={styles.benefitCard}>
@@ -444,8 +446,8 @@ export default function Home() {
       {/* Populaire Pakketten Section */}
       <section className={styles.pricingSection}>
         <div className={styles.pricingContent}>
-          <h2 className={styles.sectionTitle}>Populaire Pakketten</h2>
-          <p className={styles.sectionSubtitle}>Kies het pakket dat bij jou past en start vandaag nog</p>
+          <h2 className={styles.sectionHeaderTitle}>Populaire Pakketten</h2>
+          <p className={styles.sectionHeaderSubtitle}>Kies het pakket dat bij jou past en start vandaag nog</p>
 
           {/* Category Selector */}
           <div className={styles.pricingTabs}>
@@ -771,8 +773,8 @@ export default function Home() {
       {/* Geslaagde Toppers Section */}
       <section className={styles.geslaagdeSection}>
         <div className={styles.geslaagdeContent}>
-          <h2 className={styles.geslaagdeTitle}>Wordt jij de volgende?</h2>
-          <p className={styles.geslaagdeSubtitle}>De geslaagde motor toppers van Quality Drive</p>
+          <h2 className={styles.sectionHeaderTitle}>Wordt jij de volgende?</h2>
+          <p className={styles.sectionHeaderSubtitle}>De geslaagde motor toppers van Quality Drive</p>
 
           <div className={styles.geslaagdeGrid}>
             <Image
@@ -858,8 +860,8 @@ export default function Home() {
       {/* FAQ Section */}
       <section className={styles.faqSection}>
         <div className={styles.faqContent}>
-          <h2 className={styles.faqTitle}>Veelgestelde vragen</h2>
-          <p className={styles.faqSubtitle}>Alles wat je moet weten over rijlessen bij Quality Drive</p>
+          <h2 className={styles.sectionHeaderTitle}>Veelgestelde vragen</h2>
+          <p className={styles.sectionHeaderSubtitle}>Alles wat je moet weten over rijlessen bij Quality Drive</p>
 
           <div className={styles.faqList}>
             <div className={styles.faqItem}>
@@ -988,8 +990,8 @@ export default function Home() {
       {/* Recente Blogs Section */}
       <section className={styles.blogsSection}>
         <div className={styles.blogsContent}>
-          <h2 className={styles.blogsTitle}>Recente Blogs</h2>
-          <p className={styles.blogsSubtitle}>Blijf op de hoogte van het laatste nieuws en tips</p>
+          <h2 className={styles.sectionHeaderTitle}>Recente Blogs</h2>
+          <p className={styles.sectionHeaderSubtitle}>Blijf op de hoogte van het laatste nieuws en tips</p>
 
           <div className={styles.blogsGrid}>
             {recentPosts.map((post: any) => (
@@ -1059,8 +1061,8 @@ export default function Home() {
       <section className={styles.careerSection}>
         <div className={styles.careerContent}>
           <div className={styles.careerTextArea}>
-            <h2 className={styles.careerTitle}>Werken bij Quality Drive</h2>
-            <h3 className={styles.careerSubtitle}>Vacature: Rijinstructeur</h3>
+            <h2 className={styles.sectionHeaderTitle}>Werken bij Quality Drive</h2>
+            <h3 className={styles.sectionHeaderSubtitle}>Vacature: Rijinstructeur</h3>
             <p className={styles.careerText}>
               Bij Quality Drive zijn we op zoek naar gemotiveerde en gepassioneerde collega's om ons team te versterken. We zijn een gerenommeerde rijschool die staat voor kwaliteit, veiligheid en persoonlijke aandacht. Wil jij deel uitmaken van een enthousiast team dat elke dag streeft naar het beste voor onze leerlingen? Neem dan nu snel contact op!
             </p>

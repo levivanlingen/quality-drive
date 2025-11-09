@@ -1,84 +1,3 @@
-/* Hero Section */
-.hero {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  color: #fff;
-  padding: 8rem 2rem 4rem;
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.heroContent {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.breadcrumb a {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.breadcrumb a:hover {
-  color: #fff;
-}
-
-.breadcrumbSeparator {
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.label {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-}
-
-.subtitle {
-  font-size: 1.25rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 700px;
-  margin-bottom: 2rem;
-}
-
-.heroButton {
-  display: inline-block;
-  background: #fff;
-  color: #000;
-  padding: 1rem 2.5rem;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.heroButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
-}
-
 /* Intro Section */
 .introSection {
   padding: 4rem 2rem;
@@ -92,14 +11,14 @@
 }
 
 .introTitle {
-  font-size: 2.5rem;
+  font-size: var(--font-h2);
   font-weight: 700;
   margin-bottom: 1.5rem;
   color: #1a1a1a;
 }
 
 .introText {
-  font-size: 1.1rem;
+  font-size: var(--section-subtitle-size);
   line-height: 1.8;
   color: #4a4a4a;
 }
@@ -113,14 +32,6 @@
 .featuresContainer {
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.sectionTitle {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 3rem;
-  color: #1a1a1a;
 }
 
 .featuresGrid {
@@ -155,14 +66,14 @@
 }
 
 .featureTitle {
-  font-size: 1.3rem;
+  font-size: var(--text-lg);
   font-weight: 600;
   margin-bottom: 1rem;
   color: #1a1a1a;
 }
 
 .featureText {
-  font-size: 1rem;
+  font-size: var(--text-base);
   line-height: 1.6;
   color: #4a4a4a;
 }
@@ -180,7 +91,7 @@
 
 .whyIntroText {
   text-align: center;
-  font-size: 1.1rem;
+  font-size: var(--section-subtitle-size);
   color: #4a4a4a;
   max-width: 800px;
   margin: 0 auto 3rem;
@@ -209,14 +120,14 @@
 }
 
 .whyTitle {
-  font-size: 1.2rem;
+  font-size: var(--text-lg);
   font-weight: 600;
   margin-bottom: 0.75rem;
   color: #1a1a1a;
 }
 
 .whyDescription {
-  font-size: 1rem;
+  font-size: var(--text-base);
   line-height: 1.6;
   color: #4a4a4a;
 }
@@ -235,12 +146,6 @@
 .pricingHeader {
   text-align: center;
   margin-bottom: 3rem;
-}
-
-.sectionSubtitle {
-  font-size: 1.1rem;
-  color: #4a4a4a;
-  margin-top: 1rem;
 }
 
 .packagesGrid {
@@ -279,7 +184,7 @@
   color: #1a1a1a;
   padding: 0.4rem 1.2rem;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   font-weight: 600;
 }
 
@@ -295,7 +200,7 @@
 }
 
 .packageName {
-  font-size: 1.5rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   margin-bottom: 1rem;
 }
@@ -309,17 +214,17 @@
 }
 
 .priceAmount {
-  font-size: 2.5rem;
+  font-size: var(--font-h2);
   font-weight: 700;
 }
 
 .pricePer {
-  font-size: 1rem;
+  font-size: var(--text-base);
   opacity: 0.7;
 }
 
 .pricePerLesson {
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   opacity: 0.6;
 }
 
@@ -334,7 +239,7 @@
   align-items: flex-start;
   gap: 0.75rem;
   padding: 0.75rem 0;
-  font-size: 0.95rem;
+  font-size: var(--section-label-size);
 }
 
 .checkIcon {
@@ -348,7 +253,7 @@
 }
 
 .packageNote {
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   opacity: 0.7;
   margin-bottom: 1.5rem;
   font-style: italic;
@@ -385,7 +290,7 @@
 .footerLink {
   color: #1a1a1a;
   text-decoration: underline;
-  font-weight: 500;
+  font-weight: var(--font-semibold);
 }
 
 .footerLink:hover {
@@ -404,7 +309,7 @@
 }
 
 .localText {
-  font-size: 1.1rem;
+  font-size: var(--section-subtitle-size);
   line-height: 1.8;
   color: #4a4a4a;
   margin-bottom: 3rem;
@@ -439,14 +344,14 @@
 }
 
 .localInfoTitle {
-  font-size: 1.3rem;
+  font-size: var(--text-lg);
   font-weight: 600;
   margin-bottom: 1rem;
   color: #1a1a1a;
 }
 
 .localInfoText {
-  font-size: 1rem;
+  font-size: var(--text-base);
   line-height: 1.6;
   color: #4a4a4a;
 }
@@ -459,7 +364,7 @@
 
 .routeItem {
   padding: 0.5rem 0;
-  font-size: 1rem;
+  font-size: var(--text-base);
   color: #4a4a4a;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -504,7 +409,7 @@
 }
 
 .testimonialText {
-  font-size: 1.05rem;
+  font-size: var(--section-subtitle-size);
   line-height: 1.7;
   color: #2a2a2a;
   margin-bottom: 1.5rem;
@@ -523,7 +428,7 @@
 }
 
 .authorLocation {
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: #6a6a6a;
 }
 
@@ -557,7 +462,7 @@
   border: none;
   padding: 1.5rem 2rem;
   text-align: left;
-  font-size: 1.1rem;
+  font-size: var(--section-subtitle-size);
   font-weight: 600;
   color: #1a1a1a;
   cursor: pointer;
@@ -578,7 +483,7 @@
 
 .faqAnswer {
   padding: 0 2rem 1.5rem;
-  font-size: 1rem;
+  font-size: var(--text-base);
   line-height: 1.7;
   color: #4a4a4a;
   animation: fadeIn 0.3s ease;
@@ -618,13 +523,13 @@
 }
 
 .ctaTitle {
-  font-size: 2.5rem;
+  font-size: var(--font-h2);
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
 
 .ctaText {
-  font-size: 1.2rem;
+  font-size: var(--text-lg);
   line-height: 1.7;
   margin-bottom: 2rem;
   color: rgba(255, 255, 255, 0.9);
@@ -636,7 +541,7 @@
   color: #000;
   padding: 1.2rem 3rem;
   border-radius: 8px;
-  font-size: 1.1rem;
+  font-size: var(--section-subtitle-size);
   font-weight: 600;
   text-decoration: none;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -649,20 +554,9 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .title {
-    font-size: 2.5rem;
-  }
-
-  .subtitle {
-    font-size: 1.1rem;
-  }
-
-  .sectionTitle {
-    font-size: 2rem;
-  }
 
   .introTitle {
-    font-size: 2rem;
+    font-size: var(--font-h3);
   }
 
   .packagesGrid,
@@ -673,15 +567,11 @@
     grid-template-columns: 1fr;
   }
 
-  .hero {
-    padding: 6rem 1.5rem 3rem;
-  }
-
   .ctaTitle {
-    font-size: 2rem;
+    font-size: var(--font-h3);
   }
 
   .ctaText {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 }

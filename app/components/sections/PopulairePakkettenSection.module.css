@@ -1,0 +1,243 @@
+/* Pricing Section - Exact copy from rijschool/[city]/city.module.css */
+.pricingSection {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 5rem 2rem;
+}
+
+.pricingContent {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.label {
+  font-size: var(--section-label-size);
+  font-weight: 600;
+  color: #0065A6;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  text-align: center;
+  display: block;
+}
+
+.pricingGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-top: 3rem;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+
+.pricingGrid > * {
+  flex: 0 1 calc(25% - 2rem);
+  min-width: 280px;
+  max-width: 400px;
+}
+
+@media (max-width: 1400px) {
+  .pricingGrid > * {
+    flex: 0 1 calc(33.333% - 2rem);
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pricingGrid > * {
+    flex: 0 1 calc(50% - 1.5rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .pricingGrid > * {
+    flex: 0 1 100%;
+    max-width: 100%;
+  }
+}
+
+.pricingCard {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+  transform: translateZ(0);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricingCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 101, 166, 0.15);
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: -1;
+  will-change: opacity;
+}
+
+.pricingCard:hover {
+  transform: translateY(-12px);
+  border-color: rgba(0, 101, 166, 0.3);
+}
+
+.pricingCard:hover::after {
+  opacity: 1;
+}
+
+.pricingCardFeatured {
+  background: linear-gradient(135deg, rgba(0, 101, 166, 0.1) 0%, rgba(255, 255, 255, 0.4) 100%);
+  border: 3px solid #0065A6;
+  transform: scale(1.05);
+}
+
+.pricingCardFeatured::after {
+  box-shadow: 0 28px 70px rgba(0, 101, 166, 0.25);
+}
+
+.pricingCardFeatured:hover {
+  transform: translateY(-12px) scale(1.08);
+  border-color: #0065A6;
+}
+
+.pricingCardFeatured:hover::after {
+  opacity: 1;
+}
+
+.featuredBadge {
+  position: absolute;
+  top: -15px;
+  right: 20px;
+  background: linear-gradient(135deg, #C11517 0%, #a01214 100%);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(193, 21, 23, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.pricingHeader {
+  margin-bottom: 2rem;
+}
+
+.pricingHeader h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: #0065A6;
+  margin-bottom: 1rem;
+  line-height: var(--line-height-headings);
+  letter-spacing: var(--letter-spacing-headings);
+}
+
+.pricingBadge {
+  display: inline-block;
+  background: rgba(193, 21, 23, 0.1);
+  color: #C11517;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.pricingPrice {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.pricingPrice .currency {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: #0065A6;
+  margin-right: 0.25rem;
+}
+
+.pricingPrice .amount {
+  font-size: var(--font-h1);
+  font-weight: var(--font-bold);
+  color: #0065A6;
+  line-height: var(--line-height-headings);
+  letter-spacing: var(--letter-spacing-headings);
+}
+
+.priceSuffix {
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: #0065A6;
+  margin-left: 0.5rem;
+}
+
+.pricingLessons {
+  font-size: var(--section-subtitle-size);
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+  font-weight: var(--font-semibold);
+}
+
+.pricingFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem 0;
+  flex: 1;
+}
+
+.pricingFeatures li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: #4a5568;
+  font-size: var(--text-base);
+  line-height: 1.6;
+}
+
+.pricingFeatures li svg {
+  color: #22c55e;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pricingFeatures .featureNote {
+  color: #6b7280;
+  font-size: var(--text-sm);
+  font-style: italic;
+}
+
+.pricingFeatures .featureNote svg {
+  display: none;
+}
+
+.pricingButton {
+  width: 100%;
+  background: rgba(193, 21, 23, 0.95);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(193, 21, 23, 0.2);
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.pricingButton:hover {
+  transform: translateY(-2px);
+  background: rgba(220, 50, 52, 0.9);
+  box-shadow: 0 12px 40px rgba(193, 21, 23, 0.4);
+}

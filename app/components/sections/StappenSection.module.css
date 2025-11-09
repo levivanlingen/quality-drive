@@ -1,0 +1,146 @@
+/* Steps Section - Exact copy from rijschool/[city]/city.module.css */
+.stepsSection {
+  padding: 5rem 2rem;
+  background: transparent;
+  position: relative;
+}
+
+.stepsContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.label {
+  font-size: var(--section-label-size);
+  font-weight: 600;
+  color: #0065A6;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  text-align: center;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+}
+
+.stepsGrid::before {
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: linear-gradient(90deg, #0065A6 0%, #00a8ff 50%, #0065A6 100%);
+  z-index: 0;
+}
+
+.stepCard {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  position: relative;
+  border: 2px solid rgba(0, 101, 166, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  z-index: 1;
+}
+
+.stepNumber {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-h2);
+  font-weight: var(--font-bold);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 101, 166, 0.3);
+  position: relative;
+}
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  line-height: var(--line-height-headings);
+  letter-spacing: var(--letter-spacing-headings);
+}
+
+.stepDescription {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
+  color: #4a4a4a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stepsSection {
+    padding: 4rem 1.5rem;
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .stepsGrid::before {
+    display: none;
+  }
+
+  .stepNumber {
+    width: 80px;
+    height: 80px;
+    font-size: var(--font-h3);
+  }
+
+  .stepTitle {
+    font-size: var(--text-xl);
+  }
+
+  .stepDescription {
+    font-size: var(--text-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .stepsSection {
+    padding: 3rem 1rem;
+  }
+
+  .stepsGrid {
+    gap: 1.75rem;
+  }
+
+  .stepCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .stepNumber {
+    width: 70px;
+    height: 70px;
+    font-size: var(--text-xl);
+    margin-bottom: 1.25rem;
+  }
+
+  .stepTitle {
+    font-size: var(--text-lg);
+  }
+
+  .stepDescription {
+    font-size: var(--section-label-size);
+  }
+}

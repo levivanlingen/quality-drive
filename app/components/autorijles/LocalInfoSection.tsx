@@ -1,4 +1,5 @@
 import { MapPin, Route } from 'lucide-react';
+import pageStyles from '../../page.module.css';
 import styles from './autorijles.module.css';
 
 interface LocalInfoSectionProps {
@@ -21,7 +22,7 @@ export function LocalInfoSection({
   return (
     <section className={styles.localSection}>
       <div className={styles.localContainer}>
-        {title && <h2 className={styles.sectionTitle}>{title}</h2>}
+        {title && <h2 className={pageStyles.sectionHeaderTitle}>{title}</h2>}
 
         <p className={styles.localText}>{text}</p>
 

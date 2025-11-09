@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Check } from 'lucide-react';
+import pageStyles from '../../page.module.css';
 import styles from './autorijles.module.css';
 import type { Package } from './types';
 
@@ -24,8 +25,8 @@ export function PricingSection({
     <section className={styles.pricingSection}>
       <div className={styles.pricingContainer}>
         <div className={styles.pricingHeader}>
-          <h2 className={styles.sectionTitle}>{title}</h2>
-          {subtitle && <p className={styles.sectionSubtitle}>{subtitle}</p>}
+          <h2 className={pageStyles.sectionHeaderTitle}>{title}</h2>
+          {subtitle && <p className={pageStyles.sectionHeaderSubtitle}>{subtitle}</p>}
         </div>
 
         <div className={styles.packagesGrid}>

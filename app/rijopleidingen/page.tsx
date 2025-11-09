@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
+import { HeroSection, StartRijavontuurCTA } from '@/app/components/sections';
 import styles from '../page.module.css';
 import rijopleidingenStyles from './rijopleidingen.module.css';
 import { Car, Bike, Shield, Brain, Heart, CarFront, Disc3 } from 'lucide-react';
@@ -47,7 +48,7 @@ export default function RijopleidingenPage() {
       title: 'B/A - Faalangst',
       icon: Heart,
       description: 'Rijlessen speciaal voor mensen met faalangst',
-      link: '/rijschool-faalangst',
+      link: '/rijschool/faalangst',
       color: '#0065A6',
     },
     {
@@ -55,7 +56,7 @@ export default function RijopleidingenPage() {
       title: 'B/A - ADD',
       icon: Brain,
       description: 'Rijlessen aangepast voor mensen met ADD',
-      link: '/rijschool-add',
+      link: '/rijschool/add',
       color: '#0065A6',
     },
     {
@@ -63,7 +64,7 @@ export default function RijopleidingenPage() {
       title: 'B/A - ADHD',
       icon: Brain,
       description: 'Rijlessen speciaal afgestemd op ADHD',
-      link: '/rijschool-adhd',
+      link: '/rijschool/adhd',
       color: '#0065A6',
     },
   ];
@@ -73,29 +74,23 @@ export default function RijopleidingenPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className={rijopleidingenStyles.hero}>
-        <div className={rijopleidingenStyles.heroContent}>
-          {/* Breadcrumb */}
-          <nav className={rijopleidingenStyles.breadcrumb}>
-            <Link href="/">Home</Link>
-            <span className={rijopleidingenStyles.breadcrumbSeparator}>/</span>
-            <span>Rijopleidingen</span>
-          </nav>
-
-          <h1 className={rijopleidingenStyles.heroTitle}>
-            Rijopleidingen
-          </h1>
-        </div>
-      </section>
+      <HeroSection
+        title="Rijopleidingen"
+        subtitle="Ontdek onze rijopleidingen en kies de opleiding die bij jou past"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Rijopleidingen' }
+        ]}
+      />
 
       {/* Courses Grid Section */}
       <section className={rijopleidingenStyles.coursesSection}>
         <div className={rijopleidingenStyles.coursesContainer}>
           <div className={rijopleidingenStyles.sectionHeader}>
-            <h2 className={rijopleidingenStyles.sectionTitle}>
+            <h2 className={styles.sectionHeaderTitle}>
               Bekijk onze rijopleidingen
             </h2>
-            <p className={rijopleidingenStyles.sectionSubtitle}>
+            <p className={styles.sectionHeaderSubtitle}>
               Voor welke rijopleiding ga jij?
             </p>
           </div>
@@ -143,46 +138,7 @@ export default function RijopleidingenPage() {
       </div>
 
       {/* CTA Section */}
-      <section className={rijopleidingenStyles.ctaSection}>
-        <div className={rijopleidingenStyles.ctaContainer}>
-          <div className={rijopleidingenStyles.ctaContent}>
-            <p className={rijopleidingenStyles.ctaLabel}>Begin vandaag nog</p>
-            <h2 className={rijopleidingenStyles.ctaTitle}>
-              Start jouw Rijavontuur bij Quality Drive!
-            </h2>
-            <p className={rijopleidingenStyles.ctaText}>
-              Hierboven kun je een keuze maken tussen de verschillende rijopleidingen.
-              Wij werken in <strong>Den Haag, Zoetermeer, Delft, Rijswijk</strong> en omgeving.
-            </p>
-            <p className={rijopleidingenStyles.ctaText}>
-              Als je vragen hebt kun je geheel vrijblijvend contact met ons opnemen,
-              we helpen je graag verder.
-            </p>
-
-            <div className={rijopleidingenStyles.guaranteeSection}>
-              <h3 className={rijopleidingenStyles.guaranteeTitle}>
-                <Shield size={28} />
-                Onze Zekerheid aan jou
-              </h3>
-              <p className={rijopleidingenStyles.guaranteeText}>
-                Bij Quality Drive zorgen we ervoor dat je met zekerheid jouw rijbewijs haalt.
-                Wij bieden niet alleen uitstekende rijlessen, maar ook de garantie dat je goed
-                voorbereid en vol vertrouwen je rijexamen aflegt.
-              </p>
-            </div>
-
-            <a
-              href="https://calendly.com/qualitydrive/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={rijopleidingenStyles.ctaButton}
-            >
-              <Car size={20} />
-              Gratis proefles plannen
-            </a>
-          </div>
-        </div>
-      </section>
+      <StartRijavontuurCTA />
 
       <Footer />
     </div>

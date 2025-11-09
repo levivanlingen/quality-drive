@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
+import { HeroSection, StartRijavontuurCTA } from '@/app/components/sections';
 import styles from '../page.module.css';
 import theorieStyles from './theorie.module.css';
 import { BookOpen, Car, Check, Shield, Disc3 } from 'lucide-react';
@@ -27,26 +28,19 @@ export default function TheoriePage() {
     <div className={styles.page}>
       <Header />
 
-      {/* Hero Section */}
-      <section className={theorieStyles.hero}>
-        <div className={theorieStyles.heroContent}>
-          {/* Breadcrumb */}
-          <nav className={theorieStyles.breadcrumb}>
-            <Link href="/">Home</Link>
-            <span className={theorieStyles.breadcrumbSeparator}>/</span>
-            <span>Theorie</span>
-          </nav>
-
-          <h1 className={theorieStyles.heroTitle}>
-            Theorie
-          </h1>
-        </div>
-      </section>
+      <HeroSection
+        title="Theorie"
+        subtitle="Alles wat je moet weten voor je theorie-examen categorie B"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Theorie' }
+        ]}
+      />
 
       {/* Main Content Section */}
       <section className={theorieStyles.contentSection}>
         <div className={theorieStyles.contentContainer}>
-          <h2 className={theorieStyles.mainTitle}>
+          <h2 className={styles.sectionHeaderTitle}>
             Theorieondersteuning, de eerste stap naar jouw rijbewijs! Categorie B
           </h2>
 
@@ -111,13 +105,13 @@ export default function TheoriePage() {
       {/* Learning Methods Section */}
       <section className={theorieStyles.methodsSection}>
         <div className={theorieStyles.contentContainer}>
-          <h2 className={theorieStyles.sectionTitle}>
+          <h2 className={styles.sectionHeaderTitle}>
             Theorie leren
           </h2>
-          <p className={theorieStyles.sectionIntro}>
+          <p className={styles.sectionHeaderSubtitle}>
             Je kunt bij Quality-Drive op twee verschillende manieren leren voor jouw theorie. We bieden studie
             van je theorielessen zowel online als uit boeken aan. Voor de een is theorie leren vanuit boeken
-            fijner en voor de ander online achter je laptop-tablet of smartphone. Zo heb jij je keuze, lekker
+            fijner en voor de ander online achter je laptop-tablet or smartphone. Zo heb jij je keuze, lekker
             makkelijk!
           </p>
 
@@ -204,7 +198,7 @@ export default function TheoriePage() {
       {/* Exam Section */}
       <section className={theorieStyles.examSection}>
         <div className={theorieStyles.contentContainer}>
-          <h2 className={theorieStyles.sectionTitle}>
+          <h2 className={styles.sectionHeaderTitle}>
             Theorie examen, een spannend moment!
           </h2>
 
@@ -252,46 +246,7 @@ export default function TheoriePage() {
       </div>
 
       {/* CTA Section */}
-      <section className={theorieStyles.ctaSection}>
-        <div className={theorieStyles.ctaContainer}>
-          <div className={theorieStyles.ctaContent}>
-            <p className={theorieStyles.ctaLabel}>Begin vandaag nog</p>
-            <h2 className={theorieStyles.ctaTitle}>
-              Start jouw Rijavontuur bij Quality Drive!
-            </h2>
-            <p className={theorieStyles.ctaTextBox}>
-              Hierboven kun je een keuze maken tussen de verschillende rijopleidingen.
-              Wij werken in <strong>Den Haag, Zoetermeer, Delft, Rijswijk</strong> en omgeving.
-            </p>
-            <p className={theorieStyles.ctaTextBox}>
-              Als je vragen hebt kun je geheel vrijblijvend contact met ons opnemen,
-              we helpen je graag verder.
-            </p>
-
-            <div className={theorieStyles.guaranteeBox}>
-              <h3 className={theorieStyles.guaranteeBoxTitle}>
-                <Shield size={28} />
-                Onze Zekerheid aan jou
-              </h3>
-              <p className={theorieStyles.guaranteeBoxText}>
-                Bij Quality Drive zorgen we ervoor dat je met zekerheid jouw rijbewijs haalt.
-                Wij bieden niet alleen uitstekende rijlessen, maar ook de garantie dat je goed
-                voorbereid en vol vertrouwen je rijexamen aflegt.
-              </p>
-            </div>
-
-            <a
-              href="https://calendly.com/qualitydrive/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={theorieStyles.ctaButton}
-            >
-              <Car size={20} />
-              Gratis proefles plannen
-            </a>
-          </div>
-        </div>
-      </section>
+      <StartRijavontuurCTA />
 
       <Footer />
     </div>

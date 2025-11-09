@@ -4,73 +4,80 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
+import { HeroSection, PopulairePakkettenSection, FeaturesImageSection } from '@/app/components/sections';
+import { StartRijavontuurCTA } from '@/app/components/sections/StartRijavontuurCTA';
 import styles from '../page.module.css';
 import { CheckCircle2, Bike, Disc3 } from 'lucide-react';
 
 export default function MotorPakkettenPage() {
   const packages = [
     {
-      id: 'spoed',
-      title: 'Spoed Pakket',
-      price: '499',
-      lessons: '10 lessen',
-      savings: 'Bespaar € 50',
+      name: 'Spoed Pakket',
+      price: 499,
+      lessons: 10,
+      savings: 59,
       features: [
-        'Gratis proefles t.w.v. €45',
-        '10 rijlessen van 60 minuten',
+        'Gratis proefles',
+        'Binnen 4 weken op examen CBR',
+        'AVD Praktijk examen t.w.v. 300',
+        'AVB examen t.w.v. 225',
+        'Gratis AVB her examen CBR t.w.v. 225',
+        'Motorkleding inbegrepen',
+        'In 2 delen betalen',
         'Theorie ondersteuning',
-        'Persoonlijke instructeur',
-        'Flexibele planning',
       ],
-      popular: false,
+      featured: false,
     },
     {
-      id: 'spoed-plus',
-      title: 'Spoed Pakket+',
-      price: '649',
-      lessons: '15 lessen',
-      savings: 'Bespaar € 75',
+      name: 'Spoed Pakket+',
+      price: 649,
+      lessons: 15,
+      savings: 75,
       features: [
-        'Gratis proefles t.w.v. €45',
-        '15 rijlessen van 60 minuten',
+        'Gratis proefles',
+        'Binnen 4 weken op examen CBR',
+        'AVD Praktijk examen t.w.v. 300',
+        'AVB examen t.w.v. 225',
+        'Gratis AVB her examen CBR t.w.v. 225',
+        'Motorkleding inbegrepen',
+        'In 2 delen betalen',
         'Theorie ondersteuning',
-        'Tussentijdse toets',
-        'Persoonlijke instructeur',
       ],
-      popular: false,
+      featured: false,
     },
     {
-      id: 'tussen',
-      title: 'Tussen Pakket',
-      price: '749',
-      lessons: '18 lessen',
-      savings: 'Bespaar € 90',
+      name: 'Actie Pakket',
+      price: 749,
+      lessons: 20,
+      savings: 83,
       features: [
-        'Gratis proefles t.w.v. €45',
-        '18 rijlessen van 60 minuten',
+        'Gratis proefles',
+        'Binnen 4 weken op examen CBR',
+        'AVD Praktijk examen t.w.v. 300',
+        'AVB examen t.w.v. 225',
+        'Gratis AVB her examen CBR t.w.v. 225',
+        'Motorkleding inbegrepen',
+        'In 2 delen betalen',
         'Theorie ondersteuning',
-        'Tussentijdse toets',
-        'Persoonlijke instructeur',
-        'Geld Terug Garantie',
       ],
-      popular: false,
+      featured: false,
     },
     {
-      id: 'garantie',
-      title: 'Garantie Pakket',
-      price: '949',
-      lessons: '22 lessen',
-      savings: 'Bespaar € 110',
+      name: 'Garantie Pakket',
+      price: 949,
+      lessons: 25,
+      savings: 90,
       features: [
-        'Gratis proefles t.w.v. €45',
-        '22 rijlessen van 60 minuten',
+        'Gratis proefles',
+        'Binnen 4 weken op examen CBR',
+        'AVD Praktijk examen t.w.v. 300',
+        'AVB examen t.w.v. 225',
+        'Gratis AVB her examen CBR t.w.v. 225',
+        'Motorkleding inbegrepen',
+        'In 2 delen betalen',
         'Theorie ondersteuning',
-        'Tussentijdse toets',
-        'Examenaanvraag inclusief',
-        'Persoonlijke instructeur',
-        'Geld Terug Garantie',
       ],
-      popular: true,
+      featured: true,
     },
   ];
 
@@ -78,58 +85,23 @@ export default function MotorPakkettenPage() {
     <div className={styles.page}>
       <Header />
 
+      <HeroSection
+        title="Motor Pakketten"
+        subtitle="Kies het pakket dat bij jou past"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Motor Pakketten' }
+        ]}
+      />
+
       {/* Packages Section */}
-      <section className={styles.pricingSection} style={{ paddingTop: '10rem' }}>
-        <div className={styles.pricingContent}>
-          <h2 className={styles.sectionTitle}>Motor Rijles Pakketten</h2>
-          <p className={styles.sectionSubtitle}>Kies het pakket dat bij jou past en start vandaag nog</p>
-
-          <div className={styles.pricingGrid}>
-            {packages.map((pkg) => (
-              <div
-                key={pkg.id}
-                className={`${styles.pricingCard} ${pkg.popular ? styles.pricingCardFeatured : ''}`}
-              >
-                {pkg.popular && (
-                  <div className={styles.featuredBadge}>
-                    POPULAIR
-                  </div>
-                )}
-
-                <div className={styles.pricingHeader}>
-                  <h3>{pkg.title}</h3>
-                  <div className={styles.pricingBadge}>{pkg.savings}</div>
-                </div>
-
-                <div className={styles.pricingPrice}>
-                  <span className={styles.currency}>€</span>
-                  <span className={styles.amount}>{pkg.price}</span>
-                </div>
-
-                <div className={styles.pricingLessons}>{pkg.lessons}</div>
-
-                <ul className={styles.pricingFeatures}>
-                  {pkg.features.map((feature, idx) => (
-                    <li key={idx}>
-                      <CheckCircle2 size={20} />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="https://calendly.com/qualitydrive/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.pricingButton}
-                >
-                  Gratis proefles inplannen
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PopulairePakkettenSection
+        title="Motor Rijles Pakketten"
+        subtitle="Kies het pakket dat bij jou past en start vandaag nog"
+        packages={packages}
+        buttonLink="https://calendly.com/qualitydrive/30min"
+        priceSuffix="2x"
+      />
 
       {/* Section Divider */}
       <div className={styles.sectionDivider}>
@@ -143,8 +115,8 @@ export default function MotorPakkettenPage() {
       {/* Geslaagde Toppers Section */}
       <section className={styles.geslaagdeSection}>
         <div className={styles.geslaagdeContent}>
-          <h2 className={styles.geslaagdeTitle}>Wordt jij de volgende?</h2>
-          <p className={styles.geslaagdeSubtitle}>De geslaagde motor toppers van Quality Drive</p>
+          <h2 className={styles.sectionHeaderTitle}>Wordt jij de volgende?</h2>
+          <p className={styles.sectionHeaderSubtitle}>De geslaagde motor toppers van Quality Drive</p>
 
           <div className={styles.geslaagdeGrid}>
             <Image
@@ -221,16 +193,17 @@ export default function MotorPakkettenPage() {
             />
           </div>
 
-          <a
-            href="https://calendly.com/qualitydrive/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.geslaagdeCTA}
-          >
+          <button className={styles.geslaagdeCTA}>
             Word jij de volgende topper? Start nu!
-          </a>
+          </button>
         </div>
       </section>
+
+      {/* Features Image Section - 6 Zekerheden */}
+      <FeaturesImageSection
+        imageTitle="Beste goedkope motorrijschool"
+        imageAlt="Beste goedkope motorrijschool"
+      />
 
       {/* Section Divider */}
       <div className={styles.sectionDivider}>
@@ -241,26 +214,8 @@ export default function MotorPakkettenPage() {
         <div className={styles.dividerLine}></div>
       </div>
 
-      {/* CTA Section */}
-      <section className={styles.zekerhedenSection}>
-        <div className={styles.zekerhedenContent}>
-          <h2 className={styles.sectionTitle}>Klaar om te starten met je motorrijbewijs?</h2>
-          <p style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 2.5rem', fontSize: '1.125rem', color: '#4a5568' }}>
-            Plan vandaag nog je gratis proefles en begin morgen met je rijlessen
-          </p>
-          <div className={styles.zekerhedenButtons}>
-            <a
-              href="https://calendly.com/qualitydrive/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.rijschoolButton}
-            >
-              <Bike size={20} />
-              Gratis proefles plannen
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* Start Rijavontuur CTA */}
+      <StartRijavontuurCTA />
 
       <Footer />
     </div>
