@@ -1,0 +1,28 @@
+/* Override for motor packages - 4 columns with 25% width each */
+.motorPakketten section > div > div {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 1.5rem !important;
+  max-width: 1600px !important;
+}
+
+.motorPakketten section > div > div > div {
+  width: 100% !important;
+  min-width: auto !important;
+  max-width: none !important;
+  flex: none !important;
+}
+
+/* Tablet - 2 kolommen */
+@media (max-width: 1200px) {
+  .motorPakketten section > div > div {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Mobile - 1 kolom */
+@media (max-width: 768px) {
+  .motorPakketten section > div > div {
+    grid-template-columns: 1fr !important;
+  }
+}

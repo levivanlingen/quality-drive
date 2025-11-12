@@ -85,6 +85,10 @@ const nextConfig: NextConfig = {
         source: '/rijschool-:slug',
         destination: '/rijschool/:slug',
       },
+      {
+        source: '/motorrijschool-:slug',
+        destination: '/motorrijschool/:slug',
+      },
     ];
   },
 

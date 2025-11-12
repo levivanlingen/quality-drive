@@ -1,0 +1,171 @@
+.stepsSection {
+  padding: 80px 32px;
+  background: transparent;
+  position: relative;
+}
+
+.stepsContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.stepsMainTitle {
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 64px;
+  color: #0065A6;
+  letter-spacing: -0.02em;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  position: relative;
+}
+
+.stepsGrid::before {
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: linear-gradient(90deg, #0065A6 0%, #00a8ff 50%, #0065A6 100%);
+  z-index: 0;
+}
+
+.stepCard {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 24px;
+  padding: 40px 32px;
+  text-align: center;
+  position: relative;
+  border: 2px solid rgba(0, 107, 166, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  z-index: 1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stepCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 107, 166, 0.15);
+}
+
+.stepNumber {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 24px;
+  background: linear-gradient(135deg, #0065A6 0%, #004d7a 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: 800;
+  color: white;
+  box-shadow: 0 8px 24px rgba(0, 101, 166, 0.3);
+  position: relative;
+}
+
+.stepTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.stepDescription {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #475569;
+}
+
+/* Tablet */
+@media (max-width: 968px) {
+  .stepsSection {
+    padding: 60px 24px;
+  }
+
+  .stepsMainTitle {
+    font-size: 28px;
+    margin-bottom: 48px;
+  }
+
+  .stepsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .stepsGrid::before {
+    display: none;
+  }
+
+  .stepNumber {
+    width: 90px;
+    height: 90px;
+    font-size: 42px;
+  }
+
+  .stepTitle {
+    font-size: 22px;
+  }
+
+  .stepDescription {
+    font-size: 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .stepsSection {
+    padding: 50px 20px;
+  }
+
+  .stepsMainTitle {
+    font-size: 26px;
+    margin-bottom: 40px;
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .stepsGrid::before {
+    display: none;
+  }
+
+  .stepCard {
+    padding: 32px 24px;
+  }
+
+  .stepNumber {
+    width: 80px;
+    height: 80px;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .stepTitle {
+    font-size: 20px;
+  }
+
+  .stepDescription {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stepsMainTitle {
+    font-size: 24px;
+  }
+
+  .stepTitle {
+    font-size: 18px;
+  }
+}
